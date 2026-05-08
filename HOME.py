@@ -47,7 +47,7 @@ The app connects:
 """)
 
 with col2:
-    st.image("a143182b-832c-4a27-87fb-74214eabb338.png", use_container_width=True)
+    st.image("https://github.com/kwonsungja/Myproject/blob/main/final%20home%20image.png", use_container_width=True)
 
 # ---------- Main Features ----------
 st.markdown("---")
