@@ -3,19 +3,24 @@ import pandas as pd
 import random
 from pathlib import Path
 
-# =============================
-# High School Grade 1 Phrasal Verbs App
-# File required: phrasal_verbs_from_book.csv
-# Columns: order, category, phrasal_verb, korean_meaning, cf_note
-# =============================
+# ==========================================
+# Grade 1 Common English Phrasal Verbs App
+# Required CSV file:
+# grade1_common1_common2_book_phrasal_verbs.csv
+#
+# Required columns:
+# source_order, section, grade, textbook, lesson,
+# phrasal_verb, korean_meaning, example_sentence,
+# chunk_type, difficulty, learning_tip, source_note
+# ==========================================
 
 st.set_page_config(
-    page_title="Phrasal Verbs Practice",
+    page_title="Grade 1 Phrasal Verbs",
     page_icon="📘",
     layout="wide"
 )
 
-# ---------- Basic Styling ----------
+# ---------- Style ----------
 st.markdown(
     """
     <style>
@@ -30,23 +35,30 @@ st.markdown(
     }
     .word-card {
         background-color: #fff7f0;
-        padding: 22px;
-        border-radius: 18px;
+        padding: 20px;
+        border-radius: 16px;
         border: 1px solid #ffd2b8;
         margin-bottom: 14px;
     }
     .phrasal-word {
-        font-size: 28px;
+        font-size: 26px;
         font-weight: 800;
         color: #e85d04;
     }
     .meaning-text {
-        font-size: 20px;
+        font-size: 19px;
         color: #222;
+        margin-top: 6px;
     }
-    .cf-text {
+    .example-text {
+        font-size: 16px;
+        color: #444;
+        margin-top: 8px;
+    }
+    .tip-text {
         font-size: 15px;
         color: #666;
+        margin-top: 6px;
     }
     </style>
     """,
@@ -56,10 +68,8 @@ st.markdown(
 # ---------- Data Loading ----------
 @st.cache_data
 def load_data():
-    possible_files = [
-        "phrasal_verbs_from_book.csv",
-        "data/phrasal_verbs_from_book.csv"
-    ]
+    filename = "grade1_common1_common2_book_phrasal_verbs.csv"
+    possible_files = [filename, f"data/{filename}"]
 
     file_path = None
     for f in possible_files:
@@ -68,27 +78,40 @@ def load_data():
             break
 
     if file_path is None:
-        st.error("phrasal_verbs_from_book.csv 파일을 app.py와 같은 폴더 또는 data 폴더에 넣어 주세요.")
+        st.error(
+            "CSV 파일을 찾을 수 없습니다. "
+            "grade1_common1_common2_book_phrasal_verbs.csv 파일을 app.py와 같은 폴더 또는 data 폴더에 넣어 주세요."
+        )
         st.stop()
 
     df = pd.read_csv(file_path)
 
-    required_cols = ["order", "category", "phrasal_verb", "korean_meaning", "cf_note"]
+    required_cols = [
+        "source_order", "section", "grade", "textbook", "lesson",
+        "phrasal_verb", "korean_meaning", "example_sentence",
+        "chunk_type", "difficulty", "learning_tip", "source_note"
+    ]
+
     missing = [c for c in required_cols if c not in df.columns]
     if missing:
         st.error(f"CSV 컬럼명이 맞지 않습니다. 빠진 컬럼: {missing}")
         st.stop()
 
-    df["cf_note"] = df["cf_note"].fillna("")
-    df = df.sort_values("order").reset_index(drop=True)
+    for col in required_cols:
+        df[col] = df[col].fillna("")
+
+    df = df.sort_values("source_order").reset_index(drop=True)
     return df
 
 
 df = load_data()
 
 # ---------- Header ----------
-st.markdown('<div class="main-title">📘 Phrasal Verbs Practice</div>', unsafe_allow_html=True)
-st.markdown('<div class="sub-text">고등학교 1학년 수준의 구동사 학습 앱입니다. 먼저 뜻을 익히고, 바로 퀴즈로 확인해 보세요.</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title">📘 Grade 1 Phrasal Verbs</div>', unsafe_allow_html=True)
+st.markdown(
+    '<div class="sub-text">공통영어1 · 공통영어2 · 구동사를 한 번에 학습하는 고등학교 1학년용 구동사 앱입니다.</div>',
+    unsafe_allow_html=True
+)
 st.divider()
 
 # ---------- Sidebar ----------
@@ -99,6 +122,20 @@ mode = st.sidebar.radio(
     index=0
 )
 
+section_options = ["전체"] + list(df["section"].dropna().unique())
+selected_section = st.sidebar.selectbox("학습 자료 선택", section_options)
+
+if selected_section != "전체":
+    filtered_df = df[df["section"] == selected_section].copy()
+else:
+    filtered_df = df.copy()
+
+lesson_options = ["전체"] + list(filtered_df["lesson"].dropna().unique())
+selected_lesson = st.sidebar.selectbox("Lesson 선택", lesson_options)
+
+if selected_lesson != "전체":
+    filtered_df = filtered_df[filtered_df["lesson"] == selected_lesson].copy()
+
 items_per_page = st.sidebar.slider("한 번에 볼 표현 수", 5, 20, 10)
 
 # ---------- Session State ----------
@@ -108,66 +145,78 @@ if "wrong_items" not in st.session_state:
 if "quiz_items" not in st.session_state:
     st.session_state.quiz_items = []
 
-if "submitted" not in st.session_state:
-    st.session_state.submitted = False
-
 # ---------- Learn Mode ----------
 if mode == "1. Learn":
-    st.subheader("📖 Learn Phrasal Verbs")
+    st.subheader("📖 Learn")
+    st.write(f"현재 학습 항목 수: **{len(filtered_df)}개**")
 
-    total_pages = (len(df) - 1) // items_per_page + 1
-    page = st.selectbox("학습 범위 선택", list(range(1, total_pages + 1)))
+    if filtered_df.empty:
+        st.warning("선택한 조건에 해당하는 표현이 없습니다.")
+        st.stop()
+
+    total_pages = (len(filtered_df) - 1) // items_per_page + 1
+    page = st.selectbox("학습 페이지 선택", list(range(1, total_pages + 1)))
 
     start = (page - 1) * items_per_page
     end = start + items_per_page
-    page_df = df.iloc[start:end]
+    page_df = filtered_df.iloc[start:end]
 
     for _, row in page_df.iterrows():
         st.markdown(
             f"""
             <div class="word-card">
-                <div class="phrasal-word">{int(row['order'])}. {row['phrasal_verb']}</div>
+                <div class="phrasal-word">{int(row['source_order'])}. {row['phrasal_verb']}</div>
                 <div class="meaning-text">뜻: {row['korean_meaning']}</div>
-                <div class="cf-text">cf. {row['cf_note']}</div>
+                <div class="example-text">예문: {row['example_sentence']}</div>
+                <div class="tip-text">학습 팁: {row['learning_tip']}</div>
+                <div class="tip-text">출처: {row['section']} / {row['textbook']} / {row['lesson']}</div>
             </div>
             """,
             unsafe_allow_html=True
         )
 
-    st.info("추천 학습 방법: 표현을 소리 내어 읽고, cf. 표현까지 함께 확인하세요.")
+    st.info("추천 학습 방법: 표현 → 뜻 → 예문 순서로 읽고, 마지막에 표현만 보고 뜻을 떠올려 보세요.")
 
 # ---------- Quick Test Mode ----------
 elif mode == "2. Quick Test":
     st.subheader("📝 Quick Test")
 
-    quiz_size = st.selectbox("문항 수", [5, 10, 15], index=1)
+    if filtered_df.empty:
+        st.warning("선택한 조건에 해당하는 표현이 없습니다.")
+        st.stop()
+
+    quiz_size = st.selectbox("문항 수", [5, 10, 15, 20], index=1)
 
     if st.button("새 테스트 시작"):
-        st.session_state.quiz_items = df.sample(min(quiz_size, len(df)), random_state=random.randint(1, 100000)).to_dict("records")
-        st.session_state.submitted = False
+        st.session_state.quiz_items = filtered_df.sample(
+            min(quiz_size, len(filtered_df)),
+            random_state=random.randint(1, 100000)
+        ).to_dict("records")
 
     if not st.session_state.quiz_items:
         st.warning("먼저 '새 테스트 시작' 버튼을 눌러 주세요.")
         st.stop()
 
     answers = []
+
     for i, item in enumerate(st.session_state.quiz_items, start=1):
         st.markdown(f"### Q{i}. {item['phrasal_verb']}")
+        st.caption(f"{item['section']} / {item['lesson']}")
 
         correct = item["korean_meaning"]
-        other_options = df[df["korean_meaning"] != correct]["korean_meaning"].sample(3).tolist()
+        other_pool = df[df["korean_meaning"] != correct]["korean_meaning"].dropna().unique().tolist()
+        other_options = random.sample(other_pool, min(3, len(other_pool)))
         options = other_options + [correct]
         random.shuffle(options)
 
         answer = st.radio(
             "뜻을 고르세요.",
             options,
-            key=f"q_{item['order']}"
+            key=f"q_{item['source_order']}"
         )
         answers.append((item, answer, correct))
 
     if st.button("제출하기"):
-        st.session_state.submitted = True
         score = 0
         wrong_now = []
 
@@ -189,11 +238,11 @@ elif mode == "2. Quick Test":
 
         if score == len(answers):
             st.balloons()
-            st.success("완벽합니다! 다음 표현으로 넘어가도 좋아요.")
+            st.success("완벽합니다! 다음 범위로 넘어가도 좋습니다.")
         elif score >= len(answers) * 0.7:
-            st.info("좋아요! 틀린 표현만 한 번 더 복습하세요.")
+            st.info("좋아요! 틀린 표현만 다시 복습하세요.")
         else:
-            st.warning("아직 익숙하지 않은 표현이 있어요. Learn 메뉴에서 다시 확인해 보세요.")
+            st.warning("아직 익숙하지 않은 표현이 있습니다. Learn 메뉴에서 다시 확인하세요.")
 
 # ---------- Review Wrong Answers ----------
 else:
@@ -202,7 +251,7 @@ else:
     if not st.session_state.wrong_items:
         st.success("아직 오답이 없습니다. Quick Test를 먼저 풀어 보세요.")
     else:
-        st.write(f"현재 오답 표현 수: {len(st.session_state.wrong_items)}")
+        st.write(f"현재 오답 표현 수: **{len(st.session_state.wrong_items)}개**")
 
         for item in st.session_state.wrong_items:
             st.markdown(
@@ -210,7 +259,8 @@ else:
                 <div class="word-card">
                     <div class="phrasal-word">{item['phrasal_verb']}</div>
                     <div class="meaning-text">뜻: {item['korean_meaning']}</div>
-                    <div class="cf-text">cf. {item['cf_note']}</div>
+                    <div class="example-text">예문: {item['example_sentence']}</div>
+                    <div class="tip-text">학습 팁: {item['learning_tip']}</div>
                 </div>
                 """,
                 unsafe_allow_html=True
@@ -222,5 +272,4 @@ else:
 
 # ---------- Footer ----------
 st.divider()
-st.caption("Designed for Grade 1 high school English vocabulary learning.")
-
+st.caption("Designed for Grade 1 Common English phrasal verb learning.")
