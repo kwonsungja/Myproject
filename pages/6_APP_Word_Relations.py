@@ -68,10 +68,6 @@ if mode == "1. Learn":
     st.write(f"현재 학습 항목 수: **{len(filtered_df)}개**")
 
     for _, row in filtered_df.iterrows():
-        relation_text = ""
-
-        if row["category"] in ["반의어", "유의어"]:
-            relation_text = f"<p><b>관련어:</b> {row['related_word']} ({row['relation_meaning']})</p>"
 
         st.markdown(f"""
         <div style="
@@ -81,13 +77,28 @@ if mode == "1. Learn":
             border:1px solid #cfe3ff;
             margin-bottom:12px;
         ">
-            <h3 style="color:#0d47a1;">{row['order']}. {row['word']}</h3>
+            <h3 style="color:#0d47a1;">
+                {row['order']}. {row['word']}
+            </h3>
+
             <p><b>분류:</b> {row['category']}</p>
+
             <p><b>뜻:</b> {row['korean_meaning']}</p>
-            {relation_text}
-            <p style="color:#666;"><b>note:</b> {row['note']}</p>
         </div>
         """, unsafe_allow_html=True)
+
+        if row["category"] in ["반의어", "유의어"]:
+            st.write(
+                f"관련어: {row['related_word']} "
+                f"({row['relation_meaning']})"
+            )
+
+        note = row.get("note", "")
+
+        if note:
+            st.write(f"note: {note}")
+
+        st.divider()
 
 elif mode == "2. Meaning Test":
     st.subheader("📝 Meaning Test")
