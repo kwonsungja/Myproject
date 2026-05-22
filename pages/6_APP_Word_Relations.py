@@ -69,23 +69,11 @@ if mode == "1. Learn":
 
     for _, row in filtered_df.iterrows():
 
-        st.markdown(f"""
-        <div style="
-            background-color:#f4f9ff;
-            padding:18px;
-            border-radius:15px;
-            border:1px solid #cfe3ff;
-            margin-bottom:12px;
-        ">
-            <h3 style="color:#0d47a1;">
-                {row['order']}. {row['word']}
-            </h3>
+        st.markdown(f"## {row['order']}. {row['word']}")
 
-            <p><b>분류:</b> {row['category']}</p>
+        st.write(f"분류: {row['category']}")
 
-            <p><b>뜻:</b> {row['korean_meaning']}</p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.write(f"뜻: {row['korean_meaning']}")
 
         if row["category"] in ["반의어", "유의어"]:
             st.write(
