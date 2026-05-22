@@ -46,13 +46,42 @@ for i, tab in enumerate(grade_tabs, start=1):
         st.subheader(f"Grade {i} Etymology Test")
 
         grade_df = df[df["grade"].astype(str) == str(i)]
+     
+        if i == 1:
+            available_tests = [
+                "접두사 Daily Test",
+                "Review Test 1 (Day 1-5)",
+                "Review Test 2 (Day 6-10)",
+                "Progress Test 1 (Day 1-10)",
+                "접미사 Daily Test",
+                "Review Test 3 (Day 11-15)"
+            ]
+
+        elif i == 2:
+            available_tests = [
+                "어근 Daily Test 1",
+                "Review Test 4 (Day 16-20)",
+                "Progress Test 2 (Day 1-20)",
+                "Review Test 5 (Day 21-25)",
+                "Review Test 6 (Day 26-30)",
+                "Progress Test 3 (Day 1-30)"
+            ]
+
+        else:
+            available_tests = [
+                "Review Test 7 (Day 31-35)",
+                "Review Test 8 (Day 36-40)",
+                "Progress Test 4 (Day 1-40)",
+                "Review Test 9 (Day 41-45)",
+                "Review Test 10 (Day 46-50)",
+                "Progress Test 5 (Day 1-50)"
+            ]
 
         test_type = st.selectbox(
             "Select Test",
-            list(test_map.keys()),
+            available_tests,
             key=f"test_type_{i}"
         )
-
         start_day, end_day = test_map[test_type]
         test_df = grade_df[
             (grade_df["day"] >= start_day) &
