@@ -9,8 +9,7 @@ st.set_page_config(
     layout="wide"
 )
 
-CSV_FILE = "word_relations_polysemy_antonyms_synonyms.csv"
-
+CSV_FILE = "grade1_word_relations_integrated.csv"
 @st.cache_data
 def load_data():
     path1 = Path(CSV_FILE)
