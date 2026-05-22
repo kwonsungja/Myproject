@@ -9,18 +9,20 @@ st.set_page_config(
 
 # ---------- Header ----------
 st.markdown("""
-<div style="background: linear-gradient(135deg, #F8FBFF, #EEF4FA); padding: 18px 30px; border-radius: 22px; border: 1px solid #D8E6F2; text-align: center; box-shadow: 0 3px 10px rgba(0,0,0,0.04);">
-<h1 style="color:#1F2A44; font-size:40px; margin-bottom:6px;">
+<div style="background: linear-gradient(135deg, #F8FBFF, #EEF4FA); padding: 10px 25px; border-radius: 20px; border: 1px solid #D8E6F2; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+
+<h1 style="color:#1F2A44; font-size:34px; margin-top:5px; margin-bottom:0px;">
 🌍 English Opens Your World
 </h1>
 
-<h3 style="color:#4A5568; font-weight:400; font-size:24px; line-height:1.3; margin-bottom:10px;">
+<h3 style="color:#4A5568; font-weight:400; font-size:18px; line-height:1.15; margin-top:8px; margin-bottom:4px;">
 Explore vocabulary, reading, communication, and real English learning experiences
 </h3>
 
-<p style="color:#6B7280; font-size:15px; margin-top:0px; letter-spacing:2px;">
+<p style="color:#6B7280; font-size:13px; margin-top:0px; margin-bottom:4px; letter-spacing:2px;">
 LEARN • EXPRESS • DISCOVER • GROW
 </p>
+
 </div>
 """, unsafe_allow_html=True)
 
