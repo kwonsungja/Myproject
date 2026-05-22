@@ -142,8 +142,9 @@ if mode == "1. Learn":
 
     for _, row in filtered_df.iterrows():
 
-        st.markdown(f"""
+        html = f"""
         <div class="word-card">
+
             <div class="collocation">
                 {row['collocation']}
             </div>
@@ -155,8 +156,11 @@ if mode == "1. Learn":
             <div class="example">
                 예문: {row['example_sentence']}
             </div>
+
         </div>
-        """, unsafe_allow_html=True)
+        """
+
+        st.markdown(html, unsafe_allow_html=True)
 
 # ==========================================
 # 2. Meaning Test
