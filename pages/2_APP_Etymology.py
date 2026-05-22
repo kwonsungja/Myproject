@@ -70,12 +70,6 @@ for i, tab in enumerate(grade_tabs, start=1):
 
         max_questions = len(test_df)
 
-if max_questions == 0:
-    st.warning("No words are available for this test. Please check the selected grade, day, or test type.")
-    continue
-
-        max_questions = len(test_df)
-
         if max_questions == 0:
             st.warning("No words are available for this test. Please check the selected grade, day, or test type.")
             continue
