@@ -68,13 +68,19 @@ for i, tab in enumerate(grade_tabs, start=1):
             )
             test_df = test_df[test_df["day"] == selected_day]
 
-        question_count = st.slider(
-            "Number of Questions",
-            min_value=5,
-            max_value=min(30, len(test_df)),
-            value=min(10, len(test_df)),
-            key=f"q_count_{i}_{test_type}"
-        )
+        max_questions = len(test_df)
+
+if max_questions == 0:
+    st.warning("No words are available for this test. Please check the selected grade, day, or test type.")
+    continue
+
+question_count = st.slider(
+    "Number of Questions",
+    min_value=1,
+    max_value=min(30, max_questions),
+    value=min(10, max_questions),
+    key=f"q_count_{i}_{test_type}"
+)
 
         if st.button("Start Test", key=f"start_{i}_{test_type}"):
             st.session_state[f"quiz_{i}"] = test_df.sample(
