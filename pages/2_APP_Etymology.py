@@ -45,7 +45,7 @@ for i, tab in enumerate(grade_tabs, start=1):
     with tab:
         st.subheader(f"Grade {i} Etymology Test")
 
-        grade_df = df[df["grade"] == i]
+        grade_df = df[df["grade"].astype(str) == str(i)]
 
         test_type = st.selectbox(
             "Select Test",
