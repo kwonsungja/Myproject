@@ -1,0 +1,202 @@
+﻿order,grade,textbook,lesson,category,word,part_of_speech,meaning_in_context,korean_meaning,context_chunk,context_sentence,korean_translation,related_collocation,related_word,relation_meaning,difficulty,quiz_question,quiz_answer,note,source_file
+1,1,Common English 1,1,다의어,enjoy,verb,즐기다,즐기다,enjoy doing,I enjoy attending my cooking class.,나는 요리 수업에 참여하는 것을 즐긴다.,enjoy + -ing,,,basic,What does 'enjoy' mean in this sentence?,즐기다,,grade1_common1_english_polysemy_context.csv
+2,1,Common English 1,1,다의어,thinking,verb phrase,~할 생각이다,~할 생각이다,be thinking of,I’m thinking of joining the school choir.,나는 학교 합창단에 가입할 생각이다.,be thinking of + -ing,,,basic,What does 'thinking of' mean here?,~할 생각이다,,grade1_common1_english_polysemy_context.csv
+3,1,Common English 1,1,다의어,share,verb,공유하다,공유하다,share similar interests,It’s fun to spend time with those who share similar interests.,비슷한 관심사를 공유하는 사람들과 시간을 보내는 것은 재미있다.,share interests,,,basic,What does 'share' mean here?,공유하다,,grade1_common1_english_polysemy_context.csv
+4,1,Common English 1,1,다의어,flow,verb,흐르다,흐르다,thoughts flow freely,Free writing allows your thoughts to flow freely.,자유 글쓰기는 생각이 자유롭게 흐르도록 해 준다.,flow freely,,,mid,What does 'flow' mean here?,흐르다,,grade1_common1_english_polysemy_context.csv
+5,1,Common English 1,1,다의어,inner,adjective,내면의,내면의,inner voice,Free writing aids in listening to your inner voice.,자유 글쓰기는 자신의 내면의 목소리를 듣는 데 도움을 준다.,inner voice,,,mid,What does 'inner' mean here?,내면의,,grade1_common1_english_polysemy_context.csv
+6,1,Common English 1,1,다의어,enhance,verb,향상시키다,향상시키다,enhance skills,The class is designed to enhance your language skills.,그 수업은 언어 능력을 향상시키도록 설계되었다.,enhance skills,,,mid,What does 'enhance' mean here?,향상시키다,,grade1_common1_english_polysemy_context.csv
+7,1,Common English 1,1,다의어,lead,verb,이끌다,이끌다,lead a meaningful life,What do you do to lead a meaningful life?,의미 있는 삶을 살기 위해 무엇을 하는가?,lead a life,,,mid,What does 'lead' mean here?,살다/이끌다,,grade1_common1_english_polysemy_context.csv
+8,1,Common English 1,1,다의어,approach,verb,다가가다,다가가다,approach new people,I approach new people and lead the conversation.,나는 새로운 사람들에게 다가가 대화를 이끈다.,approach people,,,mid,What does 'approach' mean here?,다가가다,,grade1_common1_english_polysemy_context.csv
+9,1,Common English 1,1,다의어,concern,noun,걱정; 고민,걱정; 고민,listen to concerns,"When I listen to my friend’s concerns, I try to understand how he or she feels.",친구의 고민을 들을 때 나는 그 감정을 이해하려고 한다.,listen to concerns,,,mid,What does 'concerns' mean here?,고민/걱정,,grade1_common1_english_polysemy_context.csv
+10,1,Common English 1,1,다의어,prefer,verb,선호하다,선호하다,prefer to travel,I prefer to travel with a detailed plan.,나는 자세한 계획을 가지고 여행하는 것을 선호한다.,prefer to + verb,,,basic,What does 'prefer' mean here?,선호하다,,grade1_common1_english_polysemy_context.csv
+11,1,Common English 1,1,다의어,relieve,verb,완화하다,완화하다,relieve emotional tension,Writing helped relieve my emotional tension.,글쓰기는 나의 정서적 긴장을 완화하는 데 도움이 되었다.,relieve tension,,,mid,What does 'relieve' mean here?,완화하다,,grade1_common1_english_polysemy_context.csv
+12,1,Common English 1,1,다의어,reflective,adjective,성찰적인,성찰적인,reflective journal,Students write a reflective journal about their new routine.,학생들은 새로운 일상에 대해 성찰적인 일지를 쓴다.,reflective journal,,,mid,What does 'reflective' mean here?,성찰적인,,grade1_common1_english_polysemy_context.csv
+13,1,Common English 1,2,다의어,communicate,verb,의사소통하다,의사소통하다,communicate with each other,How do elephants communicate with each other?,코끼리는 서로 어떻게 의사소통하는가?,communicate with,,,basic,What does 'communicate' mean here?,의사소통하다,,grade1_common1_english_polysemy_context.csv
+14,1,Common English 1,2,다의어,touch,noun/verb,접촉; 만지다,접촉; 만지다,communicate through touch,Elephants communicate through touch.,코끼리는 접촉을 통해 의사소통한다.,through touch,,,basic,What does 'touch' mean here?,접촉,,grade1_common1_english_polysemy_context.csv
+15,1,Common English 1,2,다의어,surprised,adjective,놀란,놀란,be surprised to know,I’m surprised to know that.,나는 그것을 알게 되어 놀랐다.,be surprised to,,,basic,What does 'surprised' mean here?,놀란,,grade1_common1_english_polysemy_context.csv
+16,1,Common English 1,2,다의어,locate,verb,찾아내다,찾아내다,locate their prey,I’m curious about how they locate their prey.,나는 그들이 먹이를 어떻게 찾아내는지 궁금하다.,locate prey,,,mid,What does 'locate' mean here?,찾아내다,,grade1_common1_english_polysemy_context.csv
+17,1,Common English 1,2,다의어,prey,noun,먹이,먹이,hunt prey,Killer whales locate their prey.,범고래는 먹이를 찾아낸다.,locate prey,,,mid,What does 'prey' mean here?,먹이,,grade1_common1_english_polysemy_context.csv
+18,1,Common English 1,2,다의어,maintain,verb,유지하다,유지하다,maintain body temperature,Bees maintain their body temperature in cold and hot weather.,벌은 춥고 더운 날씨에서 체온을 유지한다.,maintain temperature,,,mid,What does 'maintain' mean here?,유지하다,,grade1_common1_english_polysemy_context.csv
+19,1,Common English 1,2,다의어,detect,verb,감지하다,감지하다,detect predators,Rabbits can detect predators from any direction.,토끼는 어느 방향에서든 포식자를 감지할 수 있다.,detect predators,,,mid,What does 'detect' mean here?,감지하다,,grade1_common1_english_polysemy_context.csv
+20,1,Common English 1,2,다의어,direction,noun,방향,방향,from any direction,Rabbits can detect predators from any direction.,토끼는 어느 방향에서든 포식자를 감지할 수 있다.,any direction,,,basic,What does 'direction' mean here?,방향,,grade1_common1_english_polysemy_context.csv
+21,1,Common English 1,2,다의어,beat,verb,뛰다,뛰다,hearts beat,"Their hearts beat 1,200 beats per minute.","그들의 심장은 분당 1,200번 뛴다.",heart beats,,,basic,What does 'beat' mean here?,뛰다,,grade1_common1_english_polysemy_context.csv
+22,1,Common English 1,2,다의어,break up,phrasal verb,깨뜨리다; 부수다,깨뜨리다; 부수다,break up the ice,Killer whales work together to break up the ice.,범고래는 얼음을 깨뜨리기 위해 함께 움직인다.,break up,,,mid,What does 'break up' mean here?,깨뜨리다,,grade1_common1_english_polysemy_context.csv
+23,1,Common English 1,3,다의어,highlight,verb,강조하다,강조하다,highlight the importance,The video highlights the importance of learning diverse languages.,그 영상은 다양한 언어 학습의 중요성을 강조한다.,highlight importance,,,mid,What does 'highlight' mean here?,강조하다,,grade1_common1_english_polysemy_context.csv
+24,1,Common English 1,3,다의어,represent,verb,나타내다; 대표하다,나타내다; 대표하다,represent cultures,Languages represent the cultures of their speakers.,언어는 화자의 문화를 나타낸다.,represent cultures,,,mid,What does 'represent' mean here?,나타내다,,grade1_common1_english_polysemy_context.csv
+25,1,Common English 1,3,다의어,interest,noun,관심,관심,have an interest in,I have an interest in learning Spanish.,나는 스페인어 학습에 관심이 있다.,have an interest in,,,basic,What does 'interest' mean here?,관심,,grade1_common1_english_polysemy_context.csv
+26,1,Common English 1,3,다의어,course,noun,강좌,강좌,beginner course,We decided to take a beginner course together.,우리는 초급 강좌를 함께 듣기로 했다.,take a course,,,basic,What does 'course' mean here?,강좌,,grade1_common1_english_polysemy_context.csv
+27,1,Common English 1,3,다의어,take,verb,수강하다,수강하다,take a course,We decided to take a beginner course together.,우리는 초급 강좌를 함께 수강하기로 했다.,take a course,,,basic,What does 'take' mean here?,수강하다,,grade1_common1_english_polysemy_context.csv
+28,1,Common English 1,3,다의어,expand,verb,확장하다,확장하다,expand vocabulary,Listening to songs can help expand your vocabulary.,노래 듣기는 어휘를 확장하는 데 도움이 된다.,expand vocabulary,,,mid,What does 'expand' mean here?,확장하다,,grade1_common1_english_polysemy_context.csv
+29,1,Common English 1,3,다의어,enhance,verb,향상시키다,향상시키다,enhance comprehension,Songs enhance listening comprehension.,노래는 듣기 이해력을 향상시킨다.,enhance comprehension,,,mid,What does 'enhance' mean here?,향상시키다,,grade1_common1_english_polysemy_context.csv
+30,1,Common English 1,3,다의어,journey,noun,과정; 여정,과정; 여정,learning journey,Add songs to your language learning journey.,언어 학습 과정에 노래를 더해 보세요.,learning journey,,,mid,What does 'journey' mean here?,과정/여정,,grade1_common1_english_polysemy_context.csv
+31,1,Common English 1,4,다의어,artificial,adjective,인공의,인공의,artificial intelligence,Artificial intelligence can create music and art.,인공지능은 음악과 예술을 만들 수 있다.,artificial intelligence,,,basic,What does 'artificial' mean here?,인공의,,grade1_common1_english_polysemy_context.csv
+32,1,Common English 1,4,다의어,intelligence,noun,지능,지능,artificial intelligence,Artificial intelligence is used in music and art.,인공지능은 음악과 예술에 사용된다.,artificial intelligence,,,basic,What does 'intelligence' mean here?,지능,,grade1_common1_english_polysemy_context.csv
+33,1,Common English 1,4,다의어,generate,verb,생성하다,생성하다,AI-generated music,AI-generated music is high in quality.,AI가 생성한 음악은 품질이 높다.,generate music,,,mid,What does 'generated' mean here?,생성된,,grade1_common1_english_polysemy_context.csv
+34,1,Common English 1,4,다의어,respond,verb,반응하다,반응하다,respond to steps,The artwork responded to my steps.,그 작품은 나의 발걸음에 반응했다.,respond to,,,mid,What does 'respond' mean here?,반응하다,,grade1_common1_english_polysemy_context.csv
+35,1,Common English 1,4,다의어,interactive,adjective,상호작용하는,상호작용하는,interactive art,Some artists try to create interactive art.,일부 예술가들은 상호작용하는 예술을 만들려고 한다.,interactive art,,,mid,What does 'interactive' mean here?,상호작용하는,,grade1_common1_english_polysemy_context.csv
+36,1,Common English 1,4,다의어,format,noun,형식,형식,interactive art format,Artists create an interactive art format.,예술가들은 상호작용형 예술 형식을 만든다.,art format,,,mid,What does 'format' mean here?,형식,,grade1_common1_english_polysemy_context.csv
+37,1,Common English 1,4,다의어,virtual,adjective,가상의,가상의,virtual tour,Take a virtual tour of an online museum.,온라인 박물관의 가상 투어를 해 보세요.,virtual tour,,,mid,What does 'virtual' mean here?,가상의,,grade1_common1_english_polysemy_context.csv
+38,1,Common English 1,4,다의어,impressive,adjective,인상적인,인상적인,That’s impressive,The artwork created with technology is impressive.,기술로 만든 예술 작품은 인상적이다.,be impressive,,,basic,What does 'impressive' mean here?,인상적인,,grade1_common1_english_polysemy_context.csv
+39,1,Common English 2,1,다의어,device,noun,기기,기기,digital devices,What do you do with your digital devices?,디지털 기기로 무엇을 하는가?,digital device,,,basic,What does 'device' mean here?,기기,,grade1_common2_english_polysemy_context.csv
+40,1,Common English 2,1,다의어,concerned,adjective,걱정하는,걱정하는,feel concerned,The woman feels concerned about the boy’s phone use.,여자는 소년의 휴대전화 사용에 대해 걱정한다.,feel concerned,,,basic,What does 'concerned' mean here?,걱정하는,,grade1_common2_english_polysemy_context.csv
+41,1,Common English 2,1,다의어,control,verb,조절하다; 통제하다,조절하다; 통제하다,control phone use,He will use an app to control his phone use.,그는 휴대전화 사용을 조절하기 위해 앱을 사용할 것이다.,control use,,,mid,What does 'control' mean here?,조절하다,,grade1_common2_english_polysemy_context.csv
+42,1,Common English 2,1,다의어,limit,verb,제한하다,제한하다,limit screen time,He will use an app to limit his screen time.,그는 화면 시간을 제한하기 위해 앱을 사용할 것이다.,limit time,,,mid,What does 'limit' mean here?,제한하다,,grade1_common2_english_polysemy_context.csv
+43,1,Common English 2,1,다의어,footprint,noun,흔적,흔적,digital footprint,A digital footprint is online information about a person.,디지털 발자국은 한 사람에 대한 온라인 정보이다.,digital footprint,,,mid,What does 'footprint' mean here?,흔적,,grade1_common2_english_polysemy_context.csv
+44,1,Common English 2,1,다의어,reveal,verb,드러내다,드러내다,reveal privacy,Digital footprints can reveal privacy.,디지털 발자국은 사생활을 드러낼 수 있다.,reveal privacy,,,mid,What does 'reveal' mean here?,드러내다,,grade1_common2_english_polysemy_context.csv
+45,1,Common English 2,1,다의어,determine,verb,결정하다,결정하다,determine reputation,Digital footprints can determine digital reputation.,디지털 발자국은 디지털 평판을 결정할 수 있다.,determine reputation,,,high,What does 'determine' mean here?,결정하다,,grade1_common2_english_polysemy_context.csv
+46,1,Common English 2,1,다의어,access,noun,접근 권한,접근 권한,limit access,Limit the access to your posts on social media.,소셜 미디어 게시물에 대한 접근 권한을 제한하라.,limit access,,,mid,What does 'access' mean here?,접근 권한,,grade1_common2_english_polysemy_context.csv
+47,1,Common English 2,1,다의어,secure,adjective,안전한,안전한,secure Internet connection,Public Wi-Fi is usually not a secure Internet connection.,공공 와이파이는 대개 안전한 인터넷 연결이 아니다.,secure connection,,,mid,What does 'secure' mean here?,안전한,,grade1_common2_english_polysemy_context.csv
+48,1,Common English 2,1,다의어,valid,adjective,타당한,타당한,valid argument,"To make an argument valid, it needs evidence.",주장을 타당하게 만들려면 증거가 필요하다.,valid argument,,,high,What does 'valid' mean here?,타당한,,grade1_common2_english_polysemy_context.csv
+49,1,Common English 2,1,다의어,evidence,noun,증거,증거,backed up with evidence,An argument needs to be backed up with evidence.,주장은 증거로 뒷받침되어야 한다.,back up with evidence,,,mid,What does 'evidence' mean here?,증거,,grade1_common2_english_polysemy_context.csv
+50,1,Common English 2,1,다의어,manipulate,verb,조작하다,조작하다,manipulate data,Some companies can manipulate data.,일부 회사는 데이터를 조작할 수 있다.,manipulate data,,,high,What does 'manipulate' mean here?,조작하다,,grade1_common2_english_polysemy_context.csv
+51,1,Common English 2,1,다의어,mislead,verb,잘못 이끌다; 오해하게 하다,잘못 이끌다; 오해하게 하다,mislead you,The advertisement might mislead you.,그 광고는 당신을 오해하게 할 수 있다.,mislead people,,,high,What does 'mislead' mean here?,오해하게 하다,,grade1_common2_english_polysemy_context.csv
+52,1,Common English 2,1,다의어,prejudice,noun,편견,편견,break prejudice,Communication can break the prejudice that divides our community.,의사소통은 공동체를 나누는 편견을 깰 수 있다.,break prejudice,,,high,What does 'prejudice' mean here?,편견,,grade1_common2_english_polysemy_context.csv
+53,1,Common English 2,2,다의어,crisis,noun,위기,위기,climate crisis,We must cope with the climate crisis on our planet.,우리는 지구의 기후 위기에 대처해야 한다.,climate crisis,,,mid,What does 'crisis' mean here?,위기,,grade1_common2_english_polysemy_context.csv
+54,1,Common English 2,2,다의어,cope,verb,대처하다,대처하다,cope with,What can we do to cope with the climate crisis?,기후 위기에 대처하기 위해 무엇을 할 수 있는가?,cope with,,,mid,What does 'cope with' mean here?,대처하다,,grade1_common2_english_polysemy_context.csv
+55,1,Common English 2,2,다의어,emphasize,verb,강조하다,강조하다,emphasize that,I’d like to emphasize that climate change is serious.,기후 변화가 심각하다는 점을 강조하고 싶다.,emphasize that,,,mid,What does 'emphasize' mean here?,강조하다,,grade1_common2_english_polysemy_context.csv
+56,1,Common English 2,2,다의어,habitat,noun,서식지,서식지,habitats could disappear,People’s habitats could disappear in 50 years.,사람들의 서식지가 50년 안에 사라질 수 있다.,habitat disappears,,,mid,What does 'habitat' mean here?,서식지,,grade1_common2_english_polysemy_context.csv
+57,1,Common English 2,2,다의어,adjust,verb,조정하다,조정하다,adjust schedule,The man adjusts his schedule to work during cooler hours.,그 남자는 더 시원한 시간에 일하도록 일정을 조정한다.,adjust schedule,,,mid,What does 'adjust' mean here?,조정하다,,grade1_common2_english_polysemy_context.csv
+58,1,Common English 2,2,다의어,portable,adjective,휴대용의,휴대용의,portable fan,He carries a portable fan during the heat wave.,그는 폭염 중 휴대용 선풍기를 가지고 다닌다.,portable fan,,,basic,What does 'portable' mean here?,휴대용의,,grade1_common2_english_polysemy_context.csv
+59,1,Common English 2,2,다의어,drought,noun,가뭄,가뭄,deal with droughts,Humans must deal with droughts and floods.,인간은 가뭄과 홍수에 대처해야 한다.,deal with droughts,,,mid,What does 'drought' mean here?,가뭄,,grade1_common2_english_polysemy_context.csv
+60,1,Common English 2,2,다의어,flood,noun,홍수,홍수,experience a flood,Heavy rain caused a flood.,폭우가 홍수를 일으켰다.,cause a flood,,,basic,What does 'flood' mean here?,홍수,,grade1_common2_english_polysemy_context.csv
+61,1,Common English 2,2,다의어,release,verb,방출하다,방출하다,release into the atmosphere,Less water is released into the atmosphere.,더 적은 물이 대기 중으로 방출된다.,release into,,,high,What does 'release' mean here?,방출하다,,grade1_common2_english_polysemy_context.csv
+62,1,Common English 2,2,다의어,supply,noun,공급,공급,water supply,The water supply is not enough.,물 공급이 충분하지 않다.,water supply,,,mid,What does 'supply' mean here?,공급,,grade1_common2_english_polysemy_context.csv
+63,1,Common English 2,3,다의어,challenge,noun,도전; 어려움,도전; 어려움,face challenges,Challenges in life can make you a better person.,삶의 어려움은 당신을 더 나은 사람으로 만들 수 있다.,face challenges,,,mid,What does 'challenge' mean here?,도전/어려움,,grade1_common2_english_polysemy_context.csv
+64,1,Common English 2,3,다의어,resilience,noun,회복탄력성,회복탄력성,power to overcome,Resilience is the power to overcome difficulties.,회복탄력성은 어려움을 극복하는 힘이다.,resilience to overcome,,,high,What does 'resilience' mean here?,회복탄력성,,grade1_common2_english_polysemy_context.csv
+65,1,Common English 2,3,다의어,overcome,verb,극복하다,극복하다,overcome failure,Resilience helps people overcome failure.,회복탄력성은 사람들이 실패를 극복하도록 돕는다.,overcome failure,,,mid,What does 'overcome' mean here?,극복하다,,grade1_common2_english_polysemy_context.csv
+66,1,Common English 2,3,다의어,failure,noun,실패,실패,learn from failure,One strategy is to learn from failure.,하나의 전략은 실패로부터 배우는 것이다.,learn from failure,,,basic,What does 'failure' mean here?,실패,,grade1_common2_english_polysemy_context.csv
+67,1,Common English 2,3,다의어,mindset,noun,사고방식,사고방식,positive mindset,A positive mindset helps people face challenges.,긍정적인 사고방식은 사람들이 어려움에 맞서도록 돕는다.,positive mindset,,,mid,What does 'mindset' mean here?,사고방식,,grade1_common2_english_polysemy_context.csv
+68,1,Common English 2,3,다의어,concerned,adjective,걱정하는,걱정하는,be concerned about,What are you concerned about?,무엇을 걱정하고 있나요?,be concerned about,,,basic,What does 'concerned' mean here?,걱정하는,,grade1_common2_english_polysemy_context.csv
+69,1,Common English 2,3,다의어,mess up,phrasal verb,망치다,망치다,mess up lines,I might mess up all my lines in my speech.,연설에서 대사를 모두 망칠지도 모른다.,mess up,,,mid,What does 'mess up' mean here?,망치다,,grade1_common2_english_polysemy_context.csv
+70,1,Common English 2,3,다의어,deliver,verb,전달하다; 발표하다,전달하다; 발표하다,deliver a speech,I’ll focus on delivering the speech.,나는 발표를 전달하는 데 집중할 것이다.,deliver a speech,,,mid,What does 'deliver' mean here?,발표하다/전달하다,,grade1_common2_english_polysemy_context.csv
+71,1,Common English 2,3,다의어,significant,adjective,중요한,중요한,significant failure,One significant failure for me was losing the contest.,나에게 중요한 실패는 대회에서 진 것이었다.,significant failure,,,mid,What does 'significant' mean here?,중요한,,grade1_common2_english_polysemy_context.csv
+72,1,Common English 2,4,다의어,creativity,noun,창의성,창의성,creativity within us,Creativity can help us make a better world.,창의성은 더 나은 세상을 만드는 데 도움을 줄 수 있다.,creativity within us,,,mid,What does 'creativity' mean here?,창의성,,grade1_common2_english_polysemy_context.csv
+73,1,Common English 2,4,다의어,difference,noun,변화; 차이,변화; 차이,make a difference,A young girl can make a difference in the world.,어린 소녀도 세상에 변화를 만들 수 있다.,make a difference,,,mid,What does 'difference' mean here?,변화,,grade1_common2_english_polysemy_context.csv
+74,1,Common English 2,4,다의어,drive,noun,추진력; 열정,추진력; 열정,curiosity and drive,"With curiosity and drive, anyone can change the world.",호기심과 추진력이 있으면 누구나 세상을 바꿀 수 있다.,curiosity and drive,,,high,What does 'drive' mean here?,추진력/열정,,grade1_common2_english_polysemy_context.csv
+75,1,Common English 2,4,다의어,invention,noun,발명품,발명품,talk about the invention,The invention was based on personal experience.,그 발명품은 개인적 경험에 기반했다.,based on invention,,,mid,What does 'invention' mean here?,발명품,,grade1_common2_english_polysemy_context.csv
+76,1,Common English 2,4,다의어,detect,verb,감지하다,감지하다,detect the time,The device detects the time.,그 장치는 시간을 감지한다.,detect time,,,mid,What does 'detect' mean here?,감지하다,,grade1_common2_english_polysemy_context.csv
+77,1,Common English 2,4,다의어,process,noun,과정,과정,process of making,What was the most difficult part in the process of making a windmill?,풍차를 만드는 과정에서 가장 어려웠던 부분은 무엇인가?,process of making,,,mid,What does 'process' mean here?,과정,,grade1_common2_english_polysemy_context.csv
+78,1,Common English 2,4,다의어,produce,verb,생산하다,생산하다,produce electricity,His windmill could produce electricity and pump water.,그의 풍차는 전기를 생산하고 물을 끌어올릴 수 있었다.,produce electricity,,,mid,What does 'produce' mean here?,생산하다,,grade1_common2_english_polysemy_context.csv
+79,1,Common English 2,4,다의어,pump,verb,퍼 올리다,퍼 올리다,pump water,The windmill could pump water.,그 풍차는 물을 퍼 올릴 수 있었다.,pump water,,,basic,What does 'pump' mean here?,퍼 올리다,,grade1_common2_english_polysemy_context.csv
+80,1,Common English 2,4,다의어,convenient,adjective,편리한,편리한,make life convenient,Creative ideas can make life more convenient.,창의적 아이디어는 삶을 더 편리하게 만들 수 있다.,make convenient,,,basic,What does 'convenient' mean here?,편리한,,grade1_common2_english_polysemy_context.csv
+81,1,Common English 2,4,다의어,focus,verb,집중하다,집중하다,stay focused,This allows students to attend class comfortably and stay focused.,이것은 학생들이 편안하게 수업에 참여하고 집중하게 해 준다.,stay focused,,,basic,What does 'focus' mean here?,집중하다,,grade1_common2_english_polysemy_context.csv
+82,1,CSAT Word Relations,,다의어,major,n./a.,"전공; 주요한, 다수의, 음의 장조의","전공; 주요한, 다수의, 음의 장조의",,,,,,,,,,cf. major in ~을 전공하다,word_relations_polysemy_antonyms_synonyms(1).csv
+83,1,CSAT Word Relations,,다의어,appreciate,v.,"진가를 알다, 평가하다, 감사하다, 감상하다","진가를 알다, 평가하다, 감사하다, 감상하다",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+84,1,CSAT Word Relations,,다의어,mean,v./a.,"의미하다, 의도하다; 비열한, 천한; 평균, 중용","의미하다, 의도하다; 비열한, 천한; 평균, 중용",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+85,1,CSAT Word Relations,,다의어,capital,n./a.,"수도, 자본, 대문자; 주요한","수도, 자본, 대문자; 주요한",,,,,,,,,,cf. capital punishment 사형,word_relations_polysemy_antonyms_synonyms(1).csv
+86,1,CSAT Word Relations,,다의어,charge,v./n.,"청구하다, 고소하다, 충전하다; 책임, 요금, 충전, 비난, 혐의, 고소","청구하다, 고소하다, 충전하다; 책임, 요금, 충전, 비난, 혐의, 고소",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+87,1,CSAT Word Relations,,다의어,account,n./v.,"계좌, 계정, 설명, 이야기, 이유; 설명하다","계좌, 계정, 설명, 이야기, 이유; 설명하다",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+88,1,CSAT Word Relations,,다의어,critical,a.,"비평의, 위기의, 결정적인","비평의, 위기의, 결정적인",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+89,1,CSAT Word Relations,,다의어,assume,v.,"추측하다, 떠맡다, ~인 체하다","추측하다, 떠맡다, ~인 체하다",,,,,,,,,,"cf. assumption 가정, 추측",word_relations_polysemy_antonyms_synonyms(1).csv
+90,1,CSAT Word Relations,,다의어,pose,v./n.,"자세를 취하다, 문제를 제기하다; 자세, 자세를 취함","자세를 취하다, 문제를 제기하다; 자세, 자세를 취함",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+91,1,CSAT Word Relations,,다의어,interest,n./v.,"흥미, 이익, 이자; 흥미를 끌다","흥미, 이익, 이자; 흥미를 끌다",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+92,1,CSAT Word Relations,,다의어,state,n./v.,"상태, 신분, 국가, 주; 진술하다","상태, 신분, 국가, 주; 진술하다",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+93,1,CSAT Word Relations,,다의어,drive,v./n.,"몰다, 운전하다, 억지로 ~하게 하다; 추진력, 충동, 자극 운동","몰다, 운전하다, 억지로 ~하게 하다; 추진력, 충동, 자극 운동",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+94,1,CSAT Word Relations,,다의어,matter,n./v.,"물질, 문제, 고통; 중요하다","물질, 문제, 고통; 중요하다",,,,,,,,,,"cf. as a matter of fact 사실, 실제로",word_relations_polysemy_antonyms_synonyms(1).csv
+95,1,CSAT Word Relations,,다의어,object,n./v.,"물건, 대상, 목표; 반대하다","물건, 대상, 목표; 반대하다",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+96,1,CSAT Word Relations,,다의어,party,n.,"파티, 일행, 정당, 당사자, 상대편","파티, 일행, 정당, 당사자, 상대편",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+97,1,CSAT Word Relations,,다의어,figure,n./v.,"숫자, 그림, 형태, 인물; 계산하다, 이해하다","숫자, 그림, 형태, 인물; 계산하다, 이해하다",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+98,1,CSAT Word Relations,,다의어,issue,n./v.,"쟁점, 발행, 유출, 결과; ~에서 기인하다(from), 발행하다","쟁점, 발행, 유출, 결과; ~에서 기인하다(from), 발행하다",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+99,1,CSAT Word Relations,,다의어,odd,a.,"이상한, 홀수의, 임시의; 낱개 상품; even 짝수의","이상한, 홀수의, 임시의; 낱개 상품; even 짝수의",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+100,1,CSAT Word Relations,,다의어,reserve,v./n.,"예약하다, 보존하다, 유보하다; 비축, 예비군","예약하다, 보존하다, 유보하다; 비축, 예비군",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+101,1,CSAT Word Relations,,다의어,scale,n.,"비늘, 저울, 규모, 척도","비늘, 저울, 규모, 척도",,,,,,,,,,cf. on a large scale 대규모로,word_relations_polysemy_antonyms_synonyms(1).csv
+102,1,CSAT Word Relations,,다의어,match,n./v.,"경기, 어울리는 사람/것, 호각수; 어울리다, 맞추다","경기, 어울리는 사람/것, 호각수; 어울리다, 맞추다",,,,,,,,,,cf. match A with B,word_relations_polysemy_antonyms_synonyms(1).csv
+103,1,CSAT Word Relations,,다의어,board,n./v.,"판자, 게시판, 식탁, 식사, 위원회; 승선하다","판자, 게시판, 식탁, 식사, 위원회; 승선하다",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+104,1,CSAT Word Relations,,다의어,discharge,v./n.,"발사하다, 배출하다, 석방시키다; 배출물","발사하다, 배출하다, 석방시키다; 배출물",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+105,1,CSAT Word Relations,,다의어,subject,n./a.,"주제, 과목, 백성, 실험 대상; 영향을 받기 쉬운","주제, 과목, 백성, 실험 대상; 영향을 받기 쉬운",,,,,,,,,,cf. be subject to,word_relations_polysemy_antonyms_synonyms(1).csv
+106,1,CSAT Word Relations,,다의어,address,v./n.,"연설하다, 말을 걸다, 주소를 쓰다; 문제를 다루다; 주소, 연설","연설하다, 말을 걸다, 주소를 쓰다; 문제를 다루다; 주소, 연설",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+107,1,CSAT Word Relations,,다의어,feature,n./v.,"특징, 용모, 특집 기사; ~을 특징으로 하다, 주연시키다","특징, 용모, 특집 기사; ~을 특징으로 하다, 주연시키다",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+108,1,CSAT Word Relations,,다의어,company,n.,"동료, 교제, 회사, 군대 중대","동료, 교제, 회사, 군대 중대",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+109,1,CSAT Word Relations,,다의어,raise,v./n.,"올리다, 양육하다, 모으다, 문제를 제기하다; 급여 인상","올리다, 양육하다, 모으다, 문제를 제기하다; 급여 인상",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+110,1,CSAT Word Relations,,다의어,present,n./v.,"현재, 참석한, 선물; 증정하다, 제출하다","현재, 참석한, 선물; 증정하다, 제출하다",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+111,1,CSAT Word Relations,,다의어,rate,n./v.,"비율, 등급, 요금, 속도; 평가하다","비율, 등급, 요금, 속도; 평가하다",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+112,1,CSAT Word Relations,,다의어,case,n.,"경우, 사례, 소송 사건, 사실, 상자","경우, 사례, 소송 사건, 사실, 상자",,,,,,,,,,cf. in case that ~하는 경우에,word_relations_polysemy_antonyms_synonyms(1).csv
+113,1,CSAT Word Relations,,다의어,effect,n./v.,"효과, 영향, 결과, 취지; 초래하다","효과, 영향, 결과, 취지; 초래하다",,,,,,,,,,cf. affect 영향을 미치다,word_relations_polysemy_antonyms_synonyms(1).csv
+114,1,CSAT Word Relations,,다의어,plain,a./n.,"명백한, 쉬운, 솔직한, 무늬가 없는, 평범한; 평원","명백한, 쉬운, 솔직한, 무늬가 없는, 평범한; 평원",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+115,1,CSAT Word Relations,,다의어,order,n./v.,"순서, 정도, 질서, 명령, 주문; 명령하다, 주문하다","순서, 정도, 질서, 명령, 주문; 명령하다, 주문하다",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+116,1,CSAT Word Relations,,다의어,fair,a./n.,"공정한, 맑은, 상당히, 희고 금발에 예쁜, 박람회","공정한, 맑은, 상당히, 희고 금발에 예쁜, 박람회",,,,,,,,,,cf. fair weather 좋은 날씨,word_relations_polysemy_antonyms_synonyms(1).csv
+117,1,CSAT Word Relations,,다의어,leave,v./n.,"떠나다, 남기다, ~을 ~한 상태로 두다; 휴가","떠나다, 남기다, ~을 ~한 상태로 두다; 휴가",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+118,1,CSAT Word Relations,,다의어,note,n./v.,"기록, 주의, 짧은 편지, 음표; 주목하다, 기록하다","기록, 주의, 짧은 편지, 음표; 주목하다, 기록하다",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+119,1,CSAT Word Relations,,다의어,sound,n./a./v.,"소리; 건전한, 깊은; 소리가 나다","소리; 건전한, 깊은; 소리가 나다",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+120,1,CSAT Word Relations,,다의어,term,n.,"기간, 학기, 용어, 조건, 관계","기간, 학기, 용어, 조건, 관계",,,,,,,,,,cf. be on good terms with ~와 사이가 좋다,word_relations_polysemy_antonyms_synonyms(1).csv
+121,1,CSAT Word Relations,,다의어,yield,v./n.,"양보하다, 굴복하다, 산출하다; 산출","양보하다, 굴복하다, 산출하다; 산출",,,,,,,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+122,1,Word Relations,,반의어,absolute,,,절대적인,,,,,relative,상대적인,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+123,1,Word Relations,,반의어,ancestor,,,"조상, 선조",,,,,descendant,자손,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+124,1,Word Relations,,반의어,deficient,,,부족한,,,,,sufficient,충분한,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+125,1,Word Relations,,반의어,concrete,,,구체적인,,,,,abstract,추상적인,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+126,1,Word Relations,,반의어,beneficial,,,유익한,,,,,harmful,해로운,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+127,1,Word Relations,,반의어,construction,,,건설,,,,,destruction,파괴,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+128,1,Word Relations,,반의어,majority,,,"다수, 성인",,,,,minority,"소수, 미성년자",,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+129,1,Word Relations,,반의어,quality,,,질,,,,,quantity,양,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+130,1,Word Relations,,반의어,emigrate,,,이민가다,,,,,immigrate,이민오다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+131,1,Word Relations,,반의어,objective,,,"객관적인, 목표",,,,,subjective,주관적인,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+132,1,Word Relations,,반의어,rural,,,시골의,,,,,urban,도시의,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+133,1,Word Relations,,반의어,predecessor,,,"전임자, 선배",,,,,successor,"후계자, 상속자",,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+134,1,Word Relations,,반의어,emerge,,,나타나다,,,,,vanish,사라지다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+135,1,Word Relations,,반의어,general,,,일반적인,,,,,specific,구체적인,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+136,1,Word Relations,,반의어,invaluable,,,귀중한,,,,,worthless,가치 없는,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+137,1,Word Relations,,반의어,artery,,,동맥,,,,,vein,정맥,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+138,1,Word Relations,,반의어,negative,,,"부정적인, 음화",,,,,positive,"긍정적인, 양화",,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+139,1,Word Relations,,반의어,excessive,,,과도한,,,,,moderate,"온건한, 적정한",,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+140,1,Word Relations,,반의어,compulsory,,,"강제적인, 필수의",,,,,voluntary,자발적인,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+141,1,Word Relations,,반의어,extravagant,,,사치스러운,,,,,frugal,검소한,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+142,1,Word Relations,,반의어,acquired,,,후천적인,,,,,natural,선천적인,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+143,1,Word Relations,,반의어,analysis,,,분석,,,,,synthesis,종합,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+144,1,Word Relations,,반의어,conceal,,,숨기다,,,,,reveal,드러내다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+145,1,Word Relations,,반의어,conquer,,,"정복하다, 극복하다",,,,,surrender,항복하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+146,1,Word Relations,,반의어,conservative,,,보수적인,,,,,progressive,진보적인,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+147,1,Word Relations,,반의어,dynamic,,,동적인,,,,,static,정적인,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+148,1,Word Relations,,반의어,mental,,,정신적인,,,,,physical,육체적인,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+149,1,Word Relations,,반의어,noble,,,고상한,,,,,ignoble,비천한,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+150,1,Word Relations,,반의어,overestimate,,,과대 평가하다,,,,,underestimate,과소 평가하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+151,1,Word Relations,,반의어,passive,,,수동적인,,,,,active,능동적인,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+152,1,Word Relations,,반의어,former,,,전자의,,,,,latter,후자의,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+153,1,Word Relations,,반의어,fresh,,,신선한,,,,,stale,"신선하지 않은, 진부한",,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+154,1,Word Relations,,반의어,inflate,,,팽창하게 올리다,,,,,deflate,"공기를 수축시키다, 내리다",,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+155,1,Word Relations,,반의어,attach,,,부착하다,,,,,detach,떼어내다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+156,1,Word Relations,,반의어,guilty,,,유죄의,,,,,innocent,"무죄의, 천진난만한",,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+157,1,Word Relations,,반의어,virtue,,,미덕,,,,,vice,악덕,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+158,1,Word Relations,,반의어,deliberately,,,고의로,,,,,accidentally,우연히,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+159,1,Word Relations,,반의어,barren,,,불모의,,,,,fertile,비옥한,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+160,1,Word Relations,,반의어,radical,,,"급진적인, 기본적인",,,,,gradual,점진적인,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+161,1,Word Relations,,반의어,latitude,,,위도,,,,,longitude,경도,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+162,1,Word Relations,,유의어,trigger,,,"유발하다, 야기하다",,,,,cause,원인이 되다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+163,1,Word Relations,,유의어,boast,,,자랑하다,,,,,brag,자랑하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+164,1,Word Relations,,유의어,ease,,,"진정시키다, 완화시키다",,,,,soothe,진정시키다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+165,1,Word Relations,,유의어,lessen,,,"줄이다, 감소시키다",,,,,diminish,"줄이다, 감소시키다",,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+166,1,Word Relations,,유의어,discern,,,"구별하다, 분간하다",,,,,discriminate,구별하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+167,1,Word Relations,,유의어,stare,,,응시하다,,,,,peer,응시하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+168,1,Word Relations,,유의어,struggle,,,"분투하다, 노력하다",,,,,strive,노력하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+169,1,Word Relations,,유의어,thrive,,,"번영하다, 번창하다",,,,,flourish,번영하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+170,1,Word Relations,,유의어,perform,,,"이행하다, 수행하다",,,,,implement,"이행하다, 실행하다",,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+171,1,Word Relations,,유의어,mandatory,,,"명령의, 강제적인",,,,,obligatory,의무적인,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+172,1,Word Relations,,유의어,resolve,,,"결심하다, 결정하다",,,,,determine,결심하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+173,1,Word Relations,,유의어,ban,,,금지하다,,,,,prohibit,금지하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+174,1,Word Relations,,유의어,opposition,,,반대,,,,,objection,반대,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+175,1,Word Relations,,유의어,tremendous,,,"거대한, 엄청난",,,,,enormous,거대한,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+176,1,Word Relations,,유의어,startle,,,놀라게 하다,,,,,astonish,놀라게 하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+177,1,Word Relations,,유의어,consent,,,"동의하다, 찬성하다",,,,,approve,찬성하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+178,1,Word Relations,,유의어,apparent,,,명백한,,,,,obvious,명백한,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+179,1,Word Relations,,유의어,abundant,,,풍부한,,,,,affluent,풍부한,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+180,1,Word Relations,,유의어,emphasize,,,강조하다,,,,,stress,강조하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+181,1,Word Relations,,유의어,insufficient,,,불충분한,,,,,scanty,부족한,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+182,1,Word Relations,,유의어,annoy,,,화나게 하다,,,,,irritate,화나게 하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+183,1,Word Relations,,유의어,trait,,,"특성, 특징",,,,,feature,특징,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+184,1,Word Relations,,유의어,thrifty,,,"절약하는, 근검한",,,,,frugal,검소한,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+185,1,Word Relations,,유의어,accountable,,,책임이 있는,,,,,responsible,책임이 있는,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+186,1,Word Relations,,유의어,conventional,,,"전통의, 세습적인",,,,,traditional,전통의,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+187,1,Word Relations,,유의어,modest,,,겸손한,,,,,humble,겸손한,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+188,1,Word Relations,,유의어,inhabit,,,거주하다,,,,,dwell,거주하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+189,1,Word Relations,,유의어,devote,,,"헌신하다, 전념하다",,,,,dedicate,헌신하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+190,1,Word Relations,,유의어,obscure,,,"모호한, 분명치 않은",,,,,vague,모호한,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+191,1,Word Relations,,유의어,modify,,,변경하다,,,,,alter,변경하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+192,1,Word Relations,,유의어,hospitable,,,"환대하는, 친근한",,,,,friendly,친근한,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+193,1,Word Relations,,유의어,convince,,,확신시키다,,,,,assure,보증하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+194,1,Word Relations,,유의어,proper,,,적절한,,,,,appropriate,적절한,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+195,1,Word Relations,,유의어,contentment,,,만족,,,,,satisfaction,만족,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+196,1,Word Relations,,유의어,incorporate,,,통합하다,,,,,integrate,통합하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+197,1,Word Relations,,유의어,accurate,,,정확한,,,,,precise,정확한,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+198,1,Word Relations,,유의어,facilitate,,,촉진하다,,,,,promote,촉진하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+199,1,Word Relations,,유의어,contagious,,,전염성의,,,,,infectious,전염성의,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+200,1,Word Relations,,유의어,evaluate,,,평가하다,,,,,assess,평가하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
+201,1,Word Relations,,유의어,eliminate,,,제거하다,,,,,remove,제거하다,,,,,word_relations_polysemy_antonyms_synonyms(1).csv
