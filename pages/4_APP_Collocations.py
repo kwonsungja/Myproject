@@ -80,7 +80,7 @@ def load_data():
         "section",
         "lesson",
         "collocation",
-        "korean_meaning",
+        "meaning",
         "example_sentence"
     ]
 
@@ -171,11 +171,11 @@ elif mode == "2. Meaning Test":
 
     for i, (_, row) in enumerate(quiz_df.iterrows(), start=1):
 
-        correct = row["korean_meaning"]
+        correct = row["meaning"]
 
         wrongs = df[
-            df["korean_meaning"] != correct
-        ]["korean_meaning"].sample(3).tolist()
+            df["meaning"] != correct
+        ]["meaning"].sample(3).tolist()
 
         options = wrongs + [correct]
 
