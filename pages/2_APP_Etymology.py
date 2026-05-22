@@ -110,8 +110,8 @@ for i, tab in enumerate(grade_tabs, start=1):
                st.markdown(f"**Example:** {highlighted_sentence}")
 
                 user_answer = st.text_input(
-                "Translate the sentence into Korean",
-                key=f"answer_{i}_{idx}"
+                    "Translate the sentence into Korean",
+                    key=f"answer_{i}_{idx}"
                 )
 
                 st.caption("Focus on the highlighted word when translating.")
