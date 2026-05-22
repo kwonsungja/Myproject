@@ -99,13 +99,22 @@ for i, tab in enumerate(grade_tabs, start=1):
                 st.markdown(f"### Q{idx+1}. {row['word']}")
 
                 st.write(f"**Prefix / Root / Suffix:** {row['prefix']}")
-                st.write(f"**Example:** {row['example_sentence']}")
+                example_sentence = row['example_sentence']
+                target_word = row['word']
 
-                user_answer = st.text_input(
-                    "Write the meaning in Korean",
-                    key=f"answer_{i}_{idx}"
+                highlighted_sentence = example_sentence.replace(
+                    target_word,
+                    f"**{target_word}**"
                 )
 
+               st.markdown(f"**Example:** {highlighted_sentence}")
+
+                user_answer = st.text_input(
+                "Translate the sentence into Korean",
+                key=f"answer_{i}_{idx}"
+                )
+
+                st.caption("Focus on the highlighted word when translating.")
                 st.session_state[f"answers_{i}"][idx] = user_answer
 
             if st.button("Submit Answers", key=f"submit_{i}_{test_type}"):
@@ -116,7 +125,7 @@ for i, tab in enumerate(grade_tabs, start=1):
 
                 for idx, row in quiz_df.iterrows():
                     user_answer = st.session_state[f"answers_{i}"].get(idx, "")
-                    correct_answer = str(row["word_meaning"])
+                    correct_answer = str(row["example_korean"])
 
                     if user_answer.strip() in correct_answer:
                         score += 1
