@@ -128,8 +128,12 @@ for i, tab in enumerate(grade_tabs, start=1):
                 st.markdown(f"### Q{idx+1}. {row['word']}")
 
                 st.write(f"**Prefix / Root / Suffix:** {row['prefix']}")
-                example_sentence = row['example_sentence']
-                target_word = row['word']
+
+                example_sentence = str(row['example_sentence'])
+                target_word = str(row['word'])
+
+                if example_sentence == "nan":
+                    example_sentence = ""
 
                 highlighted_sentence = example_sentence.replace(
                     target_word,
@@ -144,6 +148,7 @@ for i, tab in enumerate(grade_tabs, start=1):
                 )
 
                 st.caption("Focus on the highlighted word when translating.")
+
                 st.session_state[f"answers_{i}"][idx] = user_answer
 
             if st.button("Submit Answers", key=f"submit_{i}_{test_type}"):
