@@ -142,25 +142,15 @@ if mode == "1. Learn":
 
     for _, row in filtered_df.iterrows():
 
-        html = f"""
-        <div class="word-card">
+        with st.container():
 
-            <div class="collocation">
-                {row['collocation']}
-            </div>
+            st.markdown(f"## {row['collocation']}")
 
-            <div class="meaning">
-                뜻: {row['meaning_ko']}
-            </div>
+            st.write(f"뜻: {row['meaning_ko']}")
 
-            <div class="example">
-                예문: {row['example_sentence']}
-            </div>
+            st.write(f"예문: {row['example_sentence']}")
 
-        </div>
-        """
-
-        st.markdown(html, unsafe_allow_html=True)
+            st.divider()
 
 # ==========================================
 # 2. Meaning Test
