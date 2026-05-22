@@ -72,9 +72,9 @@ The goal is to help learners build confidence and connect English to real-life c
 with col2:
 
     st.image(
-        "https://raw.githubusercontent.com/kwonsungja/Myproject/main/home_image.png",
-        use_container_width=True
-    )
+    "https://raw.githubusercontent.com/kwonsungja/Myproject/main/final_home_image.png",
+    use_container_width=True
+)
 
 # ---------- Main Features ----------
 st.markdown("---")
