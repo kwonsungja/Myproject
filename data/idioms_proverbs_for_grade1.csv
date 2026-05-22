@@ -1,0 +1,79 @@
+﻿order,category,expression,korean_meaning,cf_note
+1,Idioms_easy,apply for,~을 신청하다,"apply to + 명사: ~에 적용되다, ~에 신청하다"
+2,Idioms_easy,be bound for,~행이다,be bound to + 동사: 반드시 ~하다
+3,Idioms_easy,be concerned about,~에 대해 걱정하다,be concerned with: ~와 관계가 있다
+4,Idioms_easy,be engaged in,"~에 종사하다, 참여하다, 몰두하다",be engaged to + 명사: ~와 약혼하다
+5,Idioms_easy,behind the times,구식의,"old-fashioned, outdated / behind time: 늦은"
+6,Idioms_easy,by all means,"반드시, 꼭",by no means: 결코 ~아닌
+7,Idioms_easy,care about,마음 쓰다,"care for: 좋아하다, 보살피다"
+8,Idioms_easy,check in,"숙박 수속을 밟다, 체크인하다","check out: 계산하고 나오다, 대출하다"
+9,Idioms_easy,consist in,~에 있다,"lie in / consist of: ~로 구성되다, comprise"
+10,Idioms_easy,devote oneself to,"~에 헌신하다, 전념하다",help oneself to + 명사: 마음껏 먹다
+11,Idioms_easy,have something to do with,~와 관계가 있다,have nothing to do with: ~와 관계가 없다
+12,Idioms_easy,in spite of,~에도 불구하고,in the face of / instead of: ~하는 대신에
+13,Idioms_easy,look down on,업신여기다,"despise / look up to: 존경하다, respect"
+14,Idioms_easy,out of order,고장난,"out of the question: 불가능한, impossible"
+15,Idioms_easy,provide A with B,A에게 B를 제공하다,provide B for[to] A: A에게 B를 제공하다
+16,Idioms_easy,replace A with B,A를 B로 대체하다,substitute B for A: A를 B로 대체하다
+17,Idioms_easy,result from,~에서 기인하다,"result in: ~을 초래하다, 결국 ~이 되다"
+18,Idioms_easy,succeed in,~에 성공하다,"success / succeed to + 명사: 계승하다, succession"
+19,Idioms_easy,take place,"일어나다, 발생하다","happen, occur / take the place of: ~을 대신하다"
+20,Idioms_easy,work out,"해결하다, 운동하다","work on: ~을 열심히 하다, 작업하다"
+21,Idioms_major,account for,"설명하다, 책임지다, (비율을) 차지하다",explain
+22,Idioms_major,apart from,~은 별도로 하고,aside from
+23,Idioms_major,ahead of schedule,예정보다 미리,behind schedule: 예정보다 늦게
+24,Idioms_major,by accident,우연히,"by chance, accidentally"
+25,Idioms_major,can afford to + 동사,~할 여유가 있다,cannot afford to + 동사: ~할 여유가 없다
+26,Idioms_major,figure out,"계산하다, 이해하다",cut a fine figure: 두각을 드러내다
+27,Idioms_major,for nothing,무료로,count for nothing: 중요하지 않다
+28,Idioms_major,hit upon,마침내 떠올리다,I hit upon a good idea.
+29,Idioms_major,in place of,~ 대신에,in place: 제자리에
+30,Idioms_major,in terms of,"~에 의하여, ~의 관점에서",by means of: ~에 의하여
+31,Idioms_major,keep in touch with,"~와 계속 접촉하다, 연락하다",come into contact with: ~와 접촉하다
+32,Idioms_major,lay off,일시 해고하다,"fire, dismiss, discharge"
+33,Idioms_major,leave out,"빠뜨리다, 생략하다",omit
+34,Idioms_major,make sense,"의미가 통하다, 이치에 맞다",keep one's senses: 제정신을 잃지 않다
+35,Idioms_major,manage to,가까스로 ~하다,succeed in -ing
+36,Idioms_major,out of date,구식의,"obsolete, outdated, old-fashioned"
+37,Idioms_major,refer to,"지칭하다, 가리키다, 언급하다","reference: 언급, 참고 문헌"
+38,Idioms_major,regardless of,~와 관계 없이,irrespective of
+39,Idioms_major,run out of,~이 다 떨어지다,"run short of: ~이 부족하다, 결여되다"
+40,Idioms_major,subscribe to,~을 구독하다,take in
+41,Proverbs,A bad workman always blames his tools.,서투른 일꾼이 연장만 나무란다.,
+42,Proverbs,A bird in the hand is worth two in the bush.,숲 속의 두 마리 새보다 수중의 새 한 마리가 실속이 있다.,
+43,Proverbs,A friend in need is a friend indeed.,어려울 때의 친구가 참다운 친구다.,
+44,Proverbs,A leopard cannot change its spots.,품성은 평생 변치 않는다.,
+45,Proverbs,A rolling stone gathers no moss.,구르는 돌에는 이끼가 끼지 않는다. 한 우물을 파라.,
+46,Proverbs,A sound mind in a sound body.,건강한 신체에 건전한 정신이 깃든다.,
+47,Proverbs,A stitch in time saves nine.,제 때의 한 바늘이 내일의 아홉 바늘을 덜어준다.,
+48,Proverbs,Actions speak louder than words.,행위는 말보다 더 웅변적이다.,
+49,Proverbs,All that glitters is not gold.,반짝인다고 다 금은 아니다.,
+50,Proverbs,Better late than never.,늦게라도 하는 것이 안 하는 것보다 더 낫다.,
+51,Proverbs,Do to others as you would be done by.,네가 대접받고 싶은 대로 남에게 대접하라.,
+52,Proverbs,Don’t count your chickens before they are hatched.,김칫국부터 마시지 마라.,
+53,Proverbs,Don’t put all your eggs in one basket.,분산 투자를 해라.,
+54,Proverbs,Don’t bite off more than you can chew.,능력 밖의 일을 계획하지 마라.,
+55,Proverbs,Easier said than done.,말하기는 쉬워도 행하기는 어렵다.,
+56,Proverbs,Every cloud has a silver lining.,하늘이 무너져도 솟아날 구멍이 있다.,
+57,Proverbs,He laughs best who laughs last.,마지막에 웃는 자가 최후의 승자이다.,
+58,Proverbs,Heaven helps those who help themselves.,하늘은 스스로 돕는 자를 돕는다.,
+59,Proverbs,Ignorance is bliss.,모르는 게 약이다.,
+60,Proverbs,It never rains but it pours.,불행한 일은 겹친다.,
+61,Proverbs,Look before you leap.,돌다리도 두드려 보고 건너라.,
+62,Proverbs,Make hay while the sun shines.,해가 있을 때 건초를 말려라.,
+63,Proverbs,Many drops make a shower.,티끌 모아 태산.,
+64,Proverbs,Never judge by appearances.,겉모습으로 판단하지 마라.,
+65,Proverbs,"Nothing ventured, nothing gained.",모험이 없으면 얻는 것도 없다.,
+66,Proverbs,One man’s meat is another man’s poison.,갑의 약은 을의 독.,
+67,Proverbs,Practice makes perfect.,연습은 완벽을 만들어 낸다.,
+68,Proverbs,Slow and steady wins the race.,천천히 꾸준히 하면 경주에서 이긴다.,
+69,Proverbs,"So many men, so many minds.",각인각색.,
+70,Proverbs,"Speech is silver, but silence is golden.","웅변은 은이며, 침묵은 금이다.",
+71,Proverbs,Strike while the iron is hot.,쇠가 달구어졌을 때 두드려라.,
+72,Proverbs,The early bird catches the worm.,일찍 일어나는 새가 벌레를 잡는다.,
+73,Proverbs,The grass always looks greener on the other side of the fence.,남의 떡이 커 보인다.,
+74,Proverbs,There is a time for everything.,무슨 일이나 때가 있다.,
+75,Proverbs,Time and tide wait for no man.,세월은 사람을 기다려 주지 않는다.,
+76,Proverbs,Too many cooks spoil the broth.,사공이 많으면 배가 산으로 간다.,
+77,Proverbs,Two heads are better than one.,백지장도 맞들면 낫다.,
+78,Proverbs,You can’t eat your cake and have it too.,두 마리 토끼를 좇을 수 없다.,
