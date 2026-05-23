@@ -18,9 +18,9 @@ st.caption("Vocabulary → Textbook Reading → Reading Expansion")
 @st.cache_data
 def load_data(book):
     if book == "공통영어1":
-        file_path = Path("common_english1_reading_full.csv")
+        file_path = Path(__file__).parent.parent / "common_english1_reading_full.csv"
     else:
-        file_path = Path("common_english2_reading_full.csv")
+        file_path = Path(__file__).parent.parent / "common_english2_reading_full.csv"
 
     if not file_path.exists():
         st.error(f"파일을 찾을 수 없습니다: {file_path}")
