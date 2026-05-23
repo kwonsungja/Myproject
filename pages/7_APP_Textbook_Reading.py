@@ -101,15 +101,21 @@ with st.expander("본문 텍스트 보기", expanded=True):
 # -----------------------------
 
 st.divider()
+
 st.subheader("📚 Further Reading")
 
-if "further_reading_title" in df.columns and "further_reading_text" in df.columns:
-    st.markdown(f"### {row['further_reading_title']}")
+title = row.get("further_reading_title", "")
+text = row.get("further_reading_text", "")
+
+if pd.notna(title) and pd.notna(text):
+
+    st.markdown(f"### {title}")
 
     with st.expander("Read Further"):
-        st.write(row["further_reading_text"])
+        st.write(text)
+
 else:
-    st.warning("Further Reading 컬럼이 CSV에 없습니다.")
+    st.info("Further Reading 자료가 아직 입력되지 않았습니다.")
 
 
 # -----------------------------
