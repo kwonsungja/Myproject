@@ -60,7 +60,7 @@ if selected_lesson != "전체":
     filtered_df = df[df["lesson"] == selected_lesson].copy()
 else:
     filtered_df = df.copy()
-
+    
 # -----------------------------
 # Header
 # -----------------------------
