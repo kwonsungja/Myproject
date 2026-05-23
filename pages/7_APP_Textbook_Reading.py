@@ -15,7 +15,6 @@ st.caption("Vocabulary → Textbook Reading → Reading Expansion")
 # Data loading
 # -----------------------------
 
-@st.cache_data
 def load_data(book):
 
     base_path = Path(__file__).resolve().parents[1] / "data"
