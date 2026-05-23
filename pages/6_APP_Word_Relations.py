@@ -42,14 +42,16 @@ df = load_data()
 st.title("📘 Word Relations Practice")
 st.write("다의어 · 반의어 · 유의어를 학습하고 퀴즈로 확인하는 앱입니다.")
 
-st.sidebar.header("학습 설정")
+# ---------- Learning Settings ----------
 
-mode = st.sidebar.radio(
+st.header("⚙️ 학습 설정")
+
+mode = st.radio(
     "메뉴 선택",
     ["1. Learn", "2. Meaning Test", "3. Relation Test", "4. Review Wrong Answers"]
 )
 
-category = st.sidebar.selectbox(
+category = st.selectbox(
     "학습 범위",
     ["전체"] + list(df["category"].unique())
 )
