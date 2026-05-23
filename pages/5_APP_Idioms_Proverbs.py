@@ -3,11 +3,42 @@ import pandas as pd
 import random
 from pathlib import Path
 
+# ==========================================
+# Idioms & Proverbs App
+# ==========================================
+
+# ---------- Page Config ----------
 st.set_page_config(
     page_title="Idioms & Proverbs",
     page_icon="📘",
     layout="wide"
 )
+
+# ---------- Sidebar Font ----------
+st.markdown("""
+<style>
+
+/* Sidebar menu text */
+section[data-testid="stSidebar"] a,
+section[data-testid="stSidebar"] a span,
+section[data-testid="stSidebar"] a p {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# ---------- Header ----------
+st.markdown("""
+<h1 style='text-align:center; font-size:36px; margin-bottom:5px;'>
+📘 APP Idioms & Proverbs
+</h1>
+
+<p style='text-align:center; font-size:18px; color:#555;'>
+관용표현 · 속담 학습 앱
+</p>
+""", unsafe_allow_html=True)
 
 CSV_FILE = "idioms_proverbs_for_grade1.csv"
 
