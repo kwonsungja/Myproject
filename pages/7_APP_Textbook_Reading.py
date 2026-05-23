@@ -62,12 +62,19 @@ if selected_lesson != "전체":
     filtered_df = df[df["lesson"] == selected_lesson].copy()
 else:
     filtered_df = df.copy()
-    
+
+# 자료가 없을 경우 처리
+if filtered_df.empty:
+    st.warning("선택한 조건에 해당하는 자료가 없습니다.")
+    st.stop()
+
+# 첫 번째 row 선택
+row = filtered_df.iloc[0]
 # -----------------------------
 # Header
 # -----------------------------
 
-st.markdown(f"## {book} · {row['lesson']}")
+st.markdown(f"## {selected_book} · {row['lesson']}")
 st.markdown(f"### {row['title']}")
 
 st.divider()
