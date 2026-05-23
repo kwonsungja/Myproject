@@ -114,16 +114,22 @@ st.markdown(
 )
 st.divider()
 
-# ---------- Sidebar ----------
-st.sidebar.header("학습 설정")
-mode = st.sidebar.radio(
+# ---------- Learning Settings ----------
+
+st.header("⚙️ 학습 설정")
+
+mode = st.radio(
     "메뉴 선택",
     ["1. Learn", "2. Quick Test", "3. Review Wrong Answers"],
     index=0
 )
 
 section_options = ["전체"] + list(df["section"].dropna().unique())
-selected_section = st.sidebar.selectbox("학습 자료 선택", section_options)
+
+selected_section = st.selectbox(
+    "학습 자료 선택",
+    section_options
+)
 
 if selected_section != "전체":
     filtered_df = df[df["section"] == selected_section].copy()
@@ -131,19 +137,23 @@ else:
     filtered_df = df.copy()
 
 lesson_options = ["전체"] + list(filtered_df["lesson"].dropna().unique())
-selected_lesson = st.sidebar.selectbox("Lesson 선택", lesson_options)
+
+selected_lesson = st.selectbox(
+    "Lesson 선택",
+    lesson_options
+)
 
 if selected_lesson != "전체":
-    filtered_df = filtered_df[filtered_df["lesson"] == selected_lesson].copy()
+    filtered_df = filtered_df[
+        filtered_df["lesson"] == selected_lesson
+    ].copy()
 
-items_per_page = st.sidebar.slider("한 번에 볼 표현 수", 5, 20, 10)
-
-# ---------- Session State ----------
-if "wrong_items" not in st.session_state:
-    st.session_state.wrong_items = []
-
-if "quiz_items" not in st.session_state:
-    st.session_state.quiz_items = []
+items_per_page = st.slider(
+    "한 번에 볼 표현 수",
+    5,
+    20,
+    10
+)
 
 # ---------- Learn Mode ----------
 if mode == "1. Learn":
