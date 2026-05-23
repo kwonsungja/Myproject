@@ -29,17 +29,6 @@ section[data-testid="stSidebar"] a p {
 </style>
 """, unsafe_allow_html=True)
 
-# ---------- Header ----------
-st.markdown("""
-<h1 style='text-align:center; font-size:36px; margin-bottom:5px;'>
-📘 APP Textbook Reading
-</h1>
-
-<p style='text-align:center; font-size:18px; color:#555;'>
-교과서 본문 · TTS · Further Reading 학습 앱
-</p>
-""", unsafe_allow_html=True)
-
 # ---------- Sidebar Font ----------
 st.markdown("""
 <style>
