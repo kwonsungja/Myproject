@@ -36,25 +36,33 @@ def load_data(book):
 
     return pd.read_csv(file_path, encoding="utf-8-sig")
 
-# -----------------------------
-# Sidebar
-# -----------------------------
+# ---------- Reading Options ----------
 
-st.sidebar.header("Reading Options")
+st.header("⚙️ Reading Options")
 
-book = st.sidebar.selectbox(
+textbook_options = ["전체"] + list(df["textbook"].dropna().unique())
+
+selected_textbook = st.selectbox(
     "교과서 선택",
-    ["공통영어1", "공통영어2"]
+    textbook_options
 )
 
-df = load_data(book)
+if selected_textbook != "전체":
+    filtered_df = df[df["textbook"] == selected_textbook].copy()
+else:
+    filtered_df = df.copy()
 
-lesson = st.sidebar.selectbox(
+lesson_options = ["전체"] + list(filtered_df["lesson"].dropna().unique())
+
+selected_lesson = st.selectbox(
     "Lesson 선택",
-    df["lesson"].unique()
+    lesson_options
 )
 
-row = df[df["lesson"] == lesson].iloc[0]
+if selected_lesson != "전체":
+    filtered_df = filtered_df[
+        filtered_df["lesson"] == selected_lesson
+    ].copy()
 
 
 # -----------------------------
