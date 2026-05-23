@@ -10,9 +10,6 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-st.markdown("""
-<style>
-
 /* Sidebar 전체 메뉴 글자 */
 section[data-testid="stSidebar"] a,
 section[data-testid="stSidebar"] a span,
@@ -29,7 +26,7 @@ section[data-testid="stSidebar"] li {
     margin-bottom: 14px !important;
 }
 
-/* HOME 같은 section title */
+/* HOME section */
 section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
     font-size: 26px !important;
     font-weight: 700 !important;
