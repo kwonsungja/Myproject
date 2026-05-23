@@ -21,14 +21,7 @@ def load_data(book):
 
     base_path = Path(__file__).resolve().parents[1] / "data"
 
-    file_map = {
-        "공통영어1": "common_english1_reading_full.csv",
-        "공통영어2": "common_english2_reading_full.csv"
-    }
-
-    file_path = base_path / file_map[book]
-
-    if not file_path.exists():
+   if not file_path.exists():
         st.error("CSV 파일을 찾을 수 없습니다.")
         st.write("현재 찾는 위치:", file_path)
         st.write("data 폴더 파일 목록:", list(base_path.iterdir()))
@@ -67,7 +60,6 @@ if selected_lesson != "전체":
     filtered_df = df[df["lesson"] == selected_lesson].copy()
 else:
     filtered_df = df.copy()
-
 
 # -----------------------------
 # Header
