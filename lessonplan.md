@@ -1,14 +1,14 @@
-# 50-Minute Lesson Plan
+# 📘 50-Minute Lesson Plan
 ## Designing Adaptive English Lessons with Customized Apps
 
 ---
 
-# 1. Learner Profile
+# 👥 1. Learner Profile
 
 - Grade: High School Grade 1
 - English Level: Lower-intermediate to intermediate
 
-### Learner Needs
+### 🔍 Learner Needs
 - Difficulty understanding vocabulary in reading passages
 - Low confidence in reading English texts
 - Limited knowledge of phrasal verbs, collocations, and word relationships
@@ -17,29 +17,29 @@
 
 ---
 
-# 2. Class Setting
+# 🏫 2. Class Setting
 
 - Context: Korean high school English classroom
 - Class Length: 50 minutes
 
-### Classroom Environment
+### 💻 Classroom Environment
 - Computer classroom or students’ smartphones/tablets
 - Streamlit web app connected through QR code or link
 
-### Learning Format
+### 🤝 Learning Format
 - Individual learning
 - Pair discussion
 - Whole-class feedback
 
 ---
 
-# 3. Lesson Topic
+# 📖 3. Lesson Topic
 
 ## Improving English Reading and Listening Through Vocabulary Knowledge, Language Chunks, and TTS-Supported Reading
 
 ---
 
-# 4. Learning Objectives
+# 🎯 4. Learning Objectives
 
 By the end of the lesson, students will be able to:
 
@@ -52,7 +52,7 @@ By the end of the lesson, students will be able to:
 
 ---
 
-# 5. Target Language
+# 🧩 5. Target Language
 
 - Etymology (prefixes and roots)
 - Phrasal verbs
@@ -61,7 +61,7 @@ By the end of the lesson, students will be able to:
 - Synonyms and antonyms
 - Polysemous words
 
-### Examples
+### ✨ Examples
 - give up
 - pay attention
 - break down
@@ -71,7 +71,7 @@ By the end of the lesson, students will be able to:
 
 ---
 
-# 6. Teaching Procedure
+# 📝 6. Teaching Procedure
 
 | Stage | Time | Teacher Activities | Student Activities | App Integration |
 |---|---|---|---|---|
@@ -84,7 +84,7 @@ By the end of the lesson, students will be able to:
 
 ---
 
-# 7. Student Activities
+# 👨‍🎓 7. Student Activities
 
 Students will:
 
@@ -99,7 +99,7 @@ Students will:
 
 ---
 
-# 8. Teacher Role
+# 👩‍🏫 8. Teacher Role
 
 The teacher will:
 
@@ -112,7 +112,7 @@ The teacher will:
 
 ---
 
-# 9. App Integration
+# 📱 9. App Integration
 
 The customized Streamlit app supports adaptive learning by:
 
@@ -124,7 +124,7 @@ The customized Streamlit app supports adaptive learning by:
 - integrating reading and listening through TTS functions
 - increasing learner engagement through interactive quizzes and multimodal input
 
-## Apps Used
+## 🛠 Apps Used
 - APP_Etymology.py
 - APP_Phrasal_Verbs.py
 - APP_Collocations.py
@@ -134,22 +134,22 @@ The customized Streamlit app supports adaptive learning by:
 
 ---
 
-# 10. Feedback and Assessment
+# 📊 10. Feedback and Assessment
 
-## Formative Assessment
+## ✅ Formative Assessment
 - quiz scores
 - participation in app activities
 - pair discussion
 - teacher observation
 
-## Feedback
+## 💬 Feedback
 - immediate app-based feedback
 - teacher clarification and scaffolding
 - review of incorrect answers
 
 ---
 
-# 11. Expected Learning Outcomes
+# 🌱 11. Expected Learning Outcomes
 
 Students are expected to:
 
