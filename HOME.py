@@ -10,16 +10,21 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-st.markdown("""
-<style>
-
-/* Sidebar 메뉴 글자 */
+/* Sidebar menu text */
 section[data-testid="stSidebar"] a,
 section[data-testid="stSidebar"] a span,
 section[data-testid="stSidebar"] a p {
     font-size: 16px !important;
     font-weight: 500 !important;
 }
+
+/* Sidebar spacing */
+section[data-testid="stSidebar"] li {
+    margin-bottom: 2px !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
 
 /* 메뉴 간격 */
 section[data-testid="stSidebar"] li {
