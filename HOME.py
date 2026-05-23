@@ -15,7 +15,7 @@ st.markdown("""
 section[data-testid="stSidebar"] a,
 section[data-testid="stSidebar"] a span,
 section[data-testid="stSidebar"] a p {
-    font-size: 17px !important;
+    font-size: 18px !important;
     font-weight: 500 !important;
 }
 
