@@ -97,6 +97,19 @@ st.subheader("📖 Textbook Reading Text")
 with st.expander("본문 텍스트 보기", expanded=True):
     st.write(row["full_text"])
 
+# -----------------------------
+# Further Reading
+# -----------------------------
+
+st.divider()
+
+st.subheader("📚 Further Reading")
+
+st.markdown(f"### {row['further_reading_title']}")
+
+with st.expander("Read Further"):
+    st.write(row["further_reading_text"])
+
 
 # -----------------------------
 # Reading Task
