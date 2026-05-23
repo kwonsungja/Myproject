@@ -5,21 +5,40 @@ from pathlib import Path
 
 # ==========================================
 # Grade 1 Common English Phrasal Verbs App
-# Required CSV file:
-# grade1_common1_common2_book_phrasal_verbs.csv
-#
-# Required columns:
-# source_order, section, grade, textbook, lesson,
-# phrasal_verb, korean_meaning, example_sentence,
-# chunk_type, difficulty, learning_tip, source_note
 # ==========================================
 
+# ---------- Page Config ----------
 st.set_page_config(
     page_title="Grade 1 Phrasal Verbs",
     page_icon="📘",
     layout="wide"
 )
 
+# ---------- Sidebar Font ----------
+st.markdown("""
+<style>
+
+/* Sidebar menu text */
+section[data-testid="stSidebar"] a,
+section[data-testid="stSidebar"] a span,
+section[data-testid="stSidebar"] a p {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# ---------- Header ----------
+st.markdown("""
+<h1 style='text-align:center; font-size:36px; margin-bottom:5px;'>
+📘 APP Phrasal Verbs
+</h1>
+
+<p style='text-align:center; font-size:18px; color:#555;'>
+공통영어1 · 공통영어2 구동사 학습 앱
+</p>
+""", unsafe_allow_html=True)
 # ---------- Style ----------
 st.markdown(
     """
