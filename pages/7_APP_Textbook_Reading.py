@@ -18,7 +18,7 @@ st.caption("Vocabulary → Textbook Reading → Reading Expansion")
 @st.cache_data
 def load_data(book):
 
-    base_path = Path(__file__).resolve().parents[1]
+    base_path = Path(__file__).resolve().parents[1] / "data"
 
     file_map = {
         "공통영어1": "common_english1_reading_full.csv",
@@ -30,7 +30,7 @@ def load_data(book):
     if not file_path.exists():
         st.error("CSV 파일을 찾을 수 없습니다.")
         st.write("현재 찾는 위치:", file_path)
-        st.write("현재 폴더 파일 목록:", list(base_path.iterdir()))
+        st.write("data 폴더 파일 목록:", list(base_path.iterdir()))
         st.stop()
 
     return pd.read_csv(file_path, encoding="utf-8-sig")
