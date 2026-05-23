@@ -2,7 +2,38 @@ import streamlit as st
 import pandas as pd
 import random
 
-st.set_page_config(page_title="APP: Etymology", page_icon="🌱", layout="wide")
+# ---------- Page Config ----------
+st.set_page_config(
+    page_title="APP: Etymology",
+    page_icon="🌱",
+    layout="wide"
+)
+
+# ---------- Sidebar Font ----------
+st.markdown("""
+<style>
+
+/* Sidebar menu text */
+section[data-testid="stSidebar"] a,
+section[data-testid="stSidebar"] a span,
+section[data-testid="stSidebar"] a p {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# ---------- Header ----------
+st.markdown("""
+<h1 style='text-align:center; font-size:36px; margin-bottom:5px;'>
+🌱 APP Etymology
+</h1>
+
+<p style='text-align:center; font-size:18px; color:#555;'>
+어원 · 접두사 · 접미사 · 어근 학습 앱
+</p>
+""", unsafe_allow_html=True)
 
 st.title("🌱 APP: Etymology")
 st.caption("Daily Test · Review Test · Progress Test")
