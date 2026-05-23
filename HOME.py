@@ -7,34 +7,25 @@ st.set_page_config(
     layout="wide"
 )
 
-# ---------- Sidebar Style ----------
 st.markdown("""
 <style>
 
-/* Sidebar 전체 */
-section[data-testid="stSidebar"] {
-    background-color: #f5f7fb;
-}
-
-/* Navigation 메뉴 글자 */
-section[data-testid="stSidebarNav"] p {
+/* Sidebar page menu text */
+section[data-testid="stSidebar"] a {
     font-size: 24px !important;
     font-weight: 600 !important;
 }
 
-/* Navigation 아이콘 포함 */
-section[data-testid="stSidebarNav"] span {
+/* Sidebar page menu text inside link */
+section[data-testid="stSidebar"] a span,
+section[data-testid="stSidebar"] a p {
     font-size: 24px !important;
+    font-weight: 600 !important;
 }
 
-/* Sidebar 일반 텍스트 */
-section[data-testid="stSidebar"] label {
-    font-size: 20px !important;
-}
-
-/* Selectbox */
-section[data-testid="stSidebar"] div[data-baseweb="select"] {
-    font-size: 20px !important;
+/* Sidebar menu spacing */
+section[data-testid="stSidebar"] li {
+    margin-bottom: 10px !important;
 }
 
 </style>
