@@ -106,12 +106,20 @@ st.markdown("### 🔊 Listen to the Text")
 tts_text = row["full_text"]
 
 if st.button("🎧 Generate American English Audio"):
-    tts = gTTS(text=tts_text, lang="en", tld="com")
-    audio_fp = BytesIO()
-    tts.write_to_fp(audio_fp)
-    audio_fp.seek(0)
 
-    st.audio(audio_fp, format="audio/mp3")
+    try:
+        with st.spinner("Generating audio..."):
+            tts = gTTS(text=tts_text, lang="en", tld="com")
+
+            audio_fp = BytesIO()
+            tts.write_to_fp(audio_fp)
+            audio_fp.seek(0)
+
+            st.audio(audio_fp, format="audio/mp3")
+
+    except Exception as e:
+        st.error("Audio generation failed.")
+        st.write(e)
 
 # -----------------------------
 # Further Reading
