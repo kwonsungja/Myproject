@@ -10,22 +10,29 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-/* Sidebar page menu text */
-section[data-testid="stSidebar"] a {
-    font-size: 24px !important;
-    font-weight: 600 !important;
-}
+st.markdown("""
+<style>
 
-/* Sidebar page menu text inside link */
+/* Sidebar 전체 메뉴 글자 */
+section[data-testid="stSidebar"] a,
 section[data-testid="stSidebar"] a span,
-section[data-testid="stSidebar"] a p {
-    font-size: 24px !important;
-    font-weight: 600 !important;
+section[data-testid="stSidebar"] a p,
+section[data-testid="stSidebar"] div[role="button"],
+section[data-testid="stSidebar"] div[role="button"] p {
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    line-height: 1.6 !important;
 }
 
-/* Sidebar menu spacing */
+/* 메뉴 간격 */
 section[data-testid="stSidebar"] li {
-    margin-bottom: 10px !important;
+    margin-bottom: 14px !important;
+}
+
+/* HOME 같은 section title */
+section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
+    font-size: 26px !important;
+    font-weight: 700 !important;
 }
 
 </style>
