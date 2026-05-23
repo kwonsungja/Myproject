@@ -40,15 +40,15 @@ def load_data(book):
 
 st.header("⚙️ Reading Options")
 
-textbook_options = ["전체"] + list(df["textbook"].dropna().unique())
+book_options = ["전체"] + list(df["textbook"].dropna().unique())
 
-selected_textbook = st.selectbox(
+selected_book = st.selectbox(
     "교과서 선택",
-    textbook_options
+    book_options
 )
 
-if selected_textbook != "전체":
-    filtered_df = df[df["textbook"] == selected_textbook].copy()
+if selected_book != "전체":
+    filtered_df = df[df["textbook"] == selected_book].copy()
 else:
     filtered_df = df.copy()
 
