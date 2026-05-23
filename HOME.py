@@ -7,6 +7,7 @@ st.set_page_config(
     layout="wide"
 )
 
+# ---------- Sidebar Style ----------
 st.markdown("""
 <style>
 
@@ -29,14 +30,6 @@ section[data-testid="stSidebar"] li {
 /* 메뉴 간격 */
 section[data-testid="stSidebar"] li {
     margin-bottom: 2px !important;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
-/* 메뉴 간격 */
-section[data-testid="stSidebar"] li {
-    margin-bottom: 14px !important;
 }
 
 /* HOME section */
