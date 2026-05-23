@@ -4,14 +4,42 @@ from pathlib import Path
 from gtts import gTTS
 from io import BytesIO
 
+# ==========================================
+# Textbook Reading App
+# ==========================================
+
+# ---------- Page Config ----------
 st.set_page_config(
     page_title="APP Textbook Reading",
     page_icon="📘",
     layout="wide"
 )
 
-st.title("📘 APP Textbook Reading")
-st.caption("Vocabulary → Textbook Reading → Reading Expansion")
+# ---------- Sidebar Font ----------
+st.markdown("""
+<style>
+
+/* Sidebar menu text */
+section[data-testid="stSidebar"] a,
+section[data-testid="stSidebar"] a span,
+section[data-testid="stSidebar"] a p {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# ---------- Header ----------
+st.markdown("""
+<h1 style='text-align:center; font-size:36px; margin-bottom:5px;'>
+📘 APP Textbook Reading
+</h1>
+
+<p style='text-align:center; font-size:18px; color:#555;'>
+Vocabulary → Textbook Reading → Reading Expansion
+</p>
+""", unsafe_allow_html=True)
 
 # -----------------------------
 # Data loading
