@@ -46,40 +46,21 @@ st.header("⚙️ 학습 설정")
 
 mode = st.radio(
     "메뉴 선택",
-    ["1. Learn", "2. Quick Test", "3. Review Wrong Answers"],
-    index=0
+    ["1. Learn", "2. Meaning Test", "3. Fill-in Test", "4. Review Wrong Answers"]
 )
 
-section_options = ["전체"] + list(df["section"].dropna().unique())
-
-selected_section = st.selectbox(
-    "학습 자료 선택",
-    section_options
+category = st.selectbox(
+    "학습 범위",
+    ["전체"] + list(df["category"].unique())
 )
 
-if selected_section != "전체":
-    filtered_df = df[df["section"] == selected_section].copy()
-else:
+if category == "전체":
     filtered_df = df.copy()
+else:
+    filtered_df = df[df["category"] == category].copy()
 
-lesson_options = ["전체"] + list(filtered_df["lesson"].dropna().unique())
-
-selected_lesson = st.selectbox(
-    "Lesson 선택",
-    lesson_options
-)
-
-if selected_lesson != "전체":
-    filtered_df = filtered_df[
-        filtered_df["lesson"] == selected_lesson
-    ].copy()
-
-items_per_page = st.slider(
-    "한 번에 볼 표현 수",
-    5,
-    20,
-    10
-)
+if "wrong_items" not in st.session_state:
+    st.session_state.wrong_items = []
 
 # 1. Learn
 if mode == "1. Learn":
