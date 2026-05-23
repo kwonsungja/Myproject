@@ -2,15 +2,39 @@ import streamlit as st
 import time
 import random
 
-st.set_page_config(page_title="Smart Class Tools", page_icon="🧰", layout="wide")
+st.set_page_config(
+    page_title="Smart Class Tools",
+    page_icon="🧰",
+    layout="wide"
+)
 
+# ---------- Sidebar Font ----------
 st.markdown("""
-<h1 style='text-align:center;'>🧰 Smart Class Tools</h1>
-<p style='text-align:center; font-size:20px;'>Timer · Stopwatch · Random Number · Penalty Wheel</p>
+<style>
+
+/* Sidebar menu text */
+section[data-testid="stSidebar"] a,
+section[data-testid="stSidebar"] a span,
+section[data-testid="stSidebar"] a p {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# ---------- Header ----------
+st.markdown("""
+<h1 style='text-align:center; font-size:36px; margin-bottom:5px;'>
+🧰 Smart Class Tools
+</h1>
+
+<p style='text-align:center; font-size:18px; color:#555;'>
+Timer · Stopwatch · Random Number · Penalty Wheel
+</p>
 """, unsafe_allow_html=True)
 
 tabs = st.tabs(["⏱ 타이머", "⌛ 스톱워치", "🎲 순서정하기", "🎯 벌칙정하기"])
-
 # -----------------------------
 # 1. TIMER
 # -----------------------------
