@@ -3,11 +3,42 @@ import pandas as pd
 import random
 from pathlib import Path
 
+# ==========================================
+# Word Relations App
+# ==========================================
+
+# ---------- Page Config ----------
 st.set_page_config(
     page_title="Word Relations",
     page_icon="📘",
     layout="wide"
 )
+
+# ---------- Sidebar Font ----------
+st.markdown("""
+<style>
+
+/* Sidebar menu text */
+section[data-testid="stSidebar"] a,
+section[data-testid="stSidebar"] a span,
+section[data-testid="stSidebar"] a p {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+# ---------- Header ----------
+st.markdown("""
+<h1 style='text-align:center; font-size:36px; margin-bottom:5px;'>
+📘 APP Word Relations
+</h1>
+
+<p style='text-align:center; font-size:18px; color:#555;'>
+다의어 · 유의어 · 반의어 학습 앱
+</p>
+""", unsafe_allow_html=True)
 
 CSV_FILE = "grade1_word_relations_integrated.csv"
 @st.cache_data
