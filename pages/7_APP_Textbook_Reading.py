@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 from pathlib import Path
+from gtts import gTTS
+from io import BytesIO
 
 st.set_page_config(
     page_title="APP Textbook Reading",
@@ -95,6 +97,21 @@ st.subheader("📖 Textbook Reading Text")
 
 with st.expander("본문 텍스트 보기", expanded=True):
     st.write(row["full_text"])
+
+# -----------------------------
+# TTS: Text-to-Speech
+# -----------------------------
+st.markdown("### 🔊 Listen to the Text")
+
+tts_text = row["full_text"]
+
+if st.button("🎧 Generate American English Audio"):
+    tts = gTTS(text=tts_text, lang="en", tld="com")
+    audio_fp = BytesIO()
+    tts.write_to_fp(audio_fp)
+    audio_fp.seek(0)
+
+    st.audio(audio_fp, format="audio/mp3")
 
 # -----------------------------
 # Further Reading
