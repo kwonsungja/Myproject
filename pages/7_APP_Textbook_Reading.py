@@ -19,35 +19,37 @@ st.caption("Vocabulary → Textbook Reading → Reading Expansion")
 
 def load_data(book):
 
+    file_map = {
+        "공통영어1": "common_english1_reading_full.csv",
+        "공통영어2": "common_english2_reading_full.csv"
+    }
+
     base_path = Path(__file__).resolve().parents[1] / "data"
 
-   if not file_path.exists():
+    file_path = base_path / file_map[book]
+
+    if not file_path.exists():
         st.error("CSV 파일을 찾을 수 없습니다.")
         st.write("현재 찾는 위치:", file_path)
         st.write("data 폴더 파일 목록:", list(base_path.iterdir()))
         st.stop()
 
-    return pd.read_csv(file_path, encoding="utf-8-sig")
+    df = pd.read_csv(file_path, encoding="utf-8-sig")
+
+    df.columns = df.columns.str.strip()
+
+    return df
 
 # ---------- Reading Options ----------
 
 st.header("⚙️ Reading Options")
 
-file_map = {
-    "공통영어1": "common_english1_reading_full.csv",
-    "공통영어2": "common_english2_reading_full.csv"
-}
-
 selected_book = st.selectbox(
     "교과서 선택",
-    list(file_map.keys())
+    ["공통영어1", "공통영어2"]
 )
 
-df = pd.read_csv(
-    f"data/{file_map[selected_book]}"
-)
-
-df.columns = df.columns.str.strip()
+df = load_data(selected_book)
 
 lesson_options = ["전체"] + list(df["lesson"].dropna().unique())
 
