@@ -40,6 +40,11 @@ def load_data(book):
 
 st.header("⚙️ Reading Options")
 
+file_map = {
+    "공통영어1": "common_english1_reading_full.csv",
+    "공통영어2": "common_english2_reading_full.csv"
+}
+
 selected_book = st.selectbox(
     "교과서 선택",
     list(file_map.keys())
