@@ -27,21 +27,6 @@ section[data-testid="stSidebar"] li {
 </style>
 """, unsafe_allow_html=True)
 
-/* 메뉴 간격 */
-section[data-testid="stSidebar"] li {
-    margin-bottom: 2px !important;
-}
-
-/* HOME section */
-section[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
-    font-size: 26px !important;
-    font-weight: 700 !important;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
-
 # ---------- Header ----------
 st.markdown("""
 <div style="background: linear-gradient(135deg, #F8FBFF, #EEF4FA); padding: 10px 25px; border-radius: 20px; border: 1px solid #D8E6F2; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
