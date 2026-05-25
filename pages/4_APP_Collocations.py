@@ -194,9 +194,9 @@ if mode == "1. Learn":
         st.markdown(
             f"""
 <div style='background-color:#fff7ef; padding:28px; border-radius:18px; border:1px solid #ffd2b3; margin-bottom:24px;'>
-<div style='color:#e85d04; font-size:34px; font-weight:800; margin-bottom:18px;'>{row['collocation']}</div>
-<div style='font-size:24px; margin-bottom:12px;'><b>뜻:</b> {row['meaning_ko']}</div>
-<div style='font-size:22px;'><b>예문:</b> {row['example_sentence']}</div>
+<div style='color:#e85d04; font-size:24px; font-weight:800; margin-bottom:18px;'>{row['collocation']}</div>
+<div style='font-size:18px; margin-bottom:12px;'><b>뜻:</b> {row['meaning_ko']}</div>
+<div style='font-size:17px;'><b>예문:</b> {row['example_sentence']}</div>
 </div>
             """,
             unsafe_allow_html=True
