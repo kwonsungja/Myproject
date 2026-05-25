@@ -31,7 +31,7 @@ section[data-testid="stSidebar"] li {
 st.markdown("""
 <div style="
     background: linear-gradient(135deg, #EAF4FF 0%, #F7FBFF 100%);
-    padding: 55px 35px;
+    padding: 28px 35px;
     border-radius: 28px;
     border: 1px solid #D6E8FF;
     text-align: center;
@@ -41,7 +41,7 @@ st.markdown("""
 
 <h1 style="
     color:#1F2A44;
-    font-size:52px;
+    font-size:44px;
     margin-bottom:18px;
     font-weight:700;
 ">
@@ -49,14 +49,14 @@ st.markdown("""
 </h1>
 
 <p style="
-    font-size:24px;
+    font-size:20px;
     color:#4B5563;
     margin-bottom:12px;
     font-weight:500;
 ">
 고등학생을 위한 어휘 · 읽기 통합 학습 앱
 <p style="
-    font-size:19px;
+    font-size:17px;
     color:#374151;
     margin-bottom:20px;
     font-weight:600;
@@ -66,7 +66,7 @@ Learn vocabulary, reading, communication, and real English in one place
 
 <p style="
     color:#475569;
-    font-size:15px;
+    font-size:13px;
     font-weight:600;
     letter-spacing:4px;
     margin-top:10px;
