@@ -138,7 +138,12 @@ st.header("⚙️ 학습 설정")
 
 mode = st.radio(
     "메뉴 선택",
-    ["1. Learn", "2. Quick Test", "3. Review Wrong Answers"],
+    [
+        "1. Learn",
+        "2. Meaning Test",
+        "3. Fill-in Test",
+        "4. Review Wrong Answers"
+    ],
     index=0
 )
 
