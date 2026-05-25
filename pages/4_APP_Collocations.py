@@ -36,7 +36,8 @@ st.markdown("""
 </h1>
 
 <p style='text-align:center; font-size:18px; color:#555;'>
-공통영어1 · 공통영어2 연어 학습 앱
+공통영어1 · 공통영어2 연어 학습 앱<br>
+자주 함께 쓰이는 자연스러운 단어 표현을 학습하는 앱
 </p>
 """, unsafe_allow_html=True)
 
