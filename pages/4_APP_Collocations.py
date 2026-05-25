@@ -329,10 +329,9 @@ elif mode == "3. Fill-in Test":
 # ==========================================
 # 4. Wrong Answers
 # ==========================================
-else:
+elif mode == "4. Review Wrong Answers":
 
     st.subheader("🔁 Review Wrong Answers")
-
     if not st.session_state.wrong_items:
 
         st.info("아직 오답이 없습니다.")
