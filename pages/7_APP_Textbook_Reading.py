@@ -37,6 +37,7 @@ st.markdown("""
 </h1>
 
 <p style='text-align:center; font-size:18px; color:#555;'>
+교과서 본문과 추가 읽기 학습 앱<br>
 Vocabulary → Textbook Reading → Reading Expansion
 </p>
 """, unsafe_allow_html=True)
