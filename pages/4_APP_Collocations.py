@@ -191,36 +191,42 @@ if mode == "1. Learn":
 
     for _, row in filtered_df.iterrows():
 
-        st.markdown(
-            f"""
+        card_html = f"""
+        <div style="
+            background-color:#fff7ef;
+            padding:28px;
+            border-radius:18px;
+            border:1px solid #ffd2b3;
+            margin-bottom:24px;
+        ">
+
             <div style="
-                background-color:#fff7ef;
-                padding:28px;
-                border-radius:18px;
-                border:1px solid #ffd2b3;
-                margin-bottom:24px;
+                color:#e85d04;
+                font-size:34px;
+                font-weight:800;
+                margin-bottom:18px;
             ">
-
-                <h2 style="
-                    color:#e85d04;
-                    font-size:34px;
-                    margin-bottom:18px;
-                ">
-                    {row['collocation']}
-                </h2>
-
-                <p style="font-size:24px;">
-                    <b>뜻:</b> {row['meaning_ko']}
-                </p>
-
-                <p style="font-size:22px;">
-                    <b>예문:</b> {row['example_sentence']}
-                </p>
-
+                {row['collocation']}
             </div>
-            """,
-            unsafe_allow_html=True
-        )
+
+            <div style="
+                font-size:24px;
+                margin-bottom:12px;
+            ">
+                <b>뜻:</b> {row['meaning_ko']}
+            </div>
+
+            <div style="
+                font-size:22px;
+            ">
+                <b>예문:</b> {row['example_sentence']}
+            </div>
+
+        </div>
+        """
+
+        st.markdown(card_html, unsafe_allow_html=True)
+        
 # ==========================================
 # 2. Meaning Test
 # ==========================================
