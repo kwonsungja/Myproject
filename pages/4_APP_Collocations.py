@@ -212,7 +212,8 @@ if mode == "1. Learn":
             </p>
 
         </div>
-        """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True
+       )
 
 # ==========================================
 # 2. Meaning Test
