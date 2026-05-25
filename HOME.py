@@ -55,19 +55,19 @@ st.markdown("""
     font-weight:500;
 ">
 고등학생을 위한 어휘 · 읽기 통합 학습 앱
-</p>
-
 <p style="
-    font-size:18px;
-    color:#6B7280;
+    font-size:19px;
+    color:#374151;
     margin-bottom:20px;
+    font-weight:600;
 ">
 Learn vocabulary, reading, communication, and real English in one place
 </p>
 
 <p style="
-    color:#94A3B8;
-    font-size:14px;
+    color:#475569;
+    font-size:15px;
+    font-weight:600;
     letter-spacing:4px;
     margin-top:10px;
 ">
