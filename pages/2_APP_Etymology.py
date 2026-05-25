@@ -31,7 +31,9 @@ st.markdown("""
 </h1>
 
 <p style='text-align:center; font-size:18px; color:#555;'>
-어원 · 접두사 · 접미사 · 어근 학습 앱
+어원 · 접두사 · 접미사 · 어근 학습 앱<br>
+단어의 뿌리와 의미 관계를 학습하는 앱
+
 </p>
 """, unsafe_allow_html=True)
 
