@@ -55,7 +55,7 @@ st.markdown("""
 </p>
 """, unsafe_allow_html=True)
 
-CSV_FILE = "grade1_word_relations_integrated.csv"
+CSV_FILE = "grade1_word_relations_integrated_updated.csv"
 @st.cache_data
 def load_data():
     path1 = Path(CSV_FILE)
