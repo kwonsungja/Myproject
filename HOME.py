@@ -29,25 +29,53 @@ section[data-testid="stSidebar"] li {
 
 # ---------- Header ----------
 st.markdown("""
-<div style="background: linear-gradient(135deg, #F8FBFF, #EEF4FA); padding: 10px 25px; border-radius: 20px; border: 1px solid #D8E6F2; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+<div style="
+    background: linear-gradient(135deg, #EAF4FF 0%, #F7FBFF 100%);
+    padding: 55px 35px;
+    border-radius: 28px;
+    border: 1px solid #D6E8FF;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    margin-bottom: 35px;
+">
 
-<h1 style="color:#1F2A44; font-size:34px; margin-top:5px; margin-bottom:0px;">
+<h1 style="
+    color:#1F2A44;
+    font-size:52px;
+    margin-bottom:18px;
+    font-weight:700;
+">
 🌍 English Opens Your World
 </h1>
 
-<h3 style="color:#4A5568; font-weight:400; font-size:18px; line-height:1.15; margin-top:8px; margin-bottom:4px;">
-Explore vocabulary, reading, communication, and real English learning experiences
-</h3>
+<p style="
+    font-size:24px;
+    color:#4B5563;
+    margin-bottom:12px;
+    font-weight:500;
+">
+고등학생을 위한 어휘 · 읽기 통합 학습 앱
+</p>
 
-<p style="color:#6B7280; font-size:13px; margin-top:0px; margin-bottom:4px; letter-spacing:2px;">
+<p style="
+    font-size:18px;
+    color:#6B7280;
+    margin-bottom:20px;
+">
+Learn vocabulary, reading, communication, and real English in one place
+</p>
+
+<p style="
+    color:#94A3B8;
+    font-size:14px;
+    letter-spacing:4px;
+    margin-top:10px;
+">
 LEARN • EXPRESS • DISCOVER • GROW
 </p>
 
 </div>
 """, unsafe_allow_html=True)
-
-st.write("")
-st.write("")
 
 # ---------- Intro Section ----------
 col1, col2 = st.columns([1.15, 1])
