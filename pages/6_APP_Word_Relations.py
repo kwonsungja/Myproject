@@ -70,9 +70,10 @@ def load_data():
         st.stop()
 
     required = [
-        "order", "category", "word", "part_of_speech",
-        "korean_meaning", "related_word", "relation_meaning", "note"
-    ]
+    "order", "category", "word", "part_of_speech",
+    "meaning_in_context",
+    "related_word", "relation_meaning", "note"
+]
 
     missing = [c for c in required if c not in df.columns]
     if missing:
@@ -121,7 +122,7 @@ if mode == "1. Learn":
 
         st.write(f"분류: {row['category']}")
 
-        st.write(f"뜻: {row['korean_meaning']}")
+        st.write(f"뜻: {row['meaning_in_context']}")
 
         if row["category"] in ["반의어", "유의어"]:
             st.write(
@@ -145,9 +146,9 @@ elif mode == "2. Meaning Test":
     answers = []
 
     for i, (_, row) in enumerate(quiz_df.iterrows(), start=1):
-        correct = row["korean_meaning"]
+        correct = row["meaning_in_context"]
 
-        wrong_pool = df[df["korean_meaning"] != correct]["korean_meaning"].tolist()
+        wrong_pool = df[df["meaning_in_context"] != correct]["meaning_in_context"].tolist()
         wrongs = random.sample(wrong_pool, min(3, len(wrong_pool)))
 
         options = wrongs + [correct]
@@ -237,7 +238,7 @@ else:
             ">
                 <h3 style="color:#e85d04;">{item['word']}</h3>
                 <p><b>분류:</b> {item['category']}</p>
-                <p><b>뜻:</b> {item['korean_meaning']}</p>
+                <p><b>뜻:</b> {item['meaning_in_context']}</p>
                 <p><b>관련어:</b> {item['related_word']} {item['relation_meaning']}</p>
             </div>
             """, unsafe_allow_html=True)
