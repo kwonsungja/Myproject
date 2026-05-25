@@ -111,31 +111,37 @@ else:
 if "wrong_items" not in st.session_state:
     st.session_state.wrong_items = []
 
+# ==========================================
+# 1. Learn
+# ==========================================
 if mode == "1. Learn":
-    st.subheader("📖 Learn")
 
-    st.write(f"현재 학습 항목 수: **{len(filtered_df)}개**")
+    st.header("📖 Learn")
+
+    st.write(f"현재 학습 항목 수: {len(filtered_df)}개")
 
     for _, row in filtered_df.iterrows():
 
-        st.markdown(f"## {row['order']}. {row['word']}")
+        st.markdown(
+            f"""
+<div style='background-color:#f7f9fc; padding:24px; border-radius:18px; border:1px solid #d6e4ff; margin-bottom:20px;'>
 
-        st.write(f"분류: {row['category']}")
+<div style='color:#1d4ed8; font-size:24px; font-weight:700; margin-bottom:14px;'>
+{row['order']}. {row['word']}
+</div>
 
-        st.write(f"뜻: {row['meaning_in_context']}")
+<div style='font-size:18px; margin-bottom:10px;'>
+<b>분류:</b> {row['category']}
+</div>
 
-        if row["category"] in ["반의어", "유의어"]:
-            st.write(
-                f"관련어: {row['related_word']} "
-                f"({row['relation_meaning']})"
-            )
+<div style='font-size:17px;'>
+<b>뜻:</b> {row['meaning_in_context']}
+</div>
 
-        note = row.get("note", "")
-
-        if note:
-            st.write(f"note: {note}")
-
-        st.divider()
+</div>
+            """,
+            unsafe_allow_html=True
+        )
 
 elif mode == "2. Meaning Test":
     st.subheader("📝 Meaning Test")
