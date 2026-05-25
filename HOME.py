@@ -7,6 +7,18 @@ st.set_page_config(
     layout="wide"
 )
 
+st.markdown("""
+<style>
+
+/* Main page top padding */
+.block-container {
+    padding-top: 1.2rem;
+    padding-bottom: 1rem;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 # ---------- Sidebar Style ----------
 st.markdown("""
 <style>
