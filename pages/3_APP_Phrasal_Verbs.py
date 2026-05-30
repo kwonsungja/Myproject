@@ -229,11 +229,31 @@ elif mode == "2. Quick Test":
     quiz_size = st.selectbox("문항 수", [5, 10, 15, 20], index=1)
 
     if st.button("새 테스트 시작"):
-        st.session_state.quiz_items = filtered_df.sample(
-            min(quiz_size, len(filtered_df)),
-            random_state=random.randint(1, 100000)
-        ).to_dict("records")
+    quiz_items = filtered_df.sample(
+        min(quiz_size, len(filtered_df)),
+        random_state=random.randint(1, 100000)
+    ).to_dict("records")
 
+    for item in quiz_items:
+    correct = item["korean_meaning"]
+
+    other_pool = df[
+        df["korean_meaning"] != correct
+    ]["korean_meaning"].dropna().unique().tolist()
+
+    other_options = random.sample(
+        other_pool,
+        min(3, len(other_pool))
+    )
+
+    options = other_options + [correct]
+    random.shuffle(options)
+
+    item["options"] = options
+
+st.session_state.quiz_items = quiz_items
+        
+        
     if not st.session_state.quiz_items:
         st.warning("먼저 '새 테스트 시작' 버튼을 눌러 주세요.")
         st.stop()
@@ -241,22 +261,20 @@ elif mode == "2. Quick Test":
     answers = []
 
     for i, item in enumerate(st.session_state.quiz_items, start=1):
-        st.markdown(f"### Q{i}. {item['phrasal_verb']}")
-        st.caption(f"{item['section']} / {item['lesson']}")
+    st.markdown(f"### Q{i}. {item['phrasal_verb']}")
+    st.caption(f"{item['section']} / {item['lesson']}")
 
-        correct = item["korean_meaning"]
-        other_pool = df[df["korean_meaning"] != correct]["korean_meaning"].dropna().unique().tolist()
-        other_options = random.sample(other_pool, min(3, len(other_pool)))
-        options = other_options + [correct]
-        random.shuffle(options)
+    correct = item["korean_meaning"]
+    options = item["options"]
 
-        answer = st.radio(
-       "뜻을 고르세요.",
-       options,
-       index=None,
-       key=f"quiz_{i}"
-)
-        answers.append((item, answer, correct))
+    answer = st.radio(
+        "뜻을 고르세요.",
+        options,
+        index=None,
+        key=f"quiz_{i}"
+    )
+
+    answers.append((item, answer, correct))
 
     if st.button("제출하기"):
         score = 0
