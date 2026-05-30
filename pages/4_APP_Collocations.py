@@ -74,13 +74,14 @@ st.markdown("""
     margin-top: 10px;
     color: #444;
 }
-</style>
-""", unsafe_allow_html=True)
 
 div[role="radiogroup"] label {
     font-size: 24px !important;
     font-weight: 500 !important;
 }
+
+</style>
+""", unsafe_allow_html=True)
 
 # ---------- Load Data ----------
 @st.cache_data
