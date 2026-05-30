@@ -233,13 +233,17 @@ elif mode == "2. Quick Test":
         st.warning("선택한 조건에 해당하는 표현이 없습니다.")
         st.stop()
 
-    quiz_size = st.selectbox("문항 수", [5, 10, 15, 20], index=1)
+    quiz_size = st.selectbox(
+    "문항 수",
+    [5, 10, 15, 20],
+    index=1
+)
 
-        if st.button("새 테스트 시작"):
-        quiz_items = filtered_df.sample(
-            min(quiz_size, len(filtered_df)),
-            random_state=random.randint(1, 100000)
-        ).to_dict("records")
+if st.button("새 테스트 시작"):
+    quiz_items = filtered_df.sample(
+        min(quiz_size, len(filtered_df)),
+        random_state=random.randint(1, 100000)
+    ).to_dict("records")
 
         for item in quiz_items:
             correct = item["korean_meaning"]
