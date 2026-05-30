@@ -131,8 +131,8 @@ df = load_data()
 if "quiz_items" not in st.session_state:
     st.session_state.quiz_items = []
 
-if "wrong_items" not in st.session_state:
-    st.session_state.wrong_items = []
+if "phrasal_wrong_items" not in st.session_state:
+    st.session_state.phrasal_wrong_items = []
 
 # ---------- Header ----------
 st.markdown('<div class="main-title">📘 Grade 1 Phrasal Verbs</div>', unsafe_allow_html=True)
@@ -269,30 +269,33 @@ elif mode == "2. Quick Test":
 
 # ---------- Review Wrong Answers ----------
 else:
+
     st.subheader("🔁 Review Wrong Answers")
 
-    if not st.session_state.wrong_items:
-        st.success("아직 오답이 없습니다. Quick Test를 먼저 풀어 보세요.")
-    else:
-        st.write(f"현재 오답 표현 수: **{len(st.session_state.wrong_items)}개**")
+    if not st.session_state.phrasal_wrong_items:
 
-        for item in st.session_state.wrong_items:
-            st.markdown(
-                f"""
-                <div class="word-card">
-                    <div class="phrasal-word">{item['phrasal_verb']}</div>
-                    <div class="meaning-text">뜻: {item['korean_meaning']}</div>
-                    <div class="example-text">예문: {item['example_sentence']}</div>
-                    <div class="tip-text">학습 팁: {item['learning_tip']}</div>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+        st.success("아직 오답이 없습니다. Quick Test를 먼저 풀어 보세요.")
+
+    else:
+
+        st.write(
+            f"현재 오답 표현 수: **{len(st.session_state.phrasal_wrong_items)}개**"
+        )
+
+        for item in st.session_state.phrasal_wrong_items:
+
+            st.markdown(f"### {item['phrasal_verb']}")
+            st.write(f"**뜻:** {item['korean_meaning']}")
+            st.write(f"**예문:** {item['example_sentence']}")
+            st.write(f"**학습 팁:** {item['learning_tip']}")
+            st.divider()
 
         if st.button("오답 목록 초기화"):
-            st.session_state.wrong_items = []
-            st.rerun()
 
+            st.session_state.phrasal_wrong_items = []
+
+            st.rerun()
+        
 # ---------- Footer ----------
 st.divider()
 st.caption("Designed for Grade 1 Common English phrasal verb learning.")
