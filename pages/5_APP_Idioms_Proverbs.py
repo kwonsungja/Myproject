@@ -123,55 +123,80 @@ if mode == "1. Learn":
 
 # 2. Meaning Test
 elif mode == "2. Meaning Test":
+
     st.subheader("📝 Meaning Test")
 
-    quiz_size = st.selectbox("문항 수", [5, 10, 15, 20], index=1)
+    quiz_size = st.selectbox(
+        "문항 수",
+        [5, 10, 15, 20],
+        index=1
+    )
 
     if len(filtered_df) == 0:
         st.warning("선택한 범위에 항목이 없습니다.")
         st.stop()
 
-    quiz_df = filtered_df.sample(min(quiz_size, len(filtered_df)))
+    quiz_df = filtered_df.sample(
+        min(quiz_size, len(filtered_df))
+    )
 
     answers = []
 
-for i, (_, row) in enumerate(quiz_df.iterrows(), start=1):
+    for i, (_, row) in enumerate(
+        quiz_df.iterrows(),
+        start=1
+    ):
 
-    correct = row["korean_meaning"]
+        correct = row["korean_meaning"]
 
-    wrong_pool = df[
-        df["korean_meaning"] != correct
-    ]["korean_meaning"].tolist()
+        wrong_pool = df[
+            df["korean_meaning"] != correct
+        ]["korean_meaning"].tolist()
 
-    wrongs = random.sample(
-        wrong_pool,
-        min(3, len(wrong_pool))
-    )
+        wrongs = random.sample(
+            wrong_pool,
+            min(3, len(wrong_pool))
+        )
 
-    options = wrongs + [correct]
-    random.shuffle(options)
+        options = wrongs + [correct]
+        random.shuffle(options)
 
-    answer = st.radio(
-    f"Q{i}. {row['idiom']}",
-    options,
-    index=None,
-    key=f"m_{i}"
-)
+        answer = st.radio(
+            f"Q{i}. {row['expression']}",
+            options,
+            index=None,
+            key=f"m_{i}"
+        )
 
-    answers.append((row, answer, correct))
+        answers.append((row, answer, correct))
 
     if st.button("제출하기"):
+
         score = 0
 
         for row, answer, correct in answers:
-            if answer == correct:
-                score += 1
-                st.success(f"✅ {row['expression']} = {correct}")
-            else:
-                st.error(f"❌ {row['expression']} / 정답: {correct}")
-                st.session_state.wrong_items.append(row.to_dict())
 
-        st.markdown(f"## 점수: {score} / {len(answers)}")
+            if answer == correct:
+
+                score += 1
+
+                st.success(
+                    f"✅ {row['expression']} = {correct}"
+                )
+
+            else:
+
+                st.error(
+                    f"❌ {row['expression']} / 정답: {correct}"
+                )
+
+                st.session_state.wrong_items.append(
+                    row.to_dict()
+                )
+
+        st.markdown(
+            f"## 점수: {score} / {len(answers)}"
+        )
 
 # 3. Fill-in Test
 elif mode == "3. Fill-in Test":
