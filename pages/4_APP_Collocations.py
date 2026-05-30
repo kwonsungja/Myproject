@@ -294,7 +294,7 @@ for i, item in enumerate(st.session_state.meaning_quiz_items, start=1):
     key=f"m_{i}"
 )
 
-        answers.append((item, answer, correct))
+    answers.append((item, answer, correct))
 
     if st.button("제출하기"):
         score = 0
