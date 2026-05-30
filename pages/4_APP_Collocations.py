@@ -77,6 +77,11 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+div[role="radiogroup"] label {
+    font-size: 24px !important;
+    font-weight: 500 !important;
+}
+
 # ---------- Load Data ----------
 @st.cache_data
 def load_data():
