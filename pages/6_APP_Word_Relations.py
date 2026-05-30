@@ -143,89 +143,111 @@ if mode == "1. Learn":
             unsafe_allow_html=True
         )
 
+# ==========================================
+# 2. Meaning Test
+# ==========================================
 elif mode == "2. Meaning Test":
+
     st.subheader("📝 Meaning Test")
 
-    quiz_size = st.selectbox("문항 수", [5, 10, 15, 20], index=1)
-    quiz_df = filtered_df.sample(min(quiz_size, len(filtered_df)))
+    quiz_size = st.selectbox(
+        "문항 수",
+        [5, 10, 15, 20],
+        index=1
+    )
+
+    if "meaning_quiz_items" not in st.session_state:
+        st.session_state.meaning_quiz_items = []
+
+    if st.button("새 Meaning Test 시작"):
+
+        quiz_df = filtered_df.sample(
+            min(quiz_size, len(filtered_df))
+        )
+
+        quiz_items = []
+
+        for _, row in quiz_df.iterrows():
+
+            correct = row["meaning_in_context"]
+
+            wrong_pool = df[
+                df["meaning_in_context"] != correct
+            ]["meaning_in_context"].dropna().tolist()
+
+            wrong_pool = [
+                x for x in wrong_pool
+                if str(x).strip() != ""
+            ]
+
+            wrongs = random.sample(
+                wrong_pool,
+                min(3, len(wrong_pool))
+            )
+
+            options = wrongs + [correct]
+            random.shuffle(options)
+
+            item = row.to_dict()
+            item["options"] = options
+
+            quiz_items.append(item)
+
+        st.session_state.meaning_quiz_items = quiz_items
+
+    if not st.session_state.meaning_quiz_items:
+
+        st.warning(
+            "먼저 '새 Meaning Test 시작' 버튼을 눌러 주세요."
+        )
+
+        st.stop()
 
     answers = []
 
-    for i, (_, row) in enumerate(quiz_df.iterrows(), start=1):
-        correct = row["meaning_in_context"]
-
-        wrong_pool = df[df["meaning_in_context"] != correct]["meaning_in_context"].tolist()
-        wrongs = random.sample(wrong_pool, min(3, len(wrong_pool)))
-
-        options = wrongs + [correct]
-        random.shuffle(options)
+    for i, item in enumerate(
+        st.session_state.meaning_quiz_items,
+        start=1
+    ):
 
         answer = st.radio(
-            f"Q{i}. {row['word']}",
-            options,
+            f"Q{i}. {item['word']}",
+            item["options"],
+            index=None,
             key=f"meaning_{i}"
         )
 
-        answers.append((row, answer, correct))
-
-    if st.button("제출하기"):
-        score = 0
-
-        for row, answer, correct in answers:
-            if answer == correct:
-                score += 1
-                st.success(f"✅ {row['word']} = {correct}")
-            else:
-                st.error(f"❌ {row['word']} / 정답: {correct}")
-                st.session_state.wrong_items.append(row.to_dict())
-
-        st.markdown(f"## 점수: {score} / {len(answers)}")
-
-elif mode == "3. Relation Test":
-    st.subheader("🔗 Relation Test")
-
-    relation_df = filtered_df[filtered_df["category"].isin(["반의어", "유의어"])]
-
-    if relation_df.empty:
-        st.warning("Relation Test는 반의어와 유의어에서만 사용할 수 있습니다.")
-        st.stop()
-
-    quiz_size = st.selectbox("문항 수", [5, 10, 15, 20], index=1)
-    quiz_df = relation_df.sample(min(quiz_size, len(relation_df)))
-
-    answers = []
-
-    for i, (_, row) in enumerate(quiz_df.iterrows(), start=1):
-        correct = row["related_word"]
-
-        wrong_pool = relation_df[
-            relation_df["related_word"] != correct
-        ]["related_word"].tolist()
-
-        wrongs = random.sample(wrong_pool, min(3, len(wrong_pool)))
-        options = wrongs + [correct]
-        random.shuffle(options)
-
-        answer = st.radio(
-            f"Q{i}. {row['word']}의 {row['category']}는?",
-            options,
-            key=f"relation_{i}"
+        answers.append(
+            (item, answer, item["meaning_in_context"])
         )
 
-        answers.append((row, answer, correct))
+    if st.button("제출하기"):
 
-    if st.button("채점하기"):
         score = 0
 
-        for row, answer, correct in answers:
-            if answer == correct:
-                score += 1
-                st.success(f"✅ {row['word']} → {correct}")
-            else:
-                st.error(f"❌ {row['word']} / 정답: {correct}")
-                st.session_state.wrong_items.append(row.to_dict())
+        for item, answer, correct in answers:
 
-        st.markdown(f"## 점수: {score} / {len(answers)}")
+            if answer == correct:
+
+                score += 1
+
+                st.success(
+                    f"✅ {item['word']} = {correct}"
+                )
+
+            else:
+
+                st.error(
+                    f"❌ {item['word']} / 정답: {correct}"
+                )
+
+                st.session_state.wrong_items.append(
+                    item
+                )
+
+        st.markdown(
+            f"## 점수: {score} / {len(answers)}"
+        )
 
 else:
     st.subheader("🔁 Review Wrong Answers")
