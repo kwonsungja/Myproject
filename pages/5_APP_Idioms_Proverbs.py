@@ -145,10 +145,11 @@ elif mode == "2. Meaning Test":
         random.shuffle(options)
 
         answer = st.radio(
-            f"Q{i}. {row['expression']}",
-            options,
-            key=f"meaning_{i}"
-        )
+         "",
+         options,
+         index=None,
+         key=f"m_{i}"
+)
 
         answers.append((row, answer, correct))
 
