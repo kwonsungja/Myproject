@@ -238,6 +238,9 @@ if mode == "1. Learn":
             unsafe_allow_html=True
         )
         
+# ==========================================
+# 2. Meaning Test
+# ==========================================
 elif mode == "2. Meaning Test":
 
     st.subheader("📝 Meaning Test")
@@ -246,21 +249,32 @@ elif mode == "2. Meaning Test":
         st.session_state.meaning_quiz_items = []
 
     if st.button("새 Meaning Test 시작"):
-        quiz_df = filtered_df.sample(min(items_per_page, len(filtered_df)))
+
+        quiz_df = filtered_df.sample(
+            min(items_per_page, len(filtered_df))
+        )
 
         quiz_items = []
 
         for _, row in quiz_df.iterrows():
+
             correct = row["meaning_ko"]
 
-            wrongs = df[df["meaning_ko"] != correct]["meaning_ko"].dropna().unique().tolist()
-            wrongs = random.sample(wrongs, min(3, len(wrongs)))
+            wrongs = df[
+                df["meaning_ko"] != correct
+            ]["meaning_ko"].dropna().unique().tolist()
+
+            wrongs = random.sample(
+                wrongs,
+                min(3, len(wrongs))
+            )
 
             options = wrongs + [correct]
             random.shuffle(options)
 
             item = row.to_dict()
             item["options"] = options
+
             quiz_items.append(item)
 
         st.session_state.meaning_quiz_items = quiz_items
@@ -270,37 +284,54 @@ elif mode == "2. Meaning Test":
         st.stop()
 
     answers = []
-for i, item in enumerate(st.session_state.meaning_quiz_items, start=1):
 
-    correct = item["meaning_ko"]
-    options = item["options"]
+    for i, item in enumerate(
+        st.session_state.meaning_quiz_items,
+        start=1
+    ):
 
-    st.markdown(
-        f"<div class='question-text'>Q{i}. {item['collocation']}</div>",
-        unsafe_allow_html=True
-    )
+        correct = item["meaning_ko"]
+        options = item["options"]
 
-    answer = st.radio(
-        "",
-        options,
-        index=None,
-        key=f"m_{i}"
-    )
+        st.markdown(
+            f"<div class='question-text'>Q{i}. {item['collocation']}</div>",
+            unsafe_allow_html=True
+        )
 
-    answers.append((item, answer, correct))
-   
-if st.button("제출하기"):
+        answer = st.radio(
+            "",
+            options,
+            index=None,
+            key=f"m_{i}"
+        )
+
+        answers.append((item, answer, correct))
+
+    if st.button("제출하기"):
+
         score = 0
 
         for item, answer, correct in answers:
+
             if answer == correct:
+
                 score += 1
-                st.success(f"✅ {item['collocation']}")
+
+                st.success(
+                    f"✅ {item['collocation']}"
+                )
+
             else:
-                st.error(f"❌ {item['collocation']} → 정답: {correct}")
+
+                st.error(
+                    f"❌ {item['collocation']} → 정답: {correct}"
+                )
+
                 st.session_state.wrong_items.append(item)
 
-        st.markdown(f"## 점수: {score} / {len(answers)}")
+        st.markdown(
+            f"## 점수: {score} / {len(answers)}"
+        )
 
 # ==========================================
 # 3. Fill-in Test
