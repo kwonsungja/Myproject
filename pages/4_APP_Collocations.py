@@ -44,40 +44,70 @@ st.markdown("""
 # ---------- Style ----------
 st.markdown("""
 <style>
+
 .main-title {
-    font-size: 34px;
+    font-size: 40px;
     font-weight: 800;
     color: #1565c0;
 }
 
 .word-card {
     background-color: #f4f9ff;
-    padding: 20px;
-    border-radius: 16px;
+    padding: 24px;
+    border-radius: 18px;
     border: 1px solid #cfe3ff;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
 }
 
 .collocation {
-    font-size: 28px;
+    font-size: 34px;
     font-weight: 800;
     color: #0d47a1;
 }
 
 .meaning {
-    font-size: 19px;
-    margin-top: 8px;
+    font-size: 26px;
+    margin-top: 12px;
 }
 
 .example {
-    font-size: 16px;
-    margin-top: 10px;
+    font-size: 22px;
+    margin-top: 14px;
     color: #444;
 }
 
+.question-text {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    margin-top: 24px;
+    margin-bottom: 10px;
+}
+
+/* 선택지 글자 */
 div[role="radiogroup"] label {
-    font-size: 24px !important;
+    font-size: 28px !important;
     font-weight: 500 !important;
+}
+
+/* 라디오 버튼 간격 */
+div[role="radiogroup"] > label {
+    margin-bottom: 12px !important;
+}
+
+/* 슬라이더 숫자 */
+.stSlider label {
+    font-size: 22px !important;
+}
+
+/* selectbox */
+.stSelectbox label {
+    font-size: 24px !important;
+    font-weight: 600 !important;
+}
+
+/* radio menu */
+.stRadio label {
+    font-size: 24px !important;
 }
 
 </style>
@@ -245,12 +275,17 @@ elif mode == "2. Meaning Test":
         correct = item["meaning_ko"]
         options = item["options"]
 
-        answer = st.radio(
-            f"Q{i}. {item['collocation']}",
-            options,
-            index=None,
-            key=f"m_{i}"
-        )
+        st.markdown(
+    f"<div class='question-text'>Q{i}. {item['collocation']}</div>",
+    unsafe_allow_html=True
+)
+
+answer = st.radio(
+    "",
+    options,
+    index=None,
+    key=f"m_{i}"
+)
 
         answers.append((item, answer, correct))
 
