@@ -288,15 +288,8 @@ for i, item in enumerate(st.session_state.meaning_quiz_items, start=1):
     )
 
     answers.append((item, answer, correct))
-    "",
-    options,
-    index=None,
-    key=f"m_{i}"
-)
-
-    answers.append((item, answer, correct))
-
-    if st.button("제출하기"):
+   
+if st.button("제출하기"):
         score = 0
 
         for item, answer, correct in answers:
