@@ -227,6 +227,7 @@ if mode == "1. Learn":
 
 # ---------- Quick Test Mode ----------
 elif mode == "2. Quick Test":
+
     st.subheader("📝 Quick Test")
 
     if filtered_df.empty:
@@ -234,18 +235,20 @@ elif mode == "2. Quick Test":
         st.stop()
 
     quiz_size = st.selectbox(
-    "문항 수",
-    [5, 10, 15, 20],
-    index=1
-)
+        "문항 수",
+        [5, 10, 15, 20],
+        index=1
+    )
 
-if st.button("새 테스트 시작"):
-    quiz_items = filtered_df.sample(
-        min(quiz_size, len(filtered_df)),
-        random_state=random.randint(1, 100000)
-    ).to_dict("records")
+    if st.button("새 테스트 시작"):
+
+        quiz_items = filtered_df.sample(
+            min(quiz_size, len(filtered_df)),
+            random_state=random.randint(1, 100000)
+        ).to_dict("records")
 
         for item in quiz_items:
+
             correct = item["korean_meaning"]
 
             other_pool = df[
@@ -263,50 +266,6 @@ if st.button("새 테스트 시작"):
             item["options"] = options
 
         st.session_state.quiz_items = quiz_items
-
-    if not st.session_state.quiz_items:
-        st.warning("먼저 '새 테스트 시작' 버튼을 눌러 주세요.")
-        st.stop()
-
-    answers = []
-
-    for i, item in enumerate(st.session_state.quiz_items, start=1):
-        st.markdown(f"### Q{i}. {item['phrasal_verb']}")
-        st.caption(f"{item['section']} / {item['lesson']}")
-
-        correct = item["korean_meaning"]
-        options = item.get("options", [])
-
-        answer = st.radio(
-            "뜻을 고르세요.",
-            options,
-            index=None,
-            key=f"quiz_{i}"
-        )
-
-        answers.append((item, answer, correct))
-
-    if st.button("제출하기"):
-        score = 0
-        wrong_now = []
-
-        st.divider()
-        st.subheader("결과")
-
-        for item, answer, correct in answers:
-            if answer == correct:
-                score += 1
-                st.success(f"✅ {item['phrasal_verb']} = {correct}")
-            else:
-                st.error(f"❌ {item['phrasal_verb']} | 선택: {answer} / 정답: {correct}")
-                wrong_now.append(item)
-
-        st.session_state.wrong_items.extend(wrong_now)
-        st.session_state.wrong_items = list(
-            {x['phrasal_verb']: x for x in st.session_state.wrong_items}.values()
-        )
-
-        st.markdown(f"## 점수: {score} / {len(answers)}")
 
 # ---------- Review Wrong Answers ----------
 else:
