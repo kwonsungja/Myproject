@@ -270,17 +270,24 @@ elif mode == "2. Meaning Test":
         st.stop()
 
     answers = []
+for i, item in enumerate(st.session_state.meaning_quiz_items, start=1):
 
-    for i, item in enumerate(st.session_state.meaning_quiz_items, start=1):
-        correct = item["meaning_ko"]
-        options = item["options"]
+    correct = item["meaning_ko"]
+    options = item["options"]
 
-        st.markdown(
-    f"<div class='question-text'>Q{i}. {item['collocation']}</div>",
-    unsafe_allow_html=True
-)
+    st.markdown(
+        f"<div class='question-text'>Q{i}. {item['collocation']}</div>",
+        unsafe_allow_html=True
+    )
 
-answer = st.radio(
+    answer = st.radio(
+        "",
+        options,
+        index=None,
+        key=f"m_{i}"
+    )
+
+    answers.append((item, answer, correct))
     "",
     options,
     index=None,
