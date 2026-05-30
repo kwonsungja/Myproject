@@ -228,6 +228,7 @@ elif mode == "2. Meaning Test":
         answer = st.radio(
             f"Q{i}. {row['collocation']}",
             options,
+            index=None,
             key=f"m_{i}"
         )
 
