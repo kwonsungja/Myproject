@@ -152,11 +152,11 @@ for i, (_, row) in enumerate(quiz_df.iterrows(), start=1):
     random.shuffle(options)
 
     answer = st.radio(
-        f"Q{i}. {row['idiom_proverb']}",
-        options,
-        index=None,
-        key=f"m_{i}"
-    )
+    f"Q{i}. {row['expression']}",
+    options,
+    index=None,
+    key=f"m_{i}"
+)
 
     answers.append((row, answer, correct))
 
