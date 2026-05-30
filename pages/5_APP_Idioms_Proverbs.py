@@ -136,22 +136,29 @@ elif mode == "2. Meaning Test":
     answers = []
 
 for i, (_, row) in enumerate(quiz_df.iterrows(), start=1):
-        correct = row["korean_meaning"]
 
-        wrong_pool = df[df["korean_meaning"] != correct]["korean_meaning"].tolist()
-        wrongs = random.sample(wrong_pool, min(3, len(wrong_pool)))
+    correct = row["korean_meaning"]
 
-        options = wrongs + [correct]
-        random.shuffle(options)
+    wrong_pool = df[
+        df["korean_meaning"] != correct
+    ]["korean_meaning"].tolist()
+
+    wrongs = random.sample(
+        wrong_pool,
+        min(3, len(wrong_pool))
+    )
+
+    options = wrongs + [correct]
+    random.shuffle(options)
 
     answer = st.radio(
-        f"Q{i}. {item['idiom_proverb']}",
+        f"Q{i}. {row['idiom_proverb']}",
         options,
         index=None,
         key=f"m_{i}"
     )
 
-        answers.append((row, answer, correct))
+    answers.append((row, answer, correct))
 
     if st.button("제출하기"):
         score = 0
