@@ -338,7 +338,7 @@ elif mode == "4. Review Wrong Answers":
 
         for row in st.session_state.wrong_items:
 
-st.markdown(
+    st.markdown(
     f"""
 <div class="word-card">
 
