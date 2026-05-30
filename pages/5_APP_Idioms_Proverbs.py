@@ -144,12 +144,12 @@ elif mode == "2. Meaning Test":
         options = wrongs + [correct]
         random.shuffle(options)
 
-        answer = st.radio(
-         "",
-         options,
-         index=None,
-         key=f"m_{i}"
-)
+    answer = st.radio(
+        f"Q{i}. {item['idiom_proverb']}",
+        options,
+        index=None,
+        key=f"m_{i}"
+    )
 
         answers.append((row, answer, correct))
 
