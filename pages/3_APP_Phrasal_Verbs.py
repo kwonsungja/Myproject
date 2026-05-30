@@ -157,7 +157,9 @@ if selected_section != "전체":
 else:
     filtered_df = df.copy()
 
-lesson_options = ["전체"] + list(filtered_df["lesson"].dropna().unique())
+lesson_options = ["전체"] + sorted(
+    filtered_df["lesson"].dropna().astype(int).unique()
+)
 
 selected_lesson = st.selectbox(
     "Lesson 선택",
@@ -166,8 +168,8 @@ selected_lesson = st.selectbox(
 
 if selected_lesson != "전체":
     filtered_df = filtered_df[
-        filtered_df["lesson"] == selected_lesson
-    ].copy()
+        filtered_df["lesson"].astype(int) == selected_lesson
+    ]
 
 items_per_page = st.slider(
     "한 번에 볼 표현 수",
