@@ -336,24 +336,11 @@ elif mode == "4. Review Wrong Answers":
     else:
         for row in st.session_state.wrong_items:
 
-            st.markdown(
-                f"""
-<div class="word-card">
-    <div class="collocation">
-        {row['collocation']}
-    </div>
-
-    <div class="meaning">
-        뜻: {row['meaning_ko']}
-    </div>
-
-    <div class="example">
-        예문: {row['example_sentence']}
-    </div>
-</div>
-""",
-                unsafe_allow_html=True
-            )
+            with st.container():
+                st.markdown(f"### {row['collocation']}")
+                st.write(f"**뜻:** {row['meaning_ko']}")
+                st.write(f"**예문:** {row['example_sentence']}")
+                st.divider()
 
         if st.button("오답 초기화"):
             st.session_state.wrong_items = []
