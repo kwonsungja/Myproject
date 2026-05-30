@@ -336,10 +336,10 @@ elif mode == "4. Review Wrong Answers":
 
     else:
 
-        for row in st.session_state.wrong_items:
+for row in st.session_state.wrong_items:
 
     st.markdown(
-    f"""
+        f"""
 <div class="word-card">
 
     <div class="collocation">
@@ -356,8 +356,8 @@ elif mode == "4. Review Wrong Answers":
 
 </div>
 """,
-    unsafe_allow_html=True
-)
+        unsafe_allow_html=True
+    )
 
         if st.button("오답 초기화"):
 
