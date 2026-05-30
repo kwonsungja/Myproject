@@ -331,17 +331,14 @@ elif mode == "4. Review Wrong Answers":
     st.subheader("🔁 Review Wrong Answers")
 
     if not st.session_state.wrong_items:
-
         st.info("아직 오답이 없습니다.")
 
     else:
+        for row in st.session_state.wrong_items:
 
-for row in st.session_state.wrong_items:
-
-    st.markdown(
-        f"""
+            st.markdown(
+                f"""
 <div class="word-card">
-
     <div class="collocation">
         {row['collocation']}
     </div>
@@ -353,14 +350,11 @@ for row in st.session_state.wrong_items:
     <div class="example">
         예문: {row['example_sentence']}
     </div>
-
 </div>
 """,
-        unsafe_allow_html=True
-    )
+                unsafe_allow_html=True
+            )
 
         if st.button("오답 초기화"):
-
             st.session_state.wrong_items = []
-
             st.rerun()
