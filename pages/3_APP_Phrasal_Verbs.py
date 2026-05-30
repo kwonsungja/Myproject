@@ -127,6 +127,13 @@ def load_data():
 
 df = load_data()
 
+# ---------- Session State ----------
+if "quiz_items" not in st.session_state:
+    st.session_state.quiz_items = []
+
+if "wrong_items" not in st.session_state:
+    st.session_state.wrong_items = []
+
 # ---------- Header ----------
 st.markdown('<div class="main-title">📘 Grade 1 Phrasal Verbs</div>', unsafe_allow_html=True)
 st.markdown(
@@ -228,13 +235,7 @@ elif mode == "2. Quick Test":
 
     quiz_size = st.selectbox("문항 수", [5, 10, 15, 20], index=1)
 
-    if "quiz_items" not in st.session_state:
-        st.session_state.quiz_items = []
-
-    if "wrong_items" not in st.session_state:
-        st.session_state.wrong_items = []
-
-    if st.button("새 테스트 시작"):
+        if st.button("새 테스트 시작"):
         quiz_items = filtered_df.sample(
             min(quiz_size, len(filtered_df)),
             random_state=random.randint(1, 100000)
