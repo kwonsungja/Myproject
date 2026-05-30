@@ -251,10 +251,11 @@ elif mode == "2. Quick Test":
         random.shuffle(options)
 
         answer = st.radio(
-            "뜻을 고르세요.",
-            options,
-            key=f"q_{item['source_order']}"
-        )
+    "뜻을 고르세요.",
+    options,
+    index=None,
+    key=f"q_{item['source_order']}"
+)
         answers.append((item, answer, correct))
 
     if st.button("제출하기"):
