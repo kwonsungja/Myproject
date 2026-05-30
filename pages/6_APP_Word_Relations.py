@@ -210,12 +210,12 @@ elif mode == "2. Meaning Test":
         start=1
     ):
 
-        answer = st.radio(
-            f"Q{i}. {item['word']}",
-            item["options"],
-            index=None,
-            key=f"meaning_{i}"
-        )
+    answer = st.radio(
+          f"Q{i}. {item.get('word', item.get('expression', ''))}",
+          item["options"],
+          index=None,
+          key=f"meaning_{i}"
+    )
 
         answers.append(
             (item, answer, item["meaning_in_context"])
