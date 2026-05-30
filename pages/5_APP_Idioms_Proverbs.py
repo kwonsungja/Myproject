@@ -135,7 +135,7 @@ elif mode == "2. Meaning Test":
 
     answers = []
 
-    for i, (_, row) in enumerate(quiz_df.iterrows(), start=1):
+for i, (_, row) in enumerate(quiz_df.iterrows(), start=1):
         correct = row["korean_meaning"]
 
         wrong_pool = df[df["korean_meaning"] != correct]["korean_meaning"].tolist()
