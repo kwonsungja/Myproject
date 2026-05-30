@@ -270,7 +270,7 @@ elif mode == "2. Quick Test":
         st.caption(f"{item['section']} / {item['lesson']}")
 
         correct = item["korean_meaning"]
-        options = item["options"]
+        options = item.get("options", [])
 
         answer = st.radio(
             "뜻을 고르세요.",
