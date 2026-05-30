@@ -4,43 +4,37 @@ import random
 from pathlib import Path
 
 # ==========================================
-# Textbook Reading App
+# Word Relations App
 # ==========================================
 
-# ---------- Page Config ----------
 st.set_page_config(
-    page_title="Textbook Reading",
+    page_title="Word Relations",
     page_icon="📘",
     layout="wide"
 )
 
-# ---------- Sidebar Font ----------
+# ---------- Style ----------
 st.markdown("""
 <style>
-
-/* Sidebar menu text */
 section[data-testid="stSidebar"] a,
 section[data-testid="stSidebar"] a span,
 section[data-testid="stSidebar"] a p {
-    font-size: 18px !important;
+    font-size: 20px !important;
     font-weight: 500 !important;
 }
 
-</style>
-""", unsafe_allow_html=True)
-
-# ---------- Sidebar Font ----------
-st.markdown("""
-<style>
-
-/* Sidebar menu text */
-section[data-testid="stSidebar"] a,
-section[data-testid="stSidebar"] a span,
-section[data-testid="stSidebar"] a p {
-    font-size: 18px !important;
+div[role="radiogroup"] label {
+    font-size: 24px !important;
     font-weight: 500 !important;
 }
 
+.word-card {
+    background-color:#f7f9fc;
+    padding:24px;
+    border-radius:18px;
+    border:1px solid #d6e4ff;
+    margin-bottom:20px;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -56,6 +50,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 CSV_FILE = "grade1_word_relations_integrated_updated.csv"
+
 @st.cache_data
 def load_data():
     path1 = Path(CSV_FILE)
@@ -70,10 +65,10 @@ def load_data():
         st.stop()
 
     required = [
-    "order", "category", "word", "part_of_speech",
-    "meaning_in_context",
-    "related_word", "relation_meaning", "note"
-]
+        "order", "category", "word", "part_of_speech",
+        "meaning_in_context",
+        "related_word", "relation_meaning", "note"
+    ]
 
     missing = [c for c in required if c not in df.columns]
     if missing:
@@ -86,16 +81,31 @@ def load_data():
 
 df = load_data()
 
+# ---------- Session ----------
+if "word_relation_wrong_items" not in st.session_state:
+    st.session_state.word_relation_wrong_items = []
+
+if "word_meaning_quiz_items" not in st.session_state:
+    st.session_state.word_meaning_quiz_items = []
+
+if "word_relation_quiz_items" not in st.session_state:
+    st.session_state.word_relation_quiz_items = []
+
 st.title("📘 Word Relations Practice")
 st.write("다의어 · 반의어 · 유의어를 학습하고 퀴즈로 확인하는 앱입니다.")
 
 # ---------- Learning Settings ----------
-
 st.header("⚙️ 학습 설정")
 
 mode = st.radio(
     "메뉴 선택",
-    ["1. Learn", "2. Meaning Test", "3. Relation Test", "4. Review Wrong Answers"]
+    [
+        "1. Learn",
+        "2. Meaning Test",
+        "3. Relation Test",
+        "4. Review Wrong Answers"
+    ],
+    index=None
 )
 
 category = st.selectbox(
@@ -108,37 +118,34 @@ if category == "전체":
 else:
     filtered_df = df[df["category"] == category].copy()
 
-if "wrong_items" not in st.session_state:
-    st.session_state.wrong_items = []
+if mode is None:
+    st.info("학습 메뉴를 선택해 주세요.")
 
 # ==========================================
 # 1. Learn
 # ==========================================
-if mode == "1. Learn":
+elif mode == "1. Learn":
 
     st.header("📖 Learn")
-
-    st.write(f"현재 학습 항목 수: {len(filtered_df)}개")
+    st.write(f"현재 학습 항목 수: **{len(filtered_df)}개**")
 
     for _, row in filtered_df.iterrows():
-
         st.markdown(
             f"""
-<div style='background-color:#f7f9fc; padding:24px; border-radius:18px; border:1px solid #d6e4ff; margin-bottom:20px;'>
-
-<div style='color:#1d4ed8; font-size:24px; font-weight:700; margin-bottom:14px;'>
-{row['order']}. {row['word']}
-</div>
-
-<div style='font-size:18px; margin-bottom:10px;'>
-<b>분류:</b> {row['category']}
-</div>
-
-<div style='font-size:17px;'>
-<b>뜻:</b> {row['meaning_in_context']}
-</div>
-
-</div>
+            <div class="word-card">
+                <div style='color:#1d4ed8; font-size:28px; font-weight:800; margin-bottom:14px;'>
+                    {row['order']}. {row['word']}
+                </div>
+                <div style='font-size:20px; margin-bottom:10px;'>
+                    <b>분류:</b> {row['category']}
+                </div>
+                <div style='font-size:20px; margin-bottom:10px;'>
+                    <b>뜻:</b> {row['meaning_in_context']}
+                </div>
+                <div style='font-size:18px; color:#555;'>
+                    <b>관련어:</b> {row['related_word']} {row['relation_meaning']}
+                </div>
+            </div>
             """,
             unsafe_allow_html=True
         )
@@ -156,9 +163,6 @@ elif mode == "2. Meaning Test":
         index=1
     )
 
-    if "meaning_quiz_items" not in st.session_state:
-        st.session_state.meaning_quiz_items = []
-
     if st.button("새 Meaning Test 시작"):
 
         quiz_df = filtered_df.sample(
@@ -173,7 +177,7 @@ elif mode == "2. Meaning Test":
 
             wrong_pool = df[
                 df["meaning_in_context"] != correct
-            ]["meaning_in_context"].dropna().tolist()
+            ]["meaning_in_context"].dropna().unique().tolist()
 
             wrong_pool = [
                 x for x in wrong_pool
@@ -190,36 +194,26 @@ elif mode == "2. Meaning Test":
 
             item = row.to_dict()
             item["options"] = options
-
             quiz_items.append(item)
 
-        st.session_state.meaning_quiz_items = quiz_items
+        st.session_state.word_meaning_quiz_items = quiz_items
 
-    if not st.session_state.meaning_quiz_items:
-
-        st.warning(
-            "먼저 '새 Meaning Test 시작' 버튼을 눌러 주세요."
-        )
-
+    if not st.session_state.word_meaning_quiz_items:
+        st.warning("먼저 '새 Meaning Test 시작' 버튼을 눌러 주세요.")
         st.stop()
 
     answers = []
 
-    for i, item in enumerate(
-        st.session_state.meaning_quiz_items,
-        start=1
-    ):
+    for i, item in enumerate(st.session_state.word_meaning_quiz_items, start=1):
 
-    answer = st.radio(
-          f"Q{i}. {item.get('word', item.get('expression', ''))}",
-          item["options"],
-          index=None,
-          key=f"meaning_{i}"
-    )
-
-        answers.append(
-            (item, answer, item["meaning_in_context"])
+        answer = st.radio(
+            f"Q{i}. {item['word']}",
+            item["options"],
+            index=None,
+            key=f"word_meaning_{i}"
         )
+
+        answers.append((item, answer, item["meaning_in_context"]))
 
     if st.button("제출하기"):
 
@@ -228,49 +222,123 @@ elif mode == "2. Meaning Test":
         for item, answer, correct in answers:
 
             if answer == correct:
-
                 score += 1
-
-                st.success(
-                    f"✅ {item['word']} = {correct}"
-                )
-
+                st.success(f"✅ {item['word']} = {correct}")
             else:
+                st.error(f"❌ {item['word']} / 정답: {correct}")
+                st.session_state.word_relation_wrong_items.append(item)
 
-                st.error(
-                    f"❌ {item['word']} / 정답: {correct}"
-                )
+        st.markdown(f"## 점수: {score} / {len(answers)}")
 
-                st.session_state.wrong_items.append(
-                    item
-                )
+# ==========================================
+# 3. Relation Test
+# ==========================================
+elif mode == "3. Relation Test":
 
-        st.markdown(
-            f"## 점수: {score} / {len(answers)}"
+    st.subheader("🔗 Relation Test")
+
+    relation_df = filtered_df[
+        filtered_df["category"].isin(["반의어", "유의어"])
+    ].copy()
+
+    if relation_df.empty:
+        st.warning("Relation Test는 반의어와 유의어에서만 사용할 수 있습니다.")
+        st.stop()
+
+    quiz_size = st.selectbox(
+        "문항 수",
+        [5, 10, 15, 20],
+        index=1
+    )
+
+    if st.button("새 Relation Test 시작"):
+
+        quiz_df = relation_df.sample(
+            min(quiz_size, len(relation_df))
         )
 
-else:
+        quiz_items = []
+
+        for _, row in quiz_df.iterrows():
+
+            correct = row["related_word"]
+
+            wrong_pool = relation_df[
+                relation_df["related_word"] != correct
+            ]["related_word"].dropna().unique().tolist()
+
+            wrong_pool = [
+                x for x in wrong_pool
+                if str(x).strip() != ""
+            ]
+
+            wrongs = random.sample(
+                wrong_pool,
+                min(3, len(wrong_pool))
+            )
+
+            options = wrongs + [correct]
+            random.shuffle(options)
+
+            item = row.to_dict()
+            item["options"] = options
+            quiz_items.append(item)
+
+        st.session_state.word_relation_quiz_items = quiz_items
+
+    if not st.session_state.word_relation_quiz_items:
+        st.warning("먼저 '새 Relation Test 시작' 버튼을 눌러 주세요.")
+        st.stop()
+
+    answers = []
+
+    for i, item in enumerate(st.session_state.word_relation_quiz_items, start=1):
+
+        answer = st.radio(
+            f"Q{i}. {item['word']}의 {item['category']}는?",
+            item["options"],
+            index=None,
+            key=f"word_relation_{i}"
+        )
+
+        answers.append((item, answer, item["related_word"]))
+
+    if st.button("채점하기"):
+
+        score = 0
+
+        for item, answer, correct in answers:
+
+            if answer == correct:
+                score += 1
+                st.success(f"✅ {item['word']} → {correct}")
+            else:
+                st.error(f"❌ {item['word']} / 정답: {correct}")
+                st.session_state.word_relation_wrong_items.append(item)
+
+        st.markdown(f"## 점수: {score} / {len(answers)}")
+
+# ==========================================
+# 4. Review Wrong Answers
+# ==========================================
+elif mode == "4. Review Wrong Answers":
+
     st.subheader("🔁 Review Wrong Answers")
 
-    if not st.session_state.wrong_items:
+    if not st.session_state.word_relation_wrong_items:
         st.info("아직 오답이 없습니다.")
+
     else:
-        for item in st.session_state.wrong_items:
-            st.markdown(f"""
-            <div style="
-                background-color:#fff7f0;
-                padding:18px;
-                border-radius:15px;
-                border:1px solid #ffd2b8;
-                margin-bottom:12px;
-            ">
-                <h3 style="color:#e85d04;">{item['word']}</h3>
-                <p><b>분류:</b> {item['category']}</p>
-                <p><b>뜻:</b> {item['meaning_in_context']}</p>
-                <p><b>관련어:</b> {item['related_word']} {item['relation_meaning']}</p>
-            </div>
-            """, unsafe_allow_html=True)
+        st.write(f"현재 오답 수: **{len(st.session_state.word_relation_wrong_items)}개**")
+
+        for item in st.session_state.word_relation_wrong_items:
+
+            st.markdown(f"### {item['word']}")
+            st.write(f"**분류:** {item['category']}")
+            st.write(f"**뜻:** {item['meaning_in_context']}")
+            st.write(f"**관련어:** {item['related_word']} {item['relation_meaning']}")
+            st.divider()
 
         if st.button("오답 초기화"):
-            st.session_state.wrong_items = []
+            st.session_state.word_relation_wrong_items = []
             st.rerun()
