@@ -36,7 +36,6 @@ st.markdown("""
 </h1>
 
 <p style='text-align:center; font-size:18px; color:#555;'>
-공통영어1 · 공통영어2 구동사 학습 앱<br>
 동사와 전치사의 결합 표현을 학습하는 앱
 
 </p>
