@@ -29,7 +29,6 @@ st.markdown("""
 <h1 style='text-align:center; font-size:36px; margin-bottom:5px;'>
 🌱 APP Etymology
 </h1>
-
 <p style='text-align:center; font-size:18px; color:#555;'>
 단어의 뿌리인 어원과 의미관계로 연결하는 접두사·접미사·어근 학습 앱<br>
 
