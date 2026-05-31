@@ -63,13 +63,13 @@ div[data-baseweb="select"] span {
 /* Select Test / Select Day / Number of Questions */
 div[data-testid="stSelectbox"] label p,
 div[data-testid="stSlider"] label p {
-    font-size: 28px !important;
+    font-size: 22px !important;
     font-weight: 700 !important;
 }
 
 /* Start Test 버튼 글자 */
 div[data-testid="stButton"] button p {
-    font-size: 24px !important;
+    font-size: 20px !important;
     font-weight: 700 !important;
 }
 
