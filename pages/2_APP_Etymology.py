@@ -169,7 +169,7 @@ for i, tab in enumerate(grade_tabs, start=1):
             ]
 
         test_type = st.selectbox(
-            "Select Test",
+            "📝 Select Test",
             available_tests,
             key=f"test_type_{i}"
         )
@@ -182,7 +182,7 @@ for i, tab in enumerate(grade_tabs, start=1):
         if "Daily Test" in test_type:
             day_list = sorted(test_df["day"].unique())
             selected_day = st.selectbox(
-                "Select Day",
+                "📅 Select Day",
                 day_list,
                 key=f"day_{i}_{test_type}"
             )
@@ -195,7 +195,7 @@ for i, tab in enumerate(grade_tabs, start=1):
             continue
 
         question_count = st.slider(
-            "Number of Questions",
+            "❓ Number of Questions",
             min_value=1,
             max_value=min(30, max_questions),
             value=min(10, max_questions),
