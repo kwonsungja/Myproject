@@ -163,18 +163,19 @@ if "guided_items" not in st.session_state:
 
 # ---------- Header ----------
 st.markdown("""
-<h1 style='text-align:center; font-size:36px; margin-bottom:5px;'>
+<h1 style='text-align:center; font-size:36px; margin-bottom:10px;'>
 📘 APP Phrasal Verbs (Grade 1)
 </h1>
 
-<p style='text-align:center; font-size:18px; color:#555; line-height:1.8;'>
+<div style='text-align:center; font-size:18px; color:#555; line-height:1.8;'>
 
 Learn phrasal verbs through meaning, context, guided practice, and review.
 <br>
 공통영어1 · 공통영어2 · 구동사를 문맥 속에서 학습하는 고등학교 1학년용 구동사 앱입니다.
 
-</p>
+</div>
 """, unsafe_allow_html=True)
+
 # ---------- Learning Settings ----------
 st.header("⚙️ 학습 설정")
 
