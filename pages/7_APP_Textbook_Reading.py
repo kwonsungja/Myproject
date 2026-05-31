@@ -46,6 +46,14 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+/* paragraph spacing */
+.reading-text p {
+    margin-bottom: 18px !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 /* highlight */
 .highlight {
     background-color: #fff3b0;
