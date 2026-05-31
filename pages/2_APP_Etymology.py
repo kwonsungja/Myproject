@@ -58,6 +58,21 @@ div[data-baseweb="select"] span {
     border-radius: 12px !important;
 }
 
+/* 추가 ↓↓↓ */
+
+/* Select Test / Select Day / Number of Questions */
+div[data-testid="stSelectbox"] label p,
+div[data-testid="stSlider"] label p {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+}
+
+/* Start Test 버튼 글자 */
+div[data-testid="stButton"] button p {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+}
+
 /* 전체 기본 글자 */
 html, body, [class*="css"] {
     font-size: 18px;
