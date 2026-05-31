@@ -15,7 +15,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# ---------- Sidebar Font ----------
+# ---------- Global Style ----------
 st.markdown("""
 <style>
 
@@ -25,6 +25,27 @@ section[data-testid="stSidebar"] a span,
 section[data-testid="stSidebar"] a p {
     font-size: 18px !important;
     font-weight: 500 !important;
+}
+
+/* reading text */
+.reading-text {
+    font-size: 26px !important;
+    line-height: 2.2 !important;
+    color: #333 !important;
+}
+
+/* paragraph spacing */
+.reading-text p {
+    margin-bottom: 24px !important;
+}
+
+/* highlight */
+.highlight {
+    background-color: #fff3b0;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 6px;
+    color: #222;
 }
 
 </style>
@@ -137,8 +158,19 @@ for exp in key_expressions:
 
 st.subheader("📖 Textbook Reading Text")
 
-with st.expander("본문 텍스트 보기", expanded=True):
-    st.write(row["full_text"])
+with st.expander("본문 텍스트 보기"):
+
+    text = row["full_text"]
+
+    text = text.replace(
+        "morning pages",
+        "<span class='highlight'>morning pages</span>"
+    )
+
+    st.markdown(
+        f"<div class='reading-text'>{text}</div>",
+        unsafe_allow_html=True
+    )
 
 # -----------------------------
 # TTS: Text-to-Speech
