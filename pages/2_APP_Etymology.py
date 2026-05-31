@@ -30,8 +30,8 @@ button[data-baseweb="tab"] p {
 /* selectbox / slider 라벨 */
 .stSelectbox label,
 .stSlider label {
-    font-size: 22px !important;
-    font-weight: 600 !important;
+    font-size: 26px !important;
+    font-weight: 700 !important;
 }
 
 /* selectbox 내부 글자: 너무 크지 않게 조정 */
@@ -52,7 +52,7 @@ div[data-baseweb="select"] span {
 
 /* 버튼 */
 .stButton button {
-    font-size: 20px !important;
+    font-size: 22px !important;
     font-weight: 600 !important;
     padding: 10px 24px !important;
     border-radius: 12px !important;
