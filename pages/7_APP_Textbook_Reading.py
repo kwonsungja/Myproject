@@ -43,18 +43,6 @@ section[data-testid="stSidebar"] a p {
 </style>
 """, unsafe_allow_html=True)
 
-/* highlight */
-.highlight {
-    background-color: #fff3b0;
-    font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 6px;
-    color: #222;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
 # ---------- Header ----------
 st.markdown("""
 <h1 style='text-align:center; font-size:36px; margin-bottom:5px;'>
