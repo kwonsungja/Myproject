@@ -21,37 +21,40 @@ section[data-testid="stSidebar"] a p {
     font-weight: 500 !important;
 }
 
-/* 탭 글자 */
-button[data-baseweb="tab"] {
-    font-size: 28px !important;
+/* Grade 1 / Grade 2 / Grade 3 탭 글자 */
+button[data-baseweb="tab"] p {
+    font-size: 26px !important;
     font-weight: 700 !important;
 }
 
-/* selectbox / slider / radio 라벨 */
+/* selectbox / slider 라벨 */
 .stSelectbox label,
-.stSlider label,
-.stNumberInput label,
-.stRadio label {
-    font-size: 24px !important;
-    font-weight: 700 !important;
+.stSlider label {
+    font-size: 22px !important;
+    font-weight: 600 !important;
 }
 
-/* selectbox 내부 글자 */
+/* selectbox 내부 글자: 너무 크지 않게 조정 */
 div[data-baseweb="select"] > div {
-    font-size: 24px !important;
-    min-height: 58px !important;
+    font-size: 20px !important;
+    min-height: 50px !important;
+}
+
+/* selectbox 선택된 값 텍스트 */
+div[data-baseweb="select"] span {
+    font-size: 20px !important;
 }
 
 /* slider 숫자 */
 .stSlider div {
-    font-size: 22px !important;
+    font-size: 18px !important;
 }
 
 /* 버튼 */
 .stButton button {
-    font-size: 24px !important;
+    font-size: 20px !important;
     font-weight: 600 !important;
-    padding: 12px 28px !important;
+    padding: 10px 24px !important;
     border-radius: 12px !important;
 }
 
