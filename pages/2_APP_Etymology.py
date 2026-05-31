@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# ---------- Sidebar Font ----------
+# ---------- Global Font Style ----------
 st.markdown("""
 <style>
 
@@ -19,6 +19,45 @@ section[data-testid="stSidebar"] a span,
 section[data-testid="stSidebar"] a p {
     font-size: 18px !important;
     font-weight: 500 !important;
+}
+
+/* 탭 글자 */
+button[data-baseweb="tab"] {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+}
+
+/* selectbox / slider / radio 라벨 */
+.stSelectbox label,
+.stSlider label,
+.stNumberInput label,
+.stRadio label {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+}
+
+/* selectbox 내부 글자 */
+div[data-baseweb="select"] > div {
+    font-size: 24px !important;
+    min-height: 58px !important;
+}
+
+/* slider 숫자 */
+.stSlider div {
+    font-size: 22px !important;
+}
+
+/* 버튼 */
+.stButton button {
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    padding: 12px 28px !important;
+    border-radius: 12px !important;
+}
+
+/* 전체 기본 글자 */
+html, body, [class*="css"] {
+    font-size: 18px;
 }
 
 </style>
