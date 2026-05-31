@@ -27,17 +27,24 @@ section[data-testid="stSidebar"] a p {
     font-weight: 500 !important;
 }
 
+st.markdown("""
+<style>
+
 /* reading text */
 .reading-text {
-    font-size: 26px !important;
-    line-height: 2.2 !important;
+    font-size: 21px !important;
+    line-height: 1.9 !important;
     color: #333 !important;
+    text-align: justify;
 }
 
 /* paragraph spacing */
 .reading-text p {
-    margin-bottom: 24px !important;
+    margin-bottom: 18px !important;
 }
+
+</style>
+""", unsafe_allow_html=True)
 
 /* highlight */
 .highlight {
@@ -161,11 +168,6 @@ st.subheader("📖 Textbook Reading Text")
 with st.expander("본문 텍스트 보기"):
 
     text = row["full_text"]
-
-    text = text.replace(
-        "morning pages",
-        "<span class='highlight'>morning pages</span>"
-    )
 
     st.markdown(
         f"<div class='reading-text'>{text}</div>",
