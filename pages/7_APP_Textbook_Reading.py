@@ -27,9 +27,6 @@ section[data-testid="stSidebar"] a p {
     font-weight: 500 !important;
 }
 
-st.markdown("""
-<style>
-
 /* reading text */
 .reading-text {
     font-size: 21px !important;
@@ -37,14 +34,6 @@ st.markdown("""
     color: #333 !important;
     text-align: justify;
 }
-
-/* paragraph spacing */
-.reading-text p {
-    margin-bottom: 18px !important;
-}
-
-</style>
-""", unsafe_allow_html=True)
 
 /* paragraph spacing */
 .reading-text p {
