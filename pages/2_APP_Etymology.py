@@ -26,17 +26,20 @@ section[data-testid="stSidebar"] a p {
 
 # ---------- Header ----------
 st.markdown("""
-<h1 style='text-align:center; font-size:36px; margin-bottom:5px;'>
-🌱 APP Etymology
+<h1 style='text-align:center; font-size:36px; margin-bottom:10px;'>
+🌱 APP Etymology (Grade 1)
 </h1>
-<p style='text-align:center; font-size:18px; color:#555;'>
-단어의 뿌리인 어원과 의미관계로 연결하는 접두사·접미사·어근 학습 앱<br>
 
-</p>
+<div style='text-align:center; font-size:18px; color:#555; line-height:1.8;'>
+
+Learn prefixes, suffixes, and roots through meaning, word connections, and review.
+<br>
+접두사 · 접미사 · 어근을 의미 연결과 반복 학습으로 익히는 고등학교 1학년용 어원 학습 앱입니다.
+
+</div>
 """, unsafe_allow_html=True)
 
-st.title("🌱 APP: Etymology")
-st.caption("Daily Test · Review Test · Progress Test")
+st.divider()
 
 @st.cache_data
 def load_data():
