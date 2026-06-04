@@ -43,6 +43,62 @@ section[data-testid="stSidebar"] a p {
 </style>
 """, unsafe_allow_html=True)
 
+# ---------- Expression Highlight Style ----------
+st.markdown("""
+<style>
+
+.phrasal-highlight {
+    background-color: #fff7cc;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.collocation-highlight {
+    background-color: #e8f4ff;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+def highlight_expressions(text, phrasal_verbs, collocations):
+
+    for item in phrasal_verbs:
+        text = text.replace(
+            item,
+            f"<span class='phrasal-highlight'>{item}</span>"
+        )
+
+    for item in collocations:
+        text = text.replace(
+            item,
+            f"<span class='collocation-highlight'>{item}</span>"
+        )
+
+    return text
+
+lesson_expressions = {
+
+    ("공통영어1", 1): {
+        "phrasal": ["look at", "find out", "come from"],
+        "collocation": ["make a habit", "strong interest"]
+    },
+
+    ("공통영어1", 2): {
+        "phrasal": [],
+        "collocation": []
+    },
+
+    ("공통영어2", 1): {
+        "phrasal": [],
+        "collocation": []
+    }
+
+}
+
 # ---------- Header ----------
 st.markdown("""
 <h1 style='text-align:center; font-size:36px; margin-bottom:5px;'>
@@ -143,7 +199,6 @@ for exp in key_expressions:
     if exp:
         st.markdown(f"- **{exp}**")
 
-
 # -----------------------------
 # Full Text
 # -----------------------------
@@ -154,11 +209,27 @@ with st.expander("본문 텍스트 보기"):
 
     text = row["full_text"]
 
-    st.markdown(
-        f"<div class='reading-text'>{text}</div>",
-        unsafe_allow_html=True
+    lesson_key = (selected_book, int(row["lesson"]))
+
+    phrasal_list = lesson_expressions.get(
+        lesson_key, {}
+    ).get("phrasal", [])
+
+    collocation_list = lesson_expressions.get(
+        lesson_key, {}
+    ).get("collocation", [])
+
+    highlighted_text = highlight_expressions(
+        text,
+        phrasal_list,
+        collocation_list
     )
 
+    st.markdown(
+        f"<div class='reading-text'>{highlighted_text}</div>",
+        unsafe_allow_html=True
+    )
+    
 # -----------------------------
 # TTS: Text-to-Speech
 # -----------------------------
