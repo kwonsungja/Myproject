@@ -198,39 +198,37 @@ if pd.notna(title) and pd.notna(text):
     st.markdown(f"### {title}")
 
     with st.expander("Read Further"):
-        st.write(text)
 
+    st.markdown(
+        f"""
+        <div class='reading-text'>
+            {text}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 # -----------------------------
-# Further Reading TTS
+# Further Reading
 # -----------------------------
 
-st.markdown("### 🔊 Listen to the Further Reading")
+st.divider()
 
-further_tts_text = row["further_reading_text"]
+st.subheader("📚 Further Reading")
 
-if st.button("🎧 Generate Further Reading Audio"):
+st.markdown(f"### {row['further_reading_title']}")
 
-    try:
-        with st.spinner("Generating further reading audio..."):
+with st.expander("Read Further"):
 
-            further_tts = gTTS(
-                text=further_tts_text,
-                lang="en",
-                tld="com"
-            )
+    further_text = row["further_reading_text"]
 
-            further_audio_fp = BytesIO()
-            further_tts.write_to_fp(further_audio_fp)
-            further_audio_fp.seek(0)
-
-            st.audio(further_audio_fp, format="audio/mp3")
-
-    except Exception as e:
-        st.error("Further Reading audio generation failed.")
-        st.write(e)
-
-else:
-    st.info("Further Reading 자료가 아직 입력되지 않았습니다.")
+    st.markdown(
+        f"""
+        <div class='reading-text'>
+            {further_text}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 
 # -----------------------------
