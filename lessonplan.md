@@ -73,13 +73,13 @@ By the end of the lesson, students will be able to:
 
 # 📝 6. Teaching Procedure
 
-| Stage | Time | Teacher Activities | Student Activities | App Integration |
+| Stage | Duration | Teacher Activities | Student Activities | Streamlit App Link |
 |---|---|---|---|---|
 | Warm-up | 5 min | Introduce lesson topic and explain app use | Access app using QR code | APP_Smart_Class_Tools |
-| Vocabulary Notice | 10 min | Explain prefixes and word meanings | Explore etymology section | APP_Etymology |
+| Vocabulary Learning | 10 min | Explain prefixes and word meanings | Explore etymology section | APP_Etymology |
 | Guided Practice | 10 min | Model phrasal verb and collocation use | Complete matching and meaning tasks | APP_Phrasal_Verbs / APP_Collocations |
-| Reading & Listening Connection | 10 min | Present textbook reading passage and TTS audio | Read while listening to TTS-supported text | APP_Textbook_Reading |
-| Interactive Review | 10 min | Monitor and provide feedback | Complete quizzes and review errors | All apps |
+| Textbook Reading with TTS | 10 min | Present textbook reading passage and TTS audio | Read while listening to TTS-supported text | APP_Textbook_Reading |
+| Practice Check Quiz | 10 min | Monitor and provide feedback | Complete quizzes and review errors | All apps |
 | Reflection & Wrap-up | 5 min | Summarize lesson and assign review | Share difficult expressions and reflections | Review sections |
 
 ---
