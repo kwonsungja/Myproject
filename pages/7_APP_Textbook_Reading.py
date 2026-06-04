@@ -11,7 +11,9 @@ st.set_page_config(
     page_title="APP Textbook Reading",
     page_icon="📘",
     layout="wide"
-)# ---------- Global Style ----------
+)
+
+# ---------- Global Style ----------
 st.markdown("""
 <style>
 /* Sidebar menu text */
@@ -31,6 +33,7 @@ section[data-testid="stSidebar"] a p {
     margin-bottom: 18px !important;
 }</style>
 """, unsafe_allow_html=True)
+
 # ---------- Header ----------
 st.markdown("""
 <h1 style='text-align:center; font-size:36px; margin-bottom:5px;'>
@@ -59,6 +62,7 @@ def load_data(book):
     df = pd.read_csv(file_path, encoding="utf-8-sig")
     df.columns = df.columns.str.strip()
     return df
+
 # ---------- Reading Options ----------
 st.header("⚙ Reading Options")
 selected_book = st.selectbox(
@@ -79,6 +83,7 @@ if filtered_df.empty:
     st.stop()
 # 첫 번째 row 선택
 row = filtered_df.iloc[0]
+
 # -----------------------------
 # Header
 # -----------------------------
@@ -99,6 +104,7 @@ for exp in key_expressions:
     exp = exp.strip()
     if exp:
         st.markdown(f"- **{exp}**")
+
 # -----------------------------
 # Full Text
 # -----------------------------
@@ -109,6 +115,7 @@ with st.expander("본문 텍스트 보기"):
         f"<div class='reading-text'>{text}</div>",
         unsafe_allow_html=True
     )
+
 # -----------------------------
 # TTS: Text-to-Speech
 # -----------------------------
@@ -125,6 +132,7 @@ if st.button("🎧 Generate American English Audio"):
     except Exception as e:
         st.error("Audio generation failed.")
         st.write(e)
+
 # -----------------------------
 # Further Reading
 # -----------------------------
@@ -141,11 +149,13 @@ with st.expander("Read Further"):
         """,
         unsafe_allow_html=True
     )
+
 # -----------------------------
 # Reading Task
 # -----------------------------
 st.subheader("🎯 Reading Task")
 st.success(row["reading_task"])
+
 # -----------------------------
 # Quiz
 # -----------------------------
@@ -162,6 +172,7 @@ if st.button("Check Answer"):
     else:
         st.error("다시 한 번 생각해 보세요.")
         st.markdown(f"**Suggested answer:** {answer}")
+
 # -----------------------------
 # Learning Reflection
 # -----------------------------
