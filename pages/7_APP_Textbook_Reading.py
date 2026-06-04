@@ -190,31 +190,6 @@ st.divider()
 
 st.subheader("📚 Further Reading")
 
-title = row.get("further_reading_title", "")
-text = row.get("further_reading_text", "")
-
-if pd.notna(title) and pd.notna(text):
-
-    st.markdown(f"### {title}")
-
-    with st.expander("Read Further"):
-
-    st.markdown(
-        f"""
-        <div class='reading-text'>
-            {text}
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-# -----------------------------
-# Further Reading
-# -----------------------------
-
-st.divider()
-
-st.subheader("📚 Further Reading")
-
 st.markdown(f"### {row['further_reading_title']}")
 
 with st.expander("Read Further"):
@@ -229,7 +204,6 @@ with st.expander("Read Further"):
         """,
         unsafe_allow_html=True
     )
-
 
 # -----------------------------
 # Reading Task
