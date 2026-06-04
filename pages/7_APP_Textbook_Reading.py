@@ -209,7 +209,7 @@ with st.expander("본문 텍스트 보기"):
 
     text = row["full_text"]
 
-    lesson_key = (selected_book, int(row["lesson"]))
+    lesson_key = (selected_book, int(float(row["lesson"])))
 
     phrasal_list = lesson_expressions.get(
         lesson_key, {}
