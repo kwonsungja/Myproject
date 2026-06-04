@@ -80,6 +80,19 @@ def highlight_expressions(text, phrasal_verbs, collocations):
 
     return text
 
+
+def get_lesson_number(value):
+
+    text = str(value)
+
+    digits = "".join(
+        [ch for ch in text if ch.isdigit()]
+    )
+
+    if digits:
+        return int(digits)
+
+    return None
 lesson_expressions = {
 
     ("공통영어1", 1): {
