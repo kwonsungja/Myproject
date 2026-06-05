@@ -62,7 +62,8 @@ The lesson is meaningful because students repeatedly notice, practice, use, and 
 # 3. 💡 App Purpose
 
 ## 🛠 Why Was This App Created?
-The app was created to support adaptive English learning in real classroom contexts. It helps students learn important vocabulary and language chunks needed for reading comprehension while increasing motivation and engagement.
+- The app was created to support adaptive English learning in real classroom contexts. It helps students learn important vocabulary and language chunks needed for reading comprehension while increasing motivation and engagement.
+- The app is to support meaningful, engaging, and learner-centered English learning experiences Also, not only simply testing vocabulary knowledge, but supporting gradual learning, contextual understanding, and repeated retrieval.
 
 ## 🎯 What Learning Needs Does It Address?
 The app addresses:
@@ -76,17 +77,17 @@ The app addresses:
 
 ---
 
-# 4. ⚙️ App Design
+# 4. ⚙️ App Design (English Opens Your World App)
 
 ## 📱 How Does It Work?
 The app is divided into several learning sections:
 
-1. APP_Etymology.py
-2. APP_Phrasal_Verbs.py
-3. APP_Collocations.py
-4. APP_Idioms_Proverbs.py
-5. APP_Word_Relations.py
-6. APP_Textbook_Reading.py
+1. APP_Etymology.py: Students can learn vocabulary through prefixes, suffixes, and roots
+2. APP_Phrasal_Verbs.py: Students can practice common phrasal verbs in context
+3. APP_Collocations.py: Students can learn natural English word combinations
+4. APP_Idioms_Proverbs.py: Students can explore idioms and proverbs used in real communication
+5. APP_Word_Relations.py: Students can study synonyms, antonyms, and multiple meanings
+6. APP_Textbook_Reading.py: Students can read textbook passages and additional reading materials
 
 Each app includes:
 - learning mode
@@ -106,13 +107,13 @@ The Textbook Reading app additionally includes:
 The app uses:
 - customized CSV vocabulary datasets
 - high school English vocabulary
-- etymology data
-- phrasal verbs
-- collocations
-- idioms and proverbs
-- synonyms and antonyms
-- textbook reading passages
-- further reading materials
+- etymology data: EBS Voca 어원 1,658개
+- phrasal verbs: 공통영어1 34개, 공통영어2 44개, EBS인터넷수능 40개 총 118개
+- collocations: 공통영어1 73개, 공통영어2 85개 총 158개 
+- idioms and proverbs: EBS인터넷수능 숙어 40개, 속담 38개 총 78개
+- polysemy 121개, antonyms 40개, synonyms 40개 총 201개
+- textbook reading passages: 박준언 공통영어1, 공통영어2 
+- further reading materials: 박준언 공통영어1, 공통영어2 
 
 ## 🖱️ How Do Learners Interact With It?
 Learners:
@@ -132,10 +133,10 @@ Learners:
 The app is used during:
 - vocabulary introduction
 - guided practice
-- reading activities
-- listening activities
+- reading and listening activities
 - quiz review
 - self-study and repeated practice
+- teacher guidance and learner interation
 
 Students use the app individually and collaboratively during classroom activities.
 
