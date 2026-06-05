@@ -36,6 +36,7 @@ Students often:
 - struggle with vocabulary in reading passages
 - have difficulty understanding phrasal verbs and collocations
 - lack confidence in English reading
+- low learner engagement in traditional vocabulary learning
 - memorize isolated words without contextual understanding
 - forget vocabulary quickly due to limited repeated exposure
 - need listening support during reading activities
