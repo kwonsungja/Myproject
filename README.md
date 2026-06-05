@@ -5,18 +5,22 @@
 
 # 📌 Project Overview
 
-This project aims to design a simple but meaningful English learning application using Streamlit for high school Grade 1 students. The app is designed not only for vocabulary memorization but also for improving English reading and listening ability through repeated exposure to important language knowledge and language chunks.
+This project aims to develop a simple but meaningful English learning application using Streamlit for Korean high school Grade 1 students. The app is designed not only for vocabulary learning but also for improving reading and listening skills through repeated exposure to important vocabulary, language chunks, and contextualized language use.
 
 The application includes:
-- Etymology
-- Phrasal Verbs
-- Collocations
-- Idioms & Proverbs
-- Word Relations (polysemy, synonyms, antonyms)
-- Textbook Reading
-- TTS-Supported Reading and Listening
 
-The project focuses on learner-centered and pedagogically meaningful digital learning experiences rather than technical complexity.
+* Etymology
+* Phrasal Verbs
+* Collocations
+* Idioms & Proverbs
+* Word Relations (polysemy, synonyms, antonyms)
+* Textbook Reading with TTS-supported listening
+
+The app focuses on learner-centered and pedagogically meaningful digital learning experiences rather than technical complexity. It was designed to support reading-oriented vocabulary learning, fluency development, and step-by-step scaffolding through the following learning sequence:
+
+**Learn → Guided Practice → Practice Check → Review**
+
+This approach reflects the actual teaching context of Korean high school English classrooms, where many students struggle with reading fluency, vocabulary retention, and confidence in English learning.
 
 ---
 
