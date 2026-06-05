@@ -31,7 +31,7 @@ The target learners are Korean high school Grade 1 students studying English as 
 - Smartphone, tablet, or computer-based learning
 - Streamlit web application used during class activities
 
-## ⚠️ Learner Challenges
+## ⚠️ Learner Challenges(Learning Problem or Need)
 Students often:
 - struggle with vocabulary in reading passages
 - have difficulty understanding phrasal verbs and collocations
