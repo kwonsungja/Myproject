@@ -25,9 +25,11 @@ The project focuses on learner-centered and pedagogically meaningful digital lea
 ## 👩‍🎓 Learners
 The target learners are Korean high school Grade 1 students studying English as a foreign language.
 
-## 🏫 Classroom Environment
+## 🏫 Classroom Environment(Lesson Overview)
 - Korean high school English classroom
 - 50-minute lessons
+- Integration of vocabulary and reading activities
+- Student-centered and app-based learning approach
 - Smartphone, tablet, or computer-based learning
 - Streamlit web application used during class activities
 
