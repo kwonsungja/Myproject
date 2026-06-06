@@ -418,7 +418,6 @@ elif mode == "✅ Practice Check":
             )
 
             answers.append((item, answer))
-
         if st.button("Practice Check 제출"):
 
             score = 0
@@ -435,16 +434,16 @@ elif mode == "✅ Practice Check":
                         f"✅ {item['collocation']}"
                     )
 
- else:
+                else:
 
-    st.error(
-        f"❌ {item['collocation']} → 정답: {correct}"
-    )
+                    st.error(
+                        f"❌ {item['collocation']} → 정답: {correct}"
+                    )
 
-if score == len(answers):
-    st.success("🎉 Perfect Score!")
-    st.balloons()
-    
+            if score == len(answers):
+                st.success("🎉 Perfect Score!")
+                st.balloons()
+                
                     st.write(f"예문: {item['example_sentence']}")
 
                     if item not in st.session_state.collocation_wrong_items:
