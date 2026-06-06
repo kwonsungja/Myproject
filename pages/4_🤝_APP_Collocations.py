@@ -115,8 +115,6 @@ Learn collocations through meaning, context, guided practice, and review.
 </div>
 """, unsafe_allow_html=True)
 
-st.divider()
-
 # ---------- Load Data ----------
 @st.cache_data
 def load_data():
@@ -216,8 +214,6 @@ items_per_page = st.slider(
     20,
     10
 )
-
-st.divider()
 
 # ==========================================
 # 1. Learn
