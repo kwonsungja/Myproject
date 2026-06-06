@@ -120,8 +120,6 @@ Learn polysemy, synonyms, and antonyms through meaning, relation, guided practic
 </div>
 """, unsafe_allow_html=True)
 
-st.divider()
-
 # ---------- Load Data ----------
 CSV_FILE = "grade1_word_relations_integrated_updated.csv"
 
@@ -205,7 +203,6 @@ items_per_page = st.slider(
     10
 )
 
-st.divider()
 
 # ==========================================
 # 1. Learn
