@@ -331,29 +331,31 @@ elif mode == "🧩 Guided Practice":
 
             answers.append((item, answer))
 
-    if st.button("Guided Practice 확인"):
+        if st.button("Guided Practice 확인"):
 
-        score = 0
+            score = 0
 
-        for item, answer in answers:
+            for item, answer in answers:
 
-            if answer == item["korean_meaning"]:
+                if answer == item["korean_meaning"]:
 
-               score += 1
+                    score += 1
 
-               st.success(
-                  f"정답입니다: {item['idiom_proverb']} = {item['korean_meaning']}"
-               )
+                    st.success(
+                        f"정답입니다: {item['expression']} = {item['korean_meaning']}"
+                    )
 
-           else:
+                else:
 
-               st.warning(
-                f"다시 확인해 보세요. 정답은 '{item['korean_meaning']}'입니다."
-            )
+                    st.warning(
+                        f"다시 확인해 보세요. 정답은 '{item['korean_meaning']}'입니다."
+                    )
 
-        if score == len(answers):
-            st.success("🎉 Perfect Score!")
-            st.balloons()
+            st.markdown(f"## 점수: {score} / {len(answers)}")
+
+            if score == len(answers):
+                st.success("🎉 Perfect Score!")
+                st.balloons()
         
 # ==========================================
 # 3. Practice Check
