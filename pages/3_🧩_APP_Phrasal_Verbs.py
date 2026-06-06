@@ -226,7 +226,7 @@ items_per_page = st.slider(
     10
 )
 
-st.divider()
+st.markdown("<hr style='margin:20px 0;'>", unsafe_allow_html=True)
 
 # ==========================================
 # 1. Learn
@@ -406,7 +406,9 @@ elif mode == "✅ Practice Check":
         for i, item in enumerate(st.session_state.phrasal_quiz_items, start=1):
 
             st.markdown(f"### Q{i}. {item['phrasal_verb']}")
-            st.caption(f"{item['section']} / {item['textbook']} / Lesson {item['lesson']}")
+            st.caption(
+                f"{item['section']} / {item['textbook']} / Lesson {int(float(item['lesson']))}"
+            )
 
             answer = st.radio(
                 "뜻을 고르세요.",
