@@ -330,21 +330,29 @@ elif mode == "🧩 Guided Practice":
 
             answers.append((item, answer))
 
-        if st.button("Guided Practice 확인"):
+if st.button("Guided Practice 확인"):
 
-            for item, answer in answers:
+    score = 0
 
-                if answer == item["meaning_ko"]:
+    for item, answer in answers:
 
-                    st.success(
-                        f"정답입니다: {item['collocation']} = {item['meaning_ko']}"
-                    )
+        if answer == item["meaning_ko"]:
 
-                else:
+            score += 1
 
-                    st.warning(
-                        f"다시 확인해 보세요. 정답은 '{item['meaning_ko']}'입니다."
-                    )
+            st.success(
+                f"정답입니다: {item['collocation']} = {item['meaning_ko']}"
+            )
+
+        else:
+
+            st.warning(
+                f"다시 확인해 보세요. 정답은 '{item['meaning_ko']}'입니다."
+            )
+
+    if score == len(answers):
+        st.success("🎉 Perfect Score!")
+        st.balloons()
 
 # ==========================================
 # 3. Practice Check
@@ -427,12 +435,16 @@ elif mode == "✅ Practice Check":
                         f"✅ {item['collocation']}"
                     )
 
-                else:
+ else:
 
-                    st.error(
-                        f"❌ {item['collocation']} → 정답: {correct}"
-                    )
+    st.error(
+        f"❌ {item['collocation']} → 정답: {correct}"
+    )
 
+if score == len(answers):
+    st.success("🎉 Perfect Score!")
+    st.balloons()
+    
                     st.write(f"예문: {item['example_sentence']}")
 
                     if item not in st.session_state.collocation_wrong_items:
