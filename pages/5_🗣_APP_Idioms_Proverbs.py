@@ -121,7 +121,6 @@ Learn idioms and proverbs through meaning, context, guided practice, and review.
 </div>
 """, unsafe_allow_html=True)
 
-st.divider()
 
 # ---------- Load Data ----------
 CSV_FILE = "idioms_proverbs_for_grade1.csv"
@@ -202,8 +201,6 @@ items_per_page = st.slider(
     20,
     10
 )
-
-st.divider()
 
 # ==========================================
 # 1. Learn
