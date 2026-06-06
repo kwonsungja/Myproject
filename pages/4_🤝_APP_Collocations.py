@@ -330,30 +330,6 @@ elif mode == "🧩 Guided Practice":
 
             answers.append((item, answer))
 
-if st.button("Guided Practice 확인"):
-
-    score = 0
-
-    for item, answer in answers:
-
-        if answer == item["meaning_ko"]:
-
-            score += 1
-
-            st.success(
-                f"정답입니다: {item['collocation']} = {item['meaning_ko']}"
-            )
-
-        else:
-
-            st.warning(
-                f"다시 확인해 보세요. 정답은 '{item['meaning_ko']}'입니다."
-            )
-
-    if score == len(answers):
-        st.success("🎉 Perfect Score!")
-        st.balloons()
-
 # ==========================================
 # 3. Practice Check
 # ==========================================
