@@ -226,8 +226,6 @@ items_per_page = st.slider(
     10
 )
 
-st.markdown("<hr style='margin:20px 0;'>", unsafe_allow_html=True)
-
 # ==========================================
 # 1. Learn
 # ==========================================
