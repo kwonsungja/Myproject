@@ -215,11 +215,26 @@ for i, tab in enumerate(grade_tabs, start=1):
             st.markdown("---")
             st.markdown("## 📝 Test Questions")
 
-            for idx, row in quiz_df.iterrows():
-                st.markdown(f"### Q{idx+1}. {row['word']}")
+for idx, row in quiz_df.iterrows():
+    st.markdown(f"### Q{idx+1}. {row['word']}")
 
-                st.write(f"**Prefix / Root / Suffix:** {row['prefix']}")
+    etymology_note = str(row.get("etymology_note", ""))
 
+    if etymology_note != "nan" and etymology_note.strip() != "":
+        st.markdown(f"""
+        <div style="
+            font-size:20px;
+            line-height:1.8;
+            background-color:#f8fbff;
+            padding:12px 18px;
+            border-radius:10px;
+            border-left:5px solid #4a90e2;
+            margin:12px 0 18px 0;
+        ">
+            <b>Etymology:</b> {etymology_note}
+        </div>
+        """, unsafe_allow_html=True)
+    example_sentence = str(row['example_sentence'])
                 example_sentence = str(row['example_sentence'])
                 target_word = str(row['word'])
 
