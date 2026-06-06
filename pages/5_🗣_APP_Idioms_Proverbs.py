@@ -331,22 +331,30 @@ elif mode == "🧩 Guided Practice":
 
             answers.append((item, answer))
 
-        if st.button("Guided Practice 확인"):
+    if st.button("Guided Practice 확인"):
 
-            for item, answer in answers:
+        score = 0
 
-                if answer == item["korean_meaning"]:
+        for item, answer in answers:
 
-                    st.success(
-                        f"정답입니다: {item['expression']} = {item['korean_meaning']}"
-                    )
+            if answer == item["korean_meaning"]:
 
-                else:
+               score += 1
 
-                    st.warning(
-                        f"다시 확인해 보세요. {item['expression']}의 뜻은 '{item['korean_meaning']}'입니다."
-                    )
+               st.success(
+                  f"정답입니다: {item['idiom_proverb']} = {item['korean_meaning']}"
+               )
 
+           else:
+
+               st.warning(
+                f"다시 확인해 보세요. 정답은 '{item['korean_meaning']}'입니다."
+            )
+
+        if score == len(answers):
+            st.success("🎉 Perfect Score!")
+            st.balloons()
+        
 # ==========================================
 # 3. Practice Check
 # ==========================================
@@ -440,6 +448,9 @@ elif mode == "✅ Practice Check":
                         st.session_state.idiom_wrong_items.append(item)
 
             st.markdown(f"## 점수: {score} / {len(answers)}")
+            if score == len(answers):
+               st.success("🎉 Perfect Score!")
+               st.balloons()
 
 # ==========================================
 # 4. Review
