@@ -319,17 +319,17 @@ elif mode == "🧩 Guided Practice":
                 min(2, len(wrong_pool))
             )
 
-           options = wrongs + [correct]
+            options = wrongs + [correct]
 
-           options = [
-               opt for opt in options
-               if str(opt).strip() != "" and str(opt) != "nan"
-           ]
+            options = [
+                opt for opt in options
+                if str(opt).strip() != "" and str(opt) != "nan"
+            ]
 
-           random.shuffle(options)
+            random.shuffle(options)
 
-           item["options"] = options
-           item["practice_type"] = practice_type
+            item["options"] = options
+            item["practice_type"] = practice_type
 
         st.session_state.word_guided_items = guided_items
 
