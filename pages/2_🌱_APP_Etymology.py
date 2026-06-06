@@ -96,7 +96,6 @@ Learn prefixes, suffixes, and roots through meaning, word connections, and revie
 </div>
 """, unsafe_allow_html=True)
 
-st.divider()
 
 @st.cache_data
 def load_data():
@@ -212,7 +211,6 @@ for i, tab in enumerate(grade_tabs, start=1):
         if f"quiz_{i}" in st.session_state:
             quiz_df = st.session_state[f"quiz_{i}"]
 
-            st.markdown("---")
             st.markdown("## 📝 Test Questions")
 
             for idx, row in quiz_df.iterrows():
