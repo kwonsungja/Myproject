@@ -224,71 +224,29 @@ for i, tab in enumerate(grade_tabs, start=1):
 
             st.markdown("## 📝 Test Questions")
             
-    for idx, row in quiz_df.iterrows():
+            for idx, row in quiz_df.iterrows():
 
-        col1, col2 = st.columns([8, 2])
+                col1, col2 = st.columns([8, 2])
 
-        with col1:
-            st.markdown(f"### Q{idx+1}. {row['word']}")
+                with col1:
+                    st.markdown(f"### Q{idx+1}. {row['word']}")
 
-        with col2:
-            if st.button("🔊", key=f"tts_{i}_{idx}"):
+                with col2:
+                    if st.button("🔊", key=f"tts_{i}_{idx}"):
 
-                audio_file = make_tts(str(row["word"]))
+                        audio_file = make_tts(str(row["word"]))
 
-                audio_html = f"""
-                <audio controls style="width:180px; height:32px;">
-                    <source src="data:audio/mp3;base64,{base64.b64encode(audio_file.read()).decode()}">
-                </audio>
-                """
+                        audio_html = f"""
+                        <audio controls style="width:180px; height:32px;">
+                            <source src="data:audio/mp3;base64,{base64.b64encode(audio_file.read()).decode()}">
+                        </audio>
+                        """
 
-                st.markdown(audio_html, unsafe_allow_html=True)
+                        st.markdown(audio_html, unsafe_allow_html=True)
 
                 etymology_note = str(row.get("etymology_note", ""))
 
                 if etymology_note != "nan" and etymology_note.strip() != "":
-                    st.markdown(
-                        f"""
-                        <div style="
-                            font-size:20px;
-                            line-height:1.8;
-                            background-color:#f8fbff;
-                            padding:12px 18px;
-                            border-radius:10px;
-                            border-left:5px solid #4a90e2;
-                            margin:12px 0 18px 0;
-                        ">
-                            <b>Etymology:</b> {etymology_note}
-                        </div>
-                        """,
-                        unsafe_allow_html=True
-                    )
-
-                example_sentence = str(row["example_sentence"])
-                target_word = str(row["word"])
-
-                if example_sentence == "nan":
-                    example_sentence = ""
-
-                highlighted_sentence = example_sentence.replace(
-                    target_word,
-                    f"**{target_word}**"
-                )
-
-                st.markdown(f"**Example:** {highlighted_sentence}")
-
-                user_answer = st.text_input(
-                    "Translate the sentence into Korean",
-                    key=f"answer_{i}_{idx}"
-                )
-
-                st.caption("Focus on the highlighted word when translating.")
-
-                st.session_state[f"answers_{i}"][idx] = user_answer
-
-            if st.button("Submit Answers", key=f"submit_{i}_{test_type}_{start_day}_{end_day}_{question_count}"):
-                score = 0
-
                 st.markdown("---")
                 st.markdown("## ✅ Result")
 
