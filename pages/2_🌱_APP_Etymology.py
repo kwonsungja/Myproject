@@ -227,7 +227,7 @@ for i, tab in enumerate(grade_tabs, start=1):
 
             for idx, row in quiz_df.iterrows():
 
-                col1, col2 = st.columns([5, 1])
+                col1, col2 = st.columns([7, 1])
 
                 with col1:
                     st.markdown(f"### Q{idx+1}. {row['word']}")
@@ -238,7 +238,7 @@ for i, tab in enumerate(grade_tabs, start=1):
                         audio_file = make_tts(str(row["word"]))
 
                         audio_html = f"""
-                        <audio controls style="width:180px; height:32px;">
+                        <audio controls style="width:120px; height:32px;">
                             <source src="data:audio/mp3;base64,{base64.b64encode(audio_file.read()).decode()}">
                         </audio>
                         """
