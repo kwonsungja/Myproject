@@ -223,26 +223,26 @@ for i, tab in enumerate(grade_tabs, start=1):
             quiz_df = st.session_state[f"quiz_{i}"]
 
             st.markdown("## 📝 Test Questions")
+            
+    for idx, row in quiz_df.iterrows():
 
-            for idx, row in quiz_df.iterrows():
+        col1, col2 = st.columns([8, 2])
 
-            col1, col2 = st.columns([8, 2])
-
-            with col1:
+        with col1:
             st.markdown(f"### Q{idx+1}. {row['word']}")
 
-            with col2:
-                if st.button("🔊", key=f"tts_{i}_{idx}"):
+        with col2:
+            if st.button("🔊", key=f"tts_{i}_{idx}"):
 
-                   audio_file = make_tts(str(row["word"]))
+                audio_file = make_tts(str(row["word"]))
 
-                   audio_html = f"""
-                   <audio controls style="width:180px; height:32px;">
-                       <source src="data:audio/mp3;base64,{base64.b64encode(audio_file.read()).decode()}">
-                   </audio>
-                   """
+                audio_html = f"""
+                <audio controls style="width:180px; height:32px;">
+                    <source src="data:audio/mp3;base64,{base64.b64encode(audio_file.read()).decode()}">
+                </audio>
+                """
 
-            st.markdown(audio_html, unsafe_allow_html=True)
+                st.markdown(audio_html, unsafe_allow_html=True)
 
                 if st.button("🔊 Listen", key=f"tts_{i}_{idx}"):
                     audio_file = make_tts(str(row["word"]))
