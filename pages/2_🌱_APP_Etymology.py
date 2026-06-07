@@ -244,10 +244,6 @@ for i, tab in enumerate(grade_tabs, start=1):
 
                 st.markdown(audio_html, unsafe_allow_html=True)
 
-                if st.button("🔊 Listen", key=f"tts_{i}_{idx}"):
-                    audio_file = make_tts(str(row["word"]))
-                    st.audio(audio_file, format="audio/mp3")
-
                 etymology_note = str(row.get("etymology_note", ""))
 
                 if etymology_note != "nan" and etymology_note.strip() != "":
