@@ -22,6 +22,11 @@ html, body, [class*="css"] {
     font-size: 17px;
 }
 
+/* radio 선택지 글자 크기 */
+div[role="radiogroup"] label {
+    font-size: 16px !important;
+}
+
 /* Sidebar menu text */
 section[data-testid="stSidebar"] a,
 section[data-testid="stSidebar"] a span,
