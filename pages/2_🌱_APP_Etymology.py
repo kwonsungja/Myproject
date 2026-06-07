@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import random
+from gtts import gTTS
+from io import BytesIO
 
 # ---------- Page Config ----------
 st.set_page_config(
@@ -102,6 +104,14 @@ def load_data():
     return pd.read_csv("data/etymology_final.csv")
 
 df = load_data()
+
+# ---------- TTS Function ----------
+def make_tts(text):
+    tts = gTTS(text=text, lang="en")
+    audio_bytes = BytesIO()
+    tts.write_to_fp(audio_bytes)
+    audio_bytes.seek(0)
+    return audio_bytes
 
 test_map = {
     "접두사 Daily Test": (1, 10),
@@ -215,6 +225,10 @@ for i, tab in enumerate(grade_tabs, start=1):
 
             for idx, row in quiz_df.iterrows():
                 st.markdown(f"### Q{idx+1}. {row['word']}")
+
+                if st.button("🔊 Listen", key=f"tts_{i}_{idx}"):
+                    audio_file = make_tts(str(row["word"]))
+                    st.audio(audio_file, format="audio/mp3")
 
                 etymology_note = str(row.get("etymology_note", ""))
 
