@@ -365,7 +365,7 @@ elif mode == "🧩 Guided Practice":
             )
 
             if item["practice_type"] == "뜻 확인":
-                question_label = "뜻을 고르세요."
+                question_label = "💡뜻을 고르세요."
                 correct = item["meaning_in_context"]
             else:
                 question_label = f"{item['category']}에 해당하는 관련어를 고르세요."
@@ -493,7 +493,7 @@ elif mode == "✅ Practice Check":
             if item["check_type"] == "뜻 확인":
                 question = f"Q{i}. {item['word']}"
                 correct = item["meaning_in_context"]
-                label = "뜻을 고르세요."
+                label = "💡뜻을 고르세요."
             else:
                 question = f"Q{i}. {item['word']}의 {item['category']}는?"
                 correct = item["related_word"]
