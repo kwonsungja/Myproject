@@ -37,8 +37,7 @@ section[data-testid="stSidebar"] a p {
     font-weight: 500 !important;
 }
 
-/* 메뉴 선택 라벨 */
-div[data-testid="stRadio"] > label {
+div[data-testid="stRadio"] > label p {
     font-size: 24px !important;
     font-weight: 700 !important;
 }
