@@ -227,7 +227,7 @@ for i, tab in enumerate(grade_tabs, start=1):
 
             for idx, row in quiz_df.iterrows():
 
-                col1, col2 = st.columns([8, 2])
+                col1, col2 = st.columns([5, 1])
 
                 with col1:
                     st.markdown(f"### Q{idx+1}. {row['word']}")
