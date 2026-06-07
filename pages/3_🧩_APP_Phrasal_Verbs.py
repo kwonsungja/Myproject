@@ -331,7 +331,7 @@ elif mode == "🧩 Guided Practice":
             )
 
             answer = st.radio(
-                "💡 뜻을 고르세요."
+                "💡 뜻을 고르세요.",
                 item["options"],
                 index=None,
                 key=f"guided_{i}"
@@ -416,7 +416,7 @@ elif mode == "✅ Practice Check":
             )
 
             answer = st.radio(
-                "💡 뜻을 고르세요."
+                "💡 뜻을 고르세요.",
                 item["options"],
                 index=None,
                 key=f"check_{i}"
