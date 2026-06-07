@@ -286,7 +286,7 @@ for i, tab in enumerate(grade_tabs, start=1):
 
                 st.session_state[f"answers_{i}"][idx] = user_answer
 
-            if st.button("Submit Answers", key=f"submit_{i}_{test_type}_{start_day}_{end_day}"):                
+            if st.button("Submit Answers", key=f"submit_{i}_{test_type}_{start_day}_{end_day}_{question_count}"):
                 score = 0
 
                 st.markdown("---")
