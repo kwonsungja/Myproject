@@ -37,7 +37,7 @@ section[data-testid="stSidebar"] a p {
     font-weight: 500 !important;
 }
 
-div[data-testid="stRadio"] > label p {
+div[data-testid="stRadio"] > label {
     font-size: 24px !important;
     font-weight: 700 !important;
 }
