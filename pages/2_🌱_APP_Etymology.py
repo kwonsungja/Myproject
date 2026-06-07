@@ -220,6 +220,7 @@ for i, tab in enumerate(grade_tabs, start=1):
             st.session_state[f"answers_{i}"] = {}
 
         if f"quiz_{i}" in st.session_state:
+
             quiz_df = st.session_state[f"quiz_{i}"]
 
             st.markdown("## 📝 Test Questions")
@@ -290,18 +291,23 @@ for i, tab in enumerate(grade_tabs, start=1):
                 "Submit Answers",
                 key=f"submit_{i}_{test_type}_{start_day}_{end_day}_{question_count}"
             ):
+
                 score = 0
 
                 st.markdown("---")
                 st.markdown("## ✅ Result")
 
                 for idx, row in quiz_df.iterrows():
+
                     user_answer = st.session_state[f"answers_{i}"].get(idx, "")
                     correct_answer = str(row["example_korean"])
 
                     if user_answer.strip() in correct_answer:
                         score += 1
-                        st.success(f"Q{idx+1}. Correct! / {row['word']} = {correct_answer}")
+                        st.success(
+                            f"Q{idx+1}. Correct! / {row['word']} = {correct_answer}"
+                        )
+
                     else:
                         st.error(f"Q{idx+1}. Incorrect")
                         st.write(f"Your answer: {user_answer}")
@@ -310,59 +316,14 @@ for i, tab in enumerate(grade_tabs, start=1):
                 st.markdown(f"## Final Score: {score} / {len(quiz_df)}")
 
                 result_df = quiz_df[[
-                    "day", "prefix", "meaning", "word", "word_meaning",
-                    "example_sentence", "example_korean", "etymology_note"
-                ]]
-
-                st.markdown("### Review Table")
-                st.dataframe(result_df, use_container_width=True)            
-            quiz_df = st.session_state[f"quiz_{i}"]
-
-            st.markdown("## 📝 Test Questions")
-            
-            for idx, row in quiz_df.iterrows():
-
-                col1, col2 = st.columns([8, 2])
-
-                with col1:
-                    st.markdown(f"### Q{idx+1}. {row['word']}")
-
-                with col2:
-                    if st.button("🔊", key=f"tts_{i}_{idx}"):
-
-                        audio_file = make_tts(str(row["word"]))
-
-                        audio_html = f"""
-                        <audio controls style="width:180px; height:32px;">
-                            <source src="data:audio/mp3;base64,{base64.b64encode(audio_file.read()).decode()}">
-                        </audio>
-                        """
-
-                        st.markdown(audio_html, unsafe_allow_html=True)
-
-                etymology_note = str(row.get("etymology_note", ""))
-
-                if etymology_note != "nan" and etymology_note.strip() != "":
-                st.markdown("---")
-                st.markdown("## ✅ Result")
-
-                for idx, row in quiz_df.iterrows():
-                    user_answer = st.session_state[f"answers_{i}"].get(idx, "")
-                    correct_answer = str(row["example_korean"])
-
-                    if user_answer.strip() in correct_answer:
-                        score += 1
-                        st.success(f"Q{idx+1}. Correct! / {row['word']} = {correct_answer}")
-                    else:
-                        st.error(f"Q{idx+1}. Incorrect")
-                        st.write(f"Your answer: {user_answer}")
-                        st.write(f"Correct answer: {correct_answer}")
-
-                st.markdown(f"## Final Score: {score} / {len(quiz_df)}")
-
-                result_df = quiz_df[[
-                    "day", "prefix", "meaning", "word", "word_meaning",
-                    "example_sentence", "example_korean", "etymology_note"
+                    "day",
+                    "prefix",
+                    "meaning",
+                    "word",
+                    "word_meaning",
+                    "example_sentence",
+                    "example_korean",
+                    "etymology_note"
                 ]]
 
                 st.markdown("### Review Table")
