@@ -22,9 +22,11 @@ html, body, [class*="css"] {
     font-size: 17px;
 }
 
-/* radio 선택지 글자 크기 */
-div[role="radiogroup"] label {
-    font-size: 16px !important;
+/* radio 문제 + 선택지 글자 */
+div[data-testid="stRadio"] label p,
+div[role="radiogroup"] label p {
+    font-size: 18px !important;
+    font-weight: 500 !important;
 }
 
 /* Sidebar menu text */
@@ -414,7 +416,7 @@ elif mode == "✅ Practice Check":
             )
 
             answer = st.radio(
-                "뜻을 고르세요.",
+                "💡뜻을 고르세요.",
                 item["options"],
                 index=None,
                 key=f"check_{i}"
