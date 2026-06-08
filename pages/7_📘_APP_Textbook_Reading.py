@@ -101,11 +101,34 @@ st.info(row["summary"])
 # Key Expressions
 # -----------------------------
 st.subheader("🔑 Key Expressions")
-key_expressions = str(row["key_expressions"]).split(";")
-for exp in key_expressions:
+
+expressions = str(row["key_expressions"]).split(";")
+korean_meanings = str(row["key_expression_korean"]).split(";")
+
+for exp, kor in zip(expressions, korean_meanings):
+
     exp = exp.strip()
+    kor = kor.strip()
+
     if exp:
-        st.markdown(f"- **{exp}**")
+
+        st.markdown(f"""
+        <div style="
+            background-color:#f4f9ff;
+            padding:16px;
+            border-radius:14px;
+            border:1px solid #d6e6ff;
+            margin-bottom:10px;
+            font-size:20px;
+            font-weight:600;
+            color:#1e3a5f;
+        ">
+            🔹 {exp}
+        </div>
+        """, unsafe_allow_html=True)
+
+        with st.expander("🤔 먼저 추론하세요"):
+            st.write(f"🇰🇷 {kor}")
 
 # -----------------------------
 # Full Text
