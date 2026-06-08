@@ -102,48 +102,14 @@ st.info(row["summary"])
 # -----------------------------
 st.subheader("🔑 Key Expressions")
 
-expressions = str(row["key_expressions"]).split(";")
+key_expressions = str(row["key_expressions"]).split(";")
 
-if "key_expression_korean" in row.index:
-    korean_meanings = str(row["key_expression_korean"]).split(";")
-else:
-    korean_meanings = [""] * len(expressions)
-
-for i, exp in enumerate(expressions):
-
+for exp in key_expressions:
+    
     exp = exp.strip()
-
-    kor = ""
-
-    if i < len(korean_meanings):
-        kor = korean_meanings[i].strip()
-
-    if kor.lower() == "nan":
-        kor = ""
-
+    
     if exp:
-
-        st.markdown(f"""
-        <div style="
-            background-color:#f4f9ff;
-            padding:16px;
-            border-radius:14px;
-            border:1px solid #d6e6ff;
-            margin-bottom:10px;
-            font-size:20px;
-            font-weight:600;
-            color:#1e3a5f;
-        ">
-            🔹 {exp}
-        </div>
-        """, unsafe_allow_html=True)
-
-        with st.expander("🤔 먼저 추론하세요"):
-
-            if kor:
-                st.write(f"🇰🇷 {kor}")
-            else:
-                st.caption("아직 한국어 의미가 없습니다.")
+        st.markdown(f"- **{exp}**")
 
 # -----------------------------
 # Full Text
