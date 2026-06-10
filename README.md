@@ -9,6 +9,13 @@ The application is available online:
 
 🔗 [English Opens Your World](https://projectvoca.streamlit.app/)
 
+---
+
+# 🎬 Introduction Video
+
+▶️ [Watch the Project Introduction Video](https://github.com/kwonsungja/Myproject/raw/main/English_Opens_Your_World.mp4)
+
+---
 
 
 # 📌 Project Overview
