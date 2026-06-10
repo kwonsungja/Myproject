@@ -17,10 +17,6 @@ The application is available online:
 
 ---
 
-
----
-
-
 # 📌 Project Overview
 
 This project aims to develop a simple but meaningful English learning application using Streamlit for Korean high school Grade 1 students. The app is designed not only for vocabulary learning but also for improving reading and listening skills through repeated exposure to important vocabulary, language chunks, and contextualized language use.
