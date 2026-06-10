@@ -9,7 +9,7 @@ The application is available online:
 
 🔗 [English Opens Your World](https://projectvoca.streamlit.app/)
 
----
+
 
 # 📌 Project Overview
 
