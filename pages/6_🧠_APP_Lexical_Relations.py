@@ -288,12 +288,13 @@ elif mode == "🧩 Guided Practice":
         for item in guided_items:
 
             if item["related_word"]:
-                item["related_info"] = f"{item['related_word']} {item['relation_meaning']}"
+                related_info = f"{item['related_word']} {item['relation_meaning']}"
             else:
-                item["related_info"] = item["related_collocation"]
+                related_info = item["related_collocation"]
+
+            item["related_info"] = related_info
 
             if practice_type == "뜻 확인":
-
                 correct = item["meaning_in_context"]
 
                 wrong_pool = df[
@@ -301,8 +302,7 @@ elif mode == "🧩 Guided Practice":
                 ]["meaning_in_context"].dropna().unique().tolist()
 
             else:
-
-                correct = item["related_info"]
+                correct = related_info
 
                 wrong_pool = []
 
@@ -326,12 +326,6 @@ elif mode == "🧩 Guided Practice":
             )
 
             options = wrongs + [correct]
-
-            options = [
-                opt for opt in options
-                if str(opt).strip() != "" and str(opt) != "nan"
-            ]
-
             random.shuffle(options)
 
             item["options"] = options
@@ -344,40 +338,35 @@ elif mode == "🧩 Guided Practice":
 
         answers = []
 
-for i, item in enumerate(st.session_state.word_guided_items, start=1):
+        for i, item in enumerate(st.session_state.word_guided_items, start=1):
 
-    if item["related_word"]:
-        related_info = f"{item['related_word']} {item['relation_meaning']}"
-    else:
-        related_info = item["related_collocation"]
+            st.markdown(
+                f"""
+                <div class="guided-card">
 
-    st.markdown(
-        f"""
-        <div class="guided-card">
+                <div class="word-title">
+                Q{i}. {item['word']}
+                </div>
 
-        <div class="word-title">
-        Q{i}. {item['word']}
-        </div>
+                <div class="tip-text">
+                분류: {item['category']}
+                </div>
 
-        <div class="tip-text">
-        분류: {item['category']}
-        </div>
+                <div class="tip-text">
+                💡 Hint: 관련 표현이나 관련어를 보고 의미를 생각해 보세요.
+                </div>
 
-        <div class="tip-text">
-        💡 Hint: 관련 표현이나 관련어를 보고 의미를 생각해 보세요.
-        </div>
+                <div class="tip-text">
+                관련 정보: {item['related_info']}
+                </div>
 
-        <div class="tip-text">
-        관련 정보: {related_info}
-        </div>
-
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
 
             if item["practice_type"] == "뜻 확인":
-                question_label = "💡뜻을 고르세요."
+                question_label = "💡 뜻을 고르세요."
             else:
                 question_label = f"{item['category']}에 해당하는 관련 정보를 고르세요."
 
@@ -392,27 +381,20 @@ for i, item in enumerate(st.session_state.word_guided_items, start=1):
 
         if st.button("Guided Practice 확인"):
 
-           score = 0
+            score = 0
 
-           for item, answer, correct in answers:
+            for item, answer, correct in answers:
 
-               if answer == correct:
+                if answer == correct:
+                    score += 1
+                    st.success(f"정답입니다: {item['word']} = {correct}")
 
-                  score += 1
+                else:
+                    st.warning(f"다시 확인해 보세요. 정답은 '{correct}'입니다.")
 
-                  st.success(
-                      f"정답입니다: {item['word']} = {correct}"
-                  )
-   
-               else:
-
-                 st.warning(
-                     f"다시 확인해 보세요. 정답은 '{correct}'입니다."
-                 )
-
-           if score == len(answers):
-               st.success("🎉 Perfect Score!")
-               st.balloons()
+            if score == len(answers):
+                st.success("🎉 Perfect Score!")
+                st.balloons()
                
 # ==========================================
 # 3. Practice Check
