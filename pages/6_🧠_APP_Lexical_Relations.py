@@ -357,7 +357,7 @@ elif mode == "🧩 Guided Practice":
                 </div>
 
                 <div class="tip-text">
-                관련 정보: {item['related_info']}
+                관련 정보: {item.get('related_info', '')}
                 </div>
 
                 </div>
