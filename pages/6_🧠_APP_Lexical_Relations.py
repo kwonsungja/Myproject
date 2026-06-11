@@ -248,18 +248,12 @@ if mode == "📘 Learn":
             </div>
 
             <div class="tip-text">
-            관련어: {row['related_word']} {row['relation_meaning']}
-            </div>
-
-            <div class="tip-text">
-            💡 Note: {row['note']}
-            </div>
-
+            관련 표현: {row['related_collocation']}
             </div>
             """,
             unsafe_allow_html=True
         )
-
+        
 # ==========================================
 # 2. Guided Practice
 # ==========================================
