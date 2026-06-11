@@ -120,6 +120,7 @@ Learn collocations through meaning, context, guided practice, and review.
 def load_data():
 
     filename = "grade1_common1_common2_collocations.csv"
+    df.columns = df.columns.str.strip()
 
     possible_files = [
         filename,
