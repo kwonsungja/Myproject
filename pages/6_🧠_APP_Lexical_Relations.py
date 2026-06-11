@@ -219,7 +219,7 @@ if mode == "📘 Learn":
         st.stop()
 
     total_pages = (len(filtered_df) - 1) // items_per_page + 1
-    page = st.selectbox("학습 페이지 선택", list(range(1, total_pages + 1)))
+    page = st.selectbox("📖어휘 페이지(10개씩 선택)", list(range(1, total_pages + 1)))
 
     start = (page - 1) * items_per_page
     end = start + items_per_page
