@@ -377,7 +377,7 @@ elif mode == "🧩 Guided Practice":
                 key=f"word_guided_{i}"
             )
 
-            answers.append((item, answer, item["correct"]))
+            answers.append((item, answer, item.get("correct", "")))
 
         if st.button("Guided Practice 확인"):
 
