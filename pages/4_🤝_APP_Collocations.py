@@ -120,7 +120,6 @@ Learn collocations through meaning, context, guided practice, and review.
 def load_data():
 
     filename = "grade1_common1_common2_collocations.csv"
-    df.columns = df.columns.str.strip()
 
     possible_files = [
         filename,
@@ -140,13 +139,17 @@ def load_data():
 
     df = pd.read_csv(file_path)
 
+    # 컬럼명 앞뒤 공백 제거
+    df.columns = df.columns.str.strip()
+
     required_cols = [
         "source_order",
         "section",
         "lesson",
         "collocation",
         "meaning_ko",
-        "example_sentence"
+        "example_sentence",
+        "learning_tip"
     ]
 
     missing = [c for c in required_cols if c not in df.columns]
@@ -156,11 +159,11 @@ def load_data():
         st.stop()
 
     df = df.fillna("")
+
     return df
 
 
 df = load_data()
-
 # ---------- Session ----------
 if "collocation_wrong_items" not in st.session_state:
     st.session_state.collocation_wrong_items = []
