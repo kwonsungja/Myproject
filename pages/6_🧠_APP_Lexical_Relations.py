@@ -344,32 +344,37 @@ elif mode == "🧩 Guided Practice":
 
         answers = []
 
-        for i, item in enumerate(st.session_state.word_guided_items, start=1):
+for i, item in enumerate(st.session_state.word_guided_items, start=1):
 
-            st.markdown(
-                f"""
-                <div class="guided-card">
+    if item["related_word"]:
+        related_info = f"{item['related_word']} {item['relation_meaning']}"
+    else:
+        related_info = item["related_collocation"]
 
-                <div class="word-title">
-                Q{i}. {item['word']}
-                </div>
+    st.markdown(
+        f"""
+        <div class="guided-card">
 
-                <div class="tip-text">
-                분류: {item['category']}
-                </div>
+        <div class="word-title">
+        Q{i}. {item['word']}
+        </div>
 
-                <div class="tip-text">
-                💡 Hint: 관련 표현이나 관련어를 보고 의미를 생각해 보세요.
-                </div>
+        <div class="tip-text">
+        분류: {item['category']}
+        </div>
 
-                <div class="tip-text">
-                관련 정보: {item['related_info']}
-                </div>
+        <div class="tip-text">
+        💡 Hint: 관련 표현이나 관련어를 보고 의미를 생각해 보세요.
+        </div>
 
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+        <div class="tip-text">
+        관련 정보: {related_info}
+        </div>
+
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
             if item["practice_type"] == "뜻 확인":
                 question_label = "💡뜻을 고르세요."
@@ -408,6 +413,7 @@ elif mode == "🧩 Guided Practice":
            if score == len(answers):
                st.success("🎉 Perfect Score!")
                st.balloons()
+               
 # ==========================================
 # 3. Practice Check
 # ==========================================
