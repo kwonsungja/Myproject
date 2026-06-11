@@ -287,6 +287,11 @@ elif mode == "🧩 Guided Practice":
 
         for item in guided_items:
 
+            if item["related_word"]:
+                item["related_info"] = f"{item['related_word']} {item['relation_meaning']}"
+            else:
+                item["related_info"] = item["related_collocation"]
+
             if practice_type == "뜻 확인":
 
                 correct = item["meaning_in_context"]
@@ -297,15 +302,22 @@ elif mode == "🧩 Guided Practice":
 
             else:
 
-                correct = item["related_word"]
+                correct = item["related_info"]
 
-                wrong_pool = df[
-                    df["related_word"] != correct
-                ]["related_word"].dropna().unique().tolist()
+                wrong_pool = []
+
+                for _, r in df.iterrows():
+                    if r["related_word"]:
+                        info = f"{r['related_word']} {r['relation_meaning']}"
+                    else:
+                        info = r["related_collocation"]
+
+                    if info != correct and str(info).strip() != "":
+                        wrong_pool.append(info)
 
             wrong_pool = [
                 x for x in wrong_pool
-                if str(x).strip() != ""
+                if str(x).strip() != "" and str(x) != "nan"
             ]
 
             wrongs = random.sample(
@@ -324,6 +336,7 @@ elif mode == "🧩 Guided Practice":
 
             item["options"] = options
             item["practice_type"] = practice_type
+            item["correct"] = correct
 
         st.session_state.word_guided_items = guided_items
 
@@ -346,11 +359,11 @@ elif mode == "🧩 Guided Practice":
                 </div>
 
                 <div class="tip-text">
-                💡 Hint: {item['note']}
+                💡 Hint: 관련 표현이나 관련어를 보고 의미를 생각해 보세요.
                 </div>
 
                 <div class="tip-text">
-                관련 정보: {item['related_word']} {item['relation_meaning']}
+                관련 정보: {item['related_info']}
                 </div>
 
                 </div>
@@ -360,10 +373,8 @@ elif mode == "🧩 Guided Practice":
 
             if item["practice_type"] == "뜻 확인":
                 question_label = "💡뜻을 고르세요."
-                correct = item["meaning_in_context"]
             else:
-                question_label = f"{item['category']}에 해당하는 관련어를 고르세요."
-                correct = item["related_word"]
+                question_label = f"{item['category']}에 해당하는 관련 정보를 고르세요."
 
             answer = st.radio(
                 question_label,
@@ -372,7 +383,7 @@ elif mode == "🧩 Guided Practice":
                 key=f"word_guided_{i}"
             )
 
-            answers.append((item, answer, correct))
+            answers.append((item, answer, item["correct"]))
 
         if st.button("Guided Practice 확인"):
 
@@ -397,7 +408,6 @@ elif mode == "🧩 Guided Practice":
            if score == len(answers):
                st.success("🎉 Perfect Score!")
                st.balloons()
-
 # ==========================================
 # 3. Practice Check
 # ==========================================
