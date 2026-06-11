@@ -242,7 +242,7 @@ if mode == "📘 Learn":
             </div>
 
             <div class="tip-text">
-            💡 Tip: 연어는 함께 자주 쓰이는 자연스러운 표현입니다.
+            <p>💡 학습 팁: {row['learning_tip']}</p>
             </div>
 
             </div>
