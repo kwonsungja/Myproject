@@ -3,9 +3,12 @@ import pandas as pd
 from pathlib import Path
 from gtts import gTTS
 from io import BytesIO
+import re
+
 # ==========================================
 # Textbook Reading App
 # ==========================================
+
 # ---------- Page Config ----------
 st.set_page_config(
     page_title="APP Textbook Reading",
@@ -22,16 +25,40 @@ section[data-testid="stSidebar"] a span,
 section[data-testid="stSidebar"] a p {
     font-size: 18px !important;
     font-weight: 500 !important;
-}/* reading text */
+}
+
+/* reading text */
 .reading-text {
     font-size: 21px !important;
     line-height: 1.9 !important;
     color: #333 !important;
     text-align: justify;
-}/* paragraph spacing */
+}
+
+/* paragraph spacing */
 .reading-text p {
     margin-bottom: 18px !important;
-}</style>
+}
+
+/* follow text */
+.follow-normal {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.follow-highlight {
+    background-color: #EAF4FF;
+    border-left: 6px solid #4A90E2;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 22px;
+    line-height: 1.8;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+</style>
 """, unsafe_allow_html=True)
 
 # ---------- Header ----------
@@ -44,6 +71,49 @@ st.markdown("""
 Vocabulary → Textbook Reading → Reading Expansion
 </p>
 """, unsafe_allow_html=True)
+
+# -----------------------------
+# Helper Functions
+# -----------------------------
+def split_sentences(text):
+    sentences = re.split(r'(?<=[.!?])\s+', str(text).strip())
+    return [s.strip() for s in sentences if s.strip() != ""]
+
+def show_follow_text(text, slider_key):
+    sentences = split_sentences(text)
+
+    if len(sentences) == 0:
+        st.warning("표시할 문장이 없습니다.")
+        return
+
+    selected_sentence = st.slider(
+        "현재 읽고 있는 문장",
+        min_value=1,
+        max_value=len(sentences),
+        value=1,
+        key=slider_key
+    )
+
+    for idx, sentence in enumerate(sentences, start=1):
+        if idx == selected_sentence:
+            st.markdown(
+                f"""
+                <div class="follow-highlight">
+                👉 {idx}. {sentence}
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+        else:
+            st.markdown(
+                f"""
+                <div class="follow-normal">
+                {idx}. {sentence}
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+
 # -----------------------------
 # Data loading
 # -----------------------------
@@ -52,38 +122,46 @@ def load_data(book):
         "공통영어1": "common_english1_reading_full.csv",
         "공통영어2": "common_english2_reading_full.csv"
     }
+
     base_path = Path(__file__).resolve().parents[1] / "data"
     file_path = base_path / file_map[book]
+
     if not file_path.exists():
         st.error("CSV 파일을 찾을 수 없습니다.")
         st.write("현재 찾는 위치:", file_path)
         st.write("data 폴더 파일 목록:", list(base_path.iterdir()))
         st.stop()
+
     df = pd.read_csv(file_path, encoding="utf-8-sig")
     df.columns = df.columns.str.strip()
     return df
 
 # ---------- Reading Options ----------
 st.header("⚙ Reading Options")
+
 selected_book = st.selectbox(
     "교과서 선택",
     ["공통영어1", "공통영어2"]
 )
+
 df = load_data(selected_book)
+
 lesson_options = ["전체"] + list(df["lesson"].dropna().unique())
+
 selected_lesson = st.selectbox(
     "Lesson 선택",
     lesson_options
 )
+
 if selected_lesson != "전체":
     filtered_df = df[df["lesson"] == selected_lesson].copy()
 else:
     filtered_df = df.copy()
-# 자료가 없을 경우 처리
+
 if filtered_df.empty:
     st.warning("선택한 조건에 해당하는 자료가 없습니다.")
     st.stop()
-# 첫 번째 row 선택
+
 row = filtered_df.iloc[0]
 
 # -----------------------------
@@ -92,11 +170,13 @@ row = filtered_df.iloc[0]
 st.markdown(f"## {selected_book} · {row['lesson']}")
 st.markdown(f"### {row['title']}")
 st.divider()
+
 # -----------------------------
 # Summary
 # -----------------------------
 st.subheader("📝 Summary")
 st.info(row["summary"])
+
 # -----------------------------
 # Key Expressions
 # -----------------------------
@@ -105,9 +185,7 @@ st.subheader("🔑 Key Expressions")
 key_expressions = str(row["key_expressions"]).split(";")
 
 for exp in key_expressions:
-    
     exp = exp.strip()
-    
     if exp:
         st.markdown(f"- **{exp}**")
 
@@ -115,6 +193,7 @@ for exp in key_expressions:
 # Full Text
 # -----------------------------
 st.subheader("📖 Textbook Reading Text")
+
 with st.expander("본문 텍스트 보기"):
     text = row["full_text"]
     st.markdown(
@@ -122,11 +201,16 @@ with st.expander("본문 텍스트 보기"):
         unsafe_allow_html=True
     )
 
+with st.expander("👀 Follow the Text"):
+    show_follow_text(row["full_text"], "main_follow_slider")
+
 # -----------------------------
 # TTS: Text-to-Speech
 # -----------------------------
 st.markdown("### 🔊 Listen to the Text")
+
 tts_text = row["full_text"]
+
 if st.button("🎧 Generate American English Audio"):
     try:
         with st.spinner("Generating audio..."):
@@ -145,6 +229,7 @@ if st.button("🎧 Generate American English Audio"):
 st.divider()
 st.subheader("📚 Further Reading")
 st.markdown(f"### {row['further_reading_title']}")
+
 with st.expander("Read Further"):
     further_text = row["further_reading_text"]
     st.markdown(
@@ -155,6 +240,9 @@ with st.expander("Read Further"):
         """,
         unsafe_allow_html=True
     )
+
+with st.expander("👀 Follow the Further Reading"):
+    show_follow_text(row["further_reading_text"], "further_follow_slider")
 
 # -----------------------------
 # Reading Task
@@ -167,9 +255,12 @@ st.success(row["reading_task"])
 # -----------------------------
 st.subheader("❓ Comprehension Quiz")
 st.markdown(f"**Q. {row['quiz']}**")
+
 user_answer = st.text_input("Your answer")
+
 if st.button("Check Answer"):
     answer = str(row["answer"]).strip()
+
     if user_answer.strip() == "":
         st.warning("답을 입력해 주세요.")
     elif user_answer.lower().strip() in answer.lower():
@@ -184,9 +275,11 @@ if st.button("Check Answer"):
 # -----------------------------
 st.divider()
 st.subheader("💬 Reflection")
+
 reflection = st.text_area(
     "오늘 본문에서 새롭게 배운 표현이나 내용을 적어보세요.",
     height=120
 )
+
 if reflection:
     st.success("좋아요. 본문 읽기와 어휘 학습이 잘 연결되고 있어요.")
