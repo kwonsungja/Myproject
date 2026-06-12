@@ -96,13 +96,25 @@ st.info(row["summary"])
 # Key Expressions
 # -----------------------------
 st.subheader("🔑 Key Expressions")
-key_expressions = str(row["key_expressions"]).split(";")
-for exp in key_expressions:
-    
-    exp = exp.strip()
-    
-    if exp:
-        st.markdown(f"- **{exp}**")
+
+key_expressions = [
+    exp.strip()
+    for exp in str(row["key_expressions"]).split(";")
+    if exp.strip()
+]
+
+col1, col2, col3 = st.columns(3)
+
+for i, exp in enumerate(key_expressions):
+
+    if i % 3 == 0:
+        col1.markdown(f"• **{exp}**")
+
+    elif i % 3 == 1:
+        col2.markdown(f"• **{exp}**")
+
+    else:
+        col3.markdown(f"• **{exp}**")
 # -----------------------------
 # Full Text
 # -----------------------------
