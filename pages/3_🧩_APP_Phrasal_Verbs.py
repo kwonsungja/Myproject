@@ -261,7 +261,7 @@ if mode == "📘 Learn":
                 <div class="meaning-text">뜻: {row['korean_meaning']}</div>
                 <div class="example-text">예문: {row['example_sentence']}</div>
                 <div class="tip-text">💡 학습 팁: {row['learning_tip']}</div>
-                <div class="tip-text">출처: {row['section']} / {row['textbook']} / Lesson {row['lesson']}
+                <div class="tip-text">출처: {row['section']} / {row['textbook']} / Lesson {int(row['lesson'])}
             </div>
             """,
             unsafe_allow_html=True
