@@ -290,13 +290,16 @@ elif mode == "🧩 Guided Practice":
 
             if practice_type == "뜻 확인":
 
-                correct = item["korean_meaning"]
+                correct = str(item["korean_meaning"]).split(";")[0].strip()
 
-                wrong_pool = df[
-                    (df["category"] == item["category"]) &
-                    (df["korean_meaning"] != correct)
-                ]["korean_meaning"].dropna().unique().tolist()
+                wrong_pool = []
 
+                for _, r in df[df["category"] == item["category"]].iterrows():
+                    meaning = str(r["korean_meaning"]).split(";")[0].strip()
+
+                    if meaning != correct and meaning != "" and meaning != "nan":
+                        wrong_pool.append(meaning)
+            
             else:
 
                 if item["category"] == "반의어":
