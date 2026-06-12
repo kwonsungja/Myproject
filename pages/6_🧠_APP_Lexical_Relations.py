@@ -307,7 +307,8 @@ elif mode == "🧩 Guided Practice":
                 correct = item["meaning_in_context"]
 
                 wrong_pool = df[
-                    df["meaning_in_context"] != correct
+                    (df["word"] == item["word"]) &
+                    (df["meaning_in_context"] != correct)
                 ]["meaning_in_context"].dropna().unique().tolist()
 
             else:
