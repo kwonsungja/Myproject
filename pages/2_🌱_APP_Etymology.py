@@ -276,14 +276,12 @@ for i, tab in enumerate(grade_tabs, start=1):
                     f"**{target_word}**"
                 )
 
-                st.markdown(f"**Example:** {highlighted_sentence}")
+                st.markdown(f"📝**Example:** {highlighted_sentence}")
 
                 user_answer = st.text_input(
                     "Translate the sentence into Korean",
                     key=f"answer_{i}_{idx}"
                 )
-
-                st.caption("Focus on the highlighted word when translating.")
 
                 st.session_state[f"answers_{i}"][idx] = user_answer
 
