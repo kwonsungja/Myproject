@@ -279,6 +279,20 @@ elif mode == "🧩 Guided Practice":
     else:
         practice_type = st.radio("연습 유형", ["뜻 확인", "관련어 확인"], index=0)
 
+    # 다의어 뜻 정리 함수
+    def clean_polysemy_meaning(text):
+        parts = str(text).split(";")
+        cleaned = []
+
+        remove_words = ["관련 의미 확장", "문맥적 의미", "nan", ""]
+
+        for p in parts:
+            p = p.strip()
+            if p not in remove_words:
+                cleaned.append(p)
+
+        return "; ".join(cleaned)
+
     if st.button("새 Guided Practice 시작"):
 
         guided_items = filtered_df.sample(
@@ -291,14 +305,14 @@ elif mode == "🧩 Guided Practice":
             if practice_type == "뜻 확인":
 
                 if item["category"] == "다의어":
-                    correct = str(item["korean_meaning"]).strip()
+                    correct = clean_polysemy_meaning(item["korean_meaning"])
 
                     wrong_pool = []
 
                     for _, r in df[df["category"] == item["category"]].iterrows():
-                        meaning = str(r["korean_meaning"]).strip()
+                        meaning = clean_polysemy_meaning(r["korean_meaning"])
 
-                        if meaning != correct and meaning != "" and meaning != "nan":
+                        if meaning != correct and meaning != "":
                             wrong_pool.append(meaning)
 
                 else:
