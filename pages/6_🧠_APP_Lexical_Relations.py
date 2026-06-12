@@ -272,10 +272,17 @@ elif mode == "🧩 Guided Practice":
         index=0
     )
 
-    practice_type = st.radio(
-        "연습 유형",
-        ["뜻 확인", "관련어 확인"],
-        index=0
+    if selected_category == "다의어":
+        practice_type = st.radio(
+            "연습 유형",
+            ["뜻 확인"],
+            index=0
+        )
+    else:
+        practice_type = st.radio(
+            "연습 유형",
+            ["뜻 확인", "관련어 확인"],
+            index=0
     )
 
     if st.button("새 Guided Practice 시작"):
