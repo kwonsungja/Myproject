@@ -64,12 +64,14 @@ st.header("⚙ Reading Options")
 selected_book = st.selectbox(
     "교과서 선택",
     ["공통영어1", "공통영어2"]
-)df = load_data(selected_book)
+)
+df = load_data(selected_book)
 lesson_options = ["전체"] + list(df["lesson"].dropna().unique())
 selected_lesson = st.selectbox(
     "Lesson 선택",
     lesson_options
-)if selected_lesson != "전체":
+)
+if selected_lesson != "전체":
     filtered_df = df[df["lesson"] == selected_lesson].copy()
 else:
     filtered_df = df.copy()
@@ -172,5 +174,6 @@ st.subheader("💬 Reflection")
 reflection = st.text_area(
     "오늘 본문에서 새롭게 배운 표현이나 내용을 적어보세요.",
     height=120
-)if reflection:
+)
+if reflection:
     st.success("좋아요. 본문 읽기와 어휘 학습이 잘 연결되고 있어요.")
