@@ -427,11 +427,33 @@ elif mode == "✅ Practice Check":
         index=1
     )
 
-    check_type = st.radio(
-        "확인 유형",
-        ["뜻 확인", "관련어 확인"],
-        index=0
-    )
+    current_category = filtered_df["category"].iloc[0]
+
+    if current_category == "다의어":
+        check_type = st.radio(
+            "확인 유형",
+            ["뜻 확인"],
+            index=0
+        )
+    else:
+        check_type = st.radio(
+            "확인 유형",
+            ["뜻 확인", "관련어 확인"],
+            index=0
+        )
+
+    def clean_polysemy_meaning(text):
+        parts = str(text).split(";")
+        cleaned = []
+
+        remove_words = ["관련 의미 확장", "문맥적 의미", "nan", ""]
+
+        for p in parts:
+            p = p.strip()
+            if p not in remove_words:
+                cleaned.append(p)
+
+        return "; ".join(cleaned)
 
     if st.button("새 Practice Check 시작"):
 
@@ -457,23 +479,37 @@ elif mode == "✅ Practice Check":
 
             if check_type == "뜻 확인":
 
-                correct = item["meaning_in_context"]
+                if item["category"] == "다의어":
+                    correct = clean_polysemy_meaning(item["korean_meaning"])
 
-                wrong_pool = df[
-                    df["meaning_in_context"] != correct
-                ]["meaning_in_context"].dropna().unique().tolist()
+                    wrong_pool = []
+
+                    for _, r in df[df["category"] == item["category"]].iterrows():
+                        meaning = clean_polysemy_meaning(r["korean_meaning"])
+
+                        if meaning != correct and meaning != "":
+                            wrong_pool.append(meaning)
+
+                else:
+                    correct = str(item["meaning_in_context"]).strip()
+
+                    wrong_pool = df[
+                        (df["category"] == item["category"]) &
+                        (df["meaning_in_context"] != correct)
+                    ]["meaning_in_context"].dropna().unique().tolist()
 
             else:
 
-                correct = item["related_word"]
+                correct = str(item["related_word"]).strip()
 
                 wrong_pool = df[
-                    df["related_word"] != correct
+                    (df["category"] == item["category"]) &
+                    (df["related_word"] != correct)
                 ]["related_word"].dropna().unique().tolist()
 
             wrong_pool = [
                 x for x in wrong_pool
-                if str(x).strip() != ""
+                if str(x).strip() != "" and str(x) != "nan"
             ]
 
             wrongs = random.sample(
@@ -482,10 +518,17 @@ elif mode == "✅ Practice Check":
             )
 
             options = wrongs + [correct]
+
+            options = [
+                opt for opt in options
+                if str(opt).strip() != "" and str(opt) != "nan"
+            ]
+
             random.shuffle(options)
 
             item["options"] = options
             item["check_type"] = check_type
+            item["correct"] = correct
 
         st.session_state.word_check_items = quiz_items
 
@@ -497,12 +540,12 @@ elif mode == "✅ Practice Check":
 
             if item["check_type"] == "뜻 확인":
                 question = f"Q{i}. {item['word']}"
-                correct = item["meaning_in_context"]
-                label = "💡뜻을 고르세요."
+                correct = item.get("correct", "")
+                label = "💡 뜻을 고르세요."
             else:
                 question = f"Q{i}. {item['word']}의 {item['category']}는?"
-                correct = item["related_word"]
-                label = "관련어를 고르세요."
+                correct = item.get("correct", "")
+                label = "💡 관련어를 고르세요."
 
             st.markdown(
                 f"<div class='question-text'>{question}</div>",
@@ -533,16 +576,17 @@ elif mode == "✅ Practice Check":
 
                     st.error(f"❌ {item['word']} → 정답: {correct}")
                     st.write(f"분류: {item['category']}")
-                    st.write(f"뜻: {item['meaning_in_context']}")
-                    st.write(f"관련어: {item['related_word']} {item['relation_meaning']}")
+                    st.write(f"뜻: {item.get('correct', '')}")
+                    st.write(f"관련어: {item.get('related_word', '')} {item.get('relation_meaning', '')}")
 
                     if item not in st.session_state.word_relation_wrong_items:
                         st.session_state.word_relation_wrong_items.append(item)
 
             st.markdown(f"## 점수: {score} / {len(answers)}")
+
             if score == len(answers):
-               st.success("🎉 Perfect Score!")
-               st.balloons()
+                st.success("🎉 Perfect Score!")
+                st.balloons()
 
 # ==========================================
 # 4. Review
