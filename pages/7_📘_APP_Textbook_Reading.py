@@ -86,7 +86,7 @@ row = filtered_df.iloc[0]
 # -----------------------------
 st.markdown(f"## {selected_book} · {row['lesson']}")
 st.markdown(f"### {row['title']}")
-st.divider()
+# st.divider()
 # -----------------------------
 # Summary
 # -----------------------------
@@ -132,7 +132,7 @@ if st.button("🎧 Generate American English Audio"):
 # -----------------------------
 # Further Reading
 # -----------------------------
-st.divider()
+# st.divider()
 st.subheader("📚 Further Reading")
 st.markdown(f"### {row['further_reading_title']}")
 with st.expander("Read Further"):
@@ -189,7 +189,7 @@ if st.button("Check Answer"):
 # -----------------------------
 # Learning Reflection
 # -----------------------------
-st.divider()
+# st.divider()
 st.subheader("💬 Reflection")
 reflection = st.text_area(
     "오늘 본문에서 새롭게 배운 표현이나 내용을 적어보세요.",
