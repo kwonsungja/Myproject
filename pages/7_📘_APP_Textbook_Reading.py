@@ -145,6 +145,26 @@ with st.expander("Read Further"):
         """,
         unsafe_allow_html=True
     )
+
+# -----------------------------
+# TTS: Further Reading
+# -----------------------------
+st.markdown("### 🔊 Listen to the Further Reading")
+
+further_tts_text = row["further_reading_text"]
+
+if st.button("🎧 Generate Further Reading Audio"):
+    try:
+        with st.spinner("Generating audio..."):
+            tts = gTTS(text=further_tts_text, lang="en", tld="com")
+            audio_fp = BytesIO()
+            tts.write_to_fp(audio_fp)
+            audio_fp.seek(0)
+            st.audio(audio_fp, format="audio/mp3")
+    except Exception as e:
+        st.error("Audio generation failed.")
+        st.write(e)
+
 # -----------------------------
 # Reading Task
 # -----------------------------
