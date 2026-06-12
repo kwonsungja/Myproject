@@ -275,17 +275,9 @@ elif mode == "🧩 Guided Practice":
     current_category = filtered_df["category"].iloc[0]
 
     if current_category == "다의어":
-        practice_type = st.radio(
-            "연습 유형",
-            ["뜻 확인"],
-            index=0
-        )
+        practice_type = st.radio("연습 유형", ["뜻 확인"], index=0)
     else:
-        practice_type = st.radio(
-            "연습 유형",
-            ["뜻 확인", "관련어 확인"],
-            index=0
-        )
+        practice_type = st.radio("연습 유형", ["뜻 확인", "관련어 확인"], index=0)
 
     if st.button("새 Guided Practice 시작"):
 
@@ -296,39 +288,39 @@ elif mode == "🧩 Guided Practice":
 
         for item in guided_items:
 
-            if item.get("related_word") and str(item.get("related_word")).strip() != "":
-                related_info = f"{item.get('related_word', '')} {item.get('relation_meaning', '')}"
-            else:
-                related_info = item.get("related_collocation", "")
-
-            item["related_info"] = related_info
-
             if practice_type == "뜻 확인":
 
-                correct = item["meaning_in_context"]
-
                 if item["category"] == "다의어":
+                    correct = item["meaning_in_context"]
+
                     wrong_pool = df[
                         (df["word"] == item["word"]) &
                         (df["meaning_in_context"] != correct)
                     ]["meaning_in_context"].dropna().unique().tolist()
+
                 else:
+                    correct = item["korean_meaning"]
+
                     wrong_pool = df[
-                        df["meaning_in_context"] != correct
-                    ]["meaning_in_context"].dropna().unique().tolist()
+                        (df["category"] == item["category"]) &
+                        (df["korean_meaning"] != correct)
+                    ]["korean_meaning"].dropna().unique().tolist()
 
             else:
-                correct = related_info
+                if item.get("related_word") and str(item.get("related_word")).strip() != "":
+                    correct = f"{item.get('related_word', '')} {item.get('relation_meaning', '')}"
+                else:
+                    correct = item.get("related_collocation", "")
 
                 wrong_pool = []
 
-                for _, r in df.iterrows():
+                for _, r in df[df["category"] == item["category"]].iterrows():
                     if r.get("related_word") and str(r.get("related_word")).strip() != "":
                         info = f"{r.get('related_word', '')} {r.get('relation_meaning', '')}"
                     else:
                         info = r.get("related_collocation", "")
 
-                    if info != correct and str(info).strip() != "":
+                    if info != correct:
                         wrong_pool.append(info)
 
             wrong_pool = [
@@ -336,10 +328,7 @@ elif mode == "🧩 Guided Practice":
                 if str(x).strip() != "" and str(x) != "nan"
             ]
 
-            wrongs = random.sample(
-                wrong_pool,
-                min(2, len(wrong_pool))
-            )
+            wrongs = random.sample(wrong_pool, min(2, len(wrong_pool)))
 
             options = wrongs + [correct]
 
@@ -365,11 +354,9 @@ elif mode == "🧩 Guided Practice":
             st.markdown(
                 f"""
                 <div class="guided-card">
-
-                <div class="word-title">
-                Q{i}. {item['word']}
-                </div>
-
+                    <div class="word-title">
+                        Q{i}. {item['word']}
+                    </div>
                 </div>
                 """,
                 unsafe_allow_html=True
@@ -378,7 +365,7 @@ elif mode == "🧩 Guided Practice":
             if item["practice_type"] == "뜻 확인":
                 question_label = "💡 뜻을 고르세요."
             else:
-                question_label = f"{item['category']}에 해당하는 관련 정보를 고르세요."
+                question_label = "💡 관련어를 고르세요."
 
             answer = st.radio(
                 question_label,
@@ -398,7 +385,6 @@ elif mode == "🧩 Guided Practice":
                 if answer == correct:
                     score += 1
                     st.success(f"정답입니다: {item['word']} = {correct}")
-
                 else:
                     st.warning(f"다시 확인해 보세요. 정답은 '{correct}'입니다.")
 
