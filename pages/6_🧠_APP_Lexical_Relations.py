@@ -4,7 +4,7 @@ import random
 from pathlib import Path
 
 # ==========================================
-# Word Relations App
+# Lexical Relations App
 # ==========================================
 
 st.set_page_config(
