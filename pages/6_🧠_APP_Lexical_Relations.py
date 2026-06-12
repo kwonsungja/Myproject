@@ -290,45 +290,33 @@ elif mode == "🧩 Guided Practice":
 
             if practice_type == "뜻 확인":
 
-                if item["category"] == "다의어":
-                    correct = item["meaning_in_context"]
+                correct = item["korean_meaning"]
 
-                    wrong_pool = df[
-                        (df["word"] == item["word"]) &
-                        (df["meaning_in_context"] != correct)
-                    ]["meaning_in_context"].dropna().unique().tolist()
-
-                else:
-                    correct = item["korean_meaning"]
-
-                    wrong_pool = df[
-                        (df["category"] == item["category"]) &
-                        (df["korean_meaning"] != correct)
-                    ]["korean_meaning"].dropna().unique().tolist()
+                wrong_pool = df[
+                    (df["category"] == item["category"]) &
+                    (df["korean_meaning"] != correct)
+                ]["korean_meaning"].dropna().unique().tolist()
 
             else:
-                if item.get("related_word") and str(item.get("related_word")).strip() != "":
-                    correct = f"{item.get('related_word', '')} {item.get('relation_meaning', '')}"
+
+                if item["category"] == "반의어":
+                    correct = item.get("related_word", "")
+                elif item["category"] == "유의어":
+                    correct = item.get("related_word", "")
                 else:
-                    correct = item.get("related_collocation", "")
+                    correct = item.get("related_word", "")
 
-                wrong_pool = []
-
-                for _, r in df[df["category"] == item["category"]].iterrows():
-                    if r.get("related_word") and str(r.get("related_word")).strip() != "":
-                        info = f"{r.get('related_word', '')} {r.get('relation_meaning', '')}"
-                    else:
-                        info = r.get("related_collocation", "")
-
-                    if info != correct:
-                        wrong_pool.append(info)
+                wrong_pool = df[
+                    (df["category"] == item["category"]) &
+                    (df["related_word"] != correct)
+                ]["related_word"].dropna().unique().tolist()
 
             wrong_pool = [
                 x for x in wrong_pool
                 if str(x).strip() != "" and str(x) != "nan"
             ]
 
-            wrongs = random.sample(wrong_pool, min(2, len(wrong_pool)))
+            wrongs = random.sample(wrong_pool, min(3, len(wrong_pool)))
 
             options = wrongs + [correct]
 
@@ -396,6 +384,7 @@ elif mode == "🧩 Guided Practice":
             if score == len(answers):
                 st.success("🎉 Perfect Score!")
                 st.balloons()
+                
 # ==========================================
 # 3. Practice Check
 # ==========================================
