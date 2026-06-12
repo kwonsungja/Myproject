@@ -290,24 +290,31 @@ elif mode == "🧩 Guided Practice":
 
             if practice_type == "뜻 확인":
 
-                correct = str(item["korean_meaning"]).split(";")[0].strip()
+                if item["category"] == "다의어":
+                    correct = str(item["korean_meaning"]).strip()
 
-                wrong_pool = []
+                    wrong_pool = []
 
-                for _, r in df[df["category"] == item["category"]].iterrows():
-                    meaning = str(r["korean_meaning"]).split(";")[0].strip()
+                    for _, r in df[df["category"] == item["category"]].iterrows():
+                        meaning = str(r["korean_meaning"]).strip()
 
-                    if meaning != correct and meaning != "" and meaning != "nan":
-                        wrong_pool.append(meaning)
-            
+                        if meaning != correct and meaning != "" and meaning != "nan":
+                            wrong_pool.append(meaning)
+
+                else:
+                    correct = str(item["korean_meaning"]).split(";")[0].strip()
+
+                    wrong_pool = []
+
+                    for _, r in df[df["category"] == item["category"]].iterrows():
+                        meaning = str(r["korean_meaning"]).split(";")[0].strip()
+
+                        if meaning != correct and meaning != "" and meaning != "nan":
+                            wrong_pool.append(meaning)
+
             else:
 
-                if item["category"] == "반의어":
-                    correct = item.get("related_word", "")
-                elif item["category"] == "유의어":
-                    correct = item.get("related_word", "")
-                else:
-                    correct = item.get("related_word", "")
+                correct = item.get("related_word", "")
 
                 wrong_pool = df[
                     (df["category"] == item["category"]) &
