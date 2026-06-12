@@ -427,8 +427,9 @@ elif mode == "✅ Practice Check":
         index=1
     )
 
-    current_category = filtered_df["category"].iloc[0]
+    current_category = str(filtered_df["category"].iloc[0]).strip()
 
+    # 다의어만 관련어 확인 삭제
     if current_category == "다의어":
         check_type = st.radio(
             "확인 유형",
@@ -442,11 +443,23 @@ elif mode == "✅ Practice Check":
             index=0
         )
 
-    def clean_polysemy_meaning(text):
-        parts = str(text).split(";")
-        cleaned = []
+    # 의미 정리 함수
+    def clean_meaning(value):
+        text = str(value).strip()
 
-        remove_words = ["관련 의미 확장", "문맥적 의미", "nan", ""]
+        if text == "" or text == "nan":
+            return ""
+
+        parts = text.split(";")
+
+        remove_words = [
+            "관련 의미 확장",
+            "문맥적 의미",
+            "nan",
+            ""
+        ]
+
+        cleaned = []
 
         for p in parts:
             p = p.strip()
@@ -455,62 +468,82 @@ elif mode == "✅ Practice Check":
 
         return "; ".join(cleaned)
 
+    # 뜻 가져오기 함수
+    def get_meaning(row):
+        meaning = clean_meaning(row.get("korean_meaning", ""))
+
+        if meaning == "":
+            meaning = clean_meaning(row.get("meaning_in_context", ""))
+
+        if meaning == "":
+            meaning = clean_meaning(row.get("meaning_context", ""))
+
+        return meaning
+
+    # 관련어 가져오기 함수
+    def get_related(row):
+        related = str(row.get("related_word", "")).strip()
+
+        if related == "" or related == "nan":
+            related = str(row.get("related_collocation", "")).strip()
+
+        if related == "nan":
+            related = ""
+
+        return related
+
     if st.button("새 Practice Check 시작"):
 
-        if check_type == "관련어 확인":
+        st.session_state.word_check_items = []
 
+        if check_type == "관련어 확인":
             check_df = filtered_df[
                 filtered_df["category"].isin(["반의어", "유의어"])
             ].copy()
-
-            if check_df.empty:
-                st.warning("관련어 확인은 반의어와 유의어에서만 사용할 수 있습니다.")
-                st.stop()
-
         else:
             check_df = filtered_df.copy()
+
+        if check_df.empty:
+            st.warning("선택한 범위에 사용할 수 있는 문항이 없습니다.")
+            st.stop()
 
         quiz_items = check_df.sample(
             min(quiz_size, len(check_df)),
             random_state=random.randint(1, 100000)
         ).to_dict("records")
 
+        final_items = []
+
         for item in quiz_items:
 
             if check_type == "뜻 확인":
 
-                if item["category"] == "다의어":
-                    correct = clean_polysemy_meaning(item["korean_meaning"])
+                correct = get_meaning(item)
 
-                    wrong_pool = []
+                wrong_pool = []
 
-                    for _, r in df[df["category"] == item["category"]].iterrows():
-                        meaning = clean_polysemy_meaning(r["korean_meaning"])
+                for _, r in df[df["category"] == item["category"]].iterrows():
+                    meaning = get_meaning(r)
 
-                        if meaning != correct and meaning != "":
-                            wrong_pool.append(meaning)
-
-                else:
-                    correct = str(item["meaning_in_context"]).strip()
-
-                    wrong_pool = df[
-                        (df["category"] == item["category"]) &
-                        (df["meaning_in_context"] != correct)
-                    ]["meaning_in_context"].dropna().unique().tolist()
+                    if meaning != correct and meaning != "":
+                        wrong_pool.append(meaning)
 
             else:
 
-                correct = str(item["related_word"]).strip()
+                correct = get_related(item)
 
-                wrong_pool = df[
-                    (df["category"] == item["category"]) &
-                    (df["related_word"] != correct)
-                ]["related_word"].dropna().unique().tolist()
+                wrong_pool = []
 
-            wrong_pool = [
-                x for x in wrong_pool
-                if str(x).strip() != "" and str(x) != "nan"
-            ]
+                for _, r in df[df["category"] == item["category"]].iterrows():
+                    related = get_related(r)
+
+                    if related != correct and related != "":
+                        wrong_pool.append(related)
+
+            wrong_pool = list(set(wrong_pool))
+
+            if correct == "":
+                continue
 
             wrongs = random.sample(
                 wrong_pool,
@@ -524,13 +557,22 @@ elif mode == "✅ Practice Check":
                 if str(opt).strip() != "" and str(opt) != "nan"
             ]
 
+            if len(options) < 2:
+                continue
+
             random.shuffle(options)
 
             item["options"] = options
             item["check_type"] = check_type
             item["correct"] = correct
 
-        st.session_state.word_check_items = quiz_items
+            final_items.append(item)
+
+        if len(final_items) == 0:
+            st.warning("선택지를 만들 수 있는 문항이 없습니다. 데이터의 korean_meaning, related_word 컬럼을 확인해 주세요.")
+            st.stop()
+
+        st.session_state.word_check_items = final_items
 
     if st.session_state.word_check_items:
 
@@ -540,12 +582,19 @@ elif mode == "✅ Practice Check":
 
             if item["check_type"] == "뜻 확인":
                 question = f"Q{i}. {item['word']}"
-                correct = item.get("correct", "")
                 label = "💡 뜻을 고르세요."
             else:
-                question = f"Q{i}. {item['word']}의 {item['category']}는?"
-                correct = item.get("correct", "")
-                label = "💡 관련어를 고르세요."
+                if item["category"] == "반의어":
+                    question = f"Q{i}. {item['word']}의 반의어는?"
+                    label = "💡 반의어를 고르세요."
+                elif item["category"] == "유의어":
+                    question = f"Q{i}. {item['word']}의 유의어는?"
+                    label = "💡 유의어를 고르세요."
+                else:
+                    question = f"Q{i}. {item['word']}의 관련어는?"
+                    label = "💡 관련어를 고르세요."
+
+            correct = item.get("correct", "")
 
             st.markdown(
                 f"<div class='question-text'>{question}</div>",
@@ -568,16 +617,17 @@ elif mode == "✅ Practice Check":
             for item, answer, correct in answers:
 
                 if answer == correct:
-
                     score += 1
                     st.success(f"✅ {item['word']} = {correct}")
 
                 else:
-
                     st.error(f"❌ {item['word']} → 정답: {correct}")
                     st.write(f"분류: {item['category']}")
                     st.write(f"뜻: {item.get('correct', '')}")
-                    st.write(f"관련어: {item.get('related_word', '')} {item.get('relation_meaning', '')}")
+                    st.write(
+                        f"관련어: {item.get('related_word', '')} "
+                        f"{item.get('relation_meaning', '')}"
+                    )
 
                     if item not in st.session_state.word_relation_wrong_items:
                         st.session_state.word_relation_wrong_items.append(item)
