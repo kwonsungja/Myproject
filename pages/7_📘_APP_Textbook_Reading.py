@@ -92,6 +92,7 @@ st.markdown(f"### {row['title']}")
 # -----------------------------
 st.subheader("📝 Summary")
 st.info(row["summary"])
+
 # -----------------------------
 # Key Expressions
 # -----------------------------
@@ -107,14 +108,17 @@ col1, col2, col3 = st.columns(3)
 
 for i, exp in enumerate(key_expressions):
 
+    text = f"<span style='font-size:24px; font-weight:600;'>• {exp}</span>"
+
     if i % 3 == 0:
-        col1.markdown(f"• **{exp}**")
+        col1.markdown(text, unsafe_allow_html=True)
 
     elif i % 3 == 1:
-        col2.markdown(f"• **{exp}**")
+        col2.markdown(text, unsafe_allow_html=True)
 
     else:
-        col3.markdown(f"• **{exp}**")
+        col3.markdown(text, unsafe_allow_html=True)
+        
 # -----------------------------
 # Full Text
 # -----------------------------
