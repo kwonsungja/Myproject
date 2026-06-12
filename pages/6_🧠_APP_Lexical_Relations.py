@@ -260,7 +260,7 @@ if mode == "📘 Learn":
 elif mode == "🧩 Guided Practice":
 
     st.subheader("🧩 Guided Practice")
-    st.info("목표: 힌트를 보면서 단어의 의미를 확인합니다.")
+    st.info("목표: 단어의 의미와 어휘 관계를 확인합니다.")
 
     if filtered_df.empty:
         st.warning("선택한 범위에 해당하는 항목이 없습니다.")
@@ -304,12 +304,18 @@ elif mode == "🧩 Guided Practice":
             item["related_info"] = related_info
 
             if practice_type == "뜻 확인":
+
                 correct = item["meaning_in_context"]
 
-                wrong_pool = df[
-                    (df["word"] == item["word"]) &
-                    (df["meaning_in_context"] != correct)
-                ]["meaning_in_context"].dropna().unique().tolist()
+                if item["category"] == "다의어":
+                    wrong_pool = df[
+                        (df["word"] == item["word"]) &
+                        (df["meaning_in_context"] != correct)
+                    ]["meaning_in_context"].dropna().unique().tolist()
+                else:
+                    wrong_pool = df[
+                        df["meaning_in_context"] != correct
+                    ]["meaning_in_context"].dropna().unique().tolist()
 
             else:
                 correct = related_info
@@ -362,10 +368,6 @@ elif mode == "🧩 Guided Practice":
 
                 <div class="word-title">
                 Q{i}. {item['word']}
-                </div>
-
-                <div class="tip-text">
-                분류: {item['category']}
                 </div>
 
                 </div>
