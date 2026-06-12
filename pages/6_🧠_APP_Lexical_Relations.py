@@ -108,7 +108,7 @@ label p {
 # ---------- Header ----------
 st.markdown("""
 <h1 style='text-align:center; font-size:36px; margin-bottom:10px;'>
-📘 APP Word Relations (Grade 1)
+📘 APP Lexical Relations (Grade 1)
 </h1>
 
 <div style='text-align:center; font-size:18px; color:#555; line-height:1.8;'>
