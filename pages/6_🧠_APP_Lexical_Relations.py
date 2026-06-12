@@ -365,7 +365,12 @@ elif mode == "🧩 Guided Practice":
             if item["practice_type"] == "뜻 확인":
                 question_label = "💡 뜻을 고르세요."
             else:
-                question_label = "💡 관련어를 고르세요."
+                if item["category"] == "반의어":
+                    question_label = "💡 반의어를 고르세요."
+                elif item["category"] == "유의어":
+                    question_label = "💡 유의어를 고르세요."
+                else:
+                    question_label = "💡 관련어를 고르세요."
 
             answer = st.radio(
                 question_label,
