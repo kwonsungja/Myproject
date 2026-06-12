@@ -260,7 +260,7 @@ if mode == "📘 Learn":
 elif mode == "🧩 Guided Practice":
 
     st.subheader("🧩 Guided Practice")
-    st.info("목표: 힌트를 보면서 단어의 의미와 관련어를 확인합니다.")
+    st.info("목표: 힌트를 보면서 단어의 의미를 확인합니다.")
 
     if filtered_df.empty:
         st.warning("선택한 범위에 해당하는 항목이 없습니다.")
@@ -272,7 +272,9 @@ elif mode == "🧩 Guided Practice":
         index=0
     )
 
-    if selected_category == "다의어":
+    current_category = filtered_df["category"].iloc[0]
+
+    if current_category == "다의어":
         practice_type = st.radio(
             "연습 유형",
             ["뜻 확인"],
@@ -283,7 +285,7 @@ elif mode == "🧩 Guided Practice":
             "연습 유형",
             ["뜻 확인", "관련어 확인"],
             index=0
-    )
+        )
 
     if st.button("새 Guided Practice 시작"):
 
@@ -294,10 +296,10 @@ elif mode == "🧩 Guided Practice":
 
         for item in guided_items:
 
-            if item["related_word"]:
-                related_info = f"{item['related_word']} {item['relation_meaning']}"
+            if item.get("related_word") and str(item.get("related_word")).strip() != "":
+                related_info = f"{item.get('related_word', '')} {item.get('relation_meaning', '')}"
             else:
-                related_info = item["related_collocation"]
+                related_info = item.get("related_collocation", "")
 
             item["related_info"] = related_info
 
@@ -314,10 +316,10 @@ elif mode == "🧩 Guided Practice":
                 wrong_pool = []
 
                 for _, r in df.iterrows():
-                    if r["related_word"]:
-                        info = f"{r['related_word']} {r['relation_meaning']}"
+                    if r.get("related_word") and str(r.get("related_word")).strip() != "":
+                        info = f"{r.get('related_word', '')} {r.get('relation_meaning', '')}"
                     else:
-                        info = r["related_collocation"]
+                        info = r.get("related_collocation", "")
 
                     if info != correct and str(info).strip() != "":
                         wrong_pool.append(info)
@@ -333,6 +335,12 @@ elif mode == "🧩 Guided Practice":
             )
 
             options = wrongs + [correct]
+
+            options = [
+                opt for opt in options
+                if str(opt).strip() != "" and str(opt) != "nan"
+            ]
+
             random.shuffle(options)
 
             item["options"] = options
@@ -357,14 +365,6 @@ elif mode == "🧩 Guided Practice":
 
                 <div class="tip-text">
                 분류: {item['category']}
-                </div>
-
-                <div class="tip-text">
-                💡 Hint: 관련 표현이나 관련어를 보고 의미를 생각해 보세요.
-                </div>
-
-                <div class="tip-text">
-                관련 정보: {item.get('related_info', '')}
                 </div>
 
                 </div>
@@ -402,7 +402,6 @@ elif mode == "🧩 Guided Practice":
             if score == len(answers):
                 st.success("🎉 Perfect Score!")
                 st.balloons()
-               
 # ==========================================
 # 3. Practice Check
 # ==========================================
