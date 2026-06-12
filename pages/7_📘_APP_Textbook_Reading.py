@@ -108,7 +108,7 @@ col1, col2, col3 = st.columns(3)
 
 for i, exp in enumerate(key_expressions):
 
-    text = f"<span style='font-size:24px; font-weight:600;'>• {exp}</span>"
+    text = f"<span style='font-size:18px; font-weight:600;'>• {exp}</span>"
 
     if i % 3 == 0:
         col1.markdown(text, unsafe_allow_html=True)
