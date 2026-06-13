@@ -1,5 +1,4 @@
 # 📘 Designing Adaptive English Lessons with Customized Apps
-## 맞춤형 앱을 활용한 적응형 영어 수업 설계
 
 # 🌐 Live Application
 
@@ -111,13 +110,13 @@ The Textbook Reading app additionally includes:
 The app uses:
 - customized CSV vocabulary datasets
 - high school English vocabulary
-- etymology data: EBS Voca 어원 1,658개
-- phrasal verbs: 공통영어1 34개, 공통영어2 44개, EBS인터넷수능 40개 총 118개
-- collocations: 공통영어1 73개, 공통영어2 85개 총 158개 
-- idioms and proverbs: EBS인터넷수능 숙어 40개, 속담 38개 총 78개
-- polysemy 121개, antonyms 40개, synonyms 40개 EBS인터넷수능 총 201개
-- textbook reading passages: 박준언 공통영어1, 공통영어2 
-- further reading materials: 박준언 공통영어1, 공통영어2 
+- etymology data: EBS Voca Etymology 1,658
+- phrasal verbs: Common English1 34, Common English2 44, EBS Internet Suneung 40 Total 118
+- collocations: Common English1 73, Common English2 85 Total 158 
+- idioms and proverbs: EBS Internet Suneung Idioms 40, Proverbs 38 Total 78
+- polysemy 121개, antonyms 40, synonyms 40 EBS Internet Suneung Total 201
+- textbook reading passages: Common English1, Common English2 
+- further reading materials: Common English1, Common English2 
 
 ## 🖱️ How Do Learners Interact With It?
 Learners:
