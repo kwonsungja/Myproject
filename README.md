@@ -34,7 +34,7 @@ The app focuses on learner-centered and pedagogically meaningful digital learnin
 
 **Learn → Guided Practice → Practice Check → Review**
 
-This approach reflects the actual teaching context of Korean high school English classrooms, where many students struggle with reading fluency, vocabulary retention, and confidence in English learning.
+This app is informed by Nation's Four Strands framework, integrating meaning-focused input, deliberate vocabulary learning, retrieval practice, and fluency development. Through repeated exposure, guided practice, and review cycles, learners build vocabulary knowledge and language chunks that support more effective reading comprehension and language use.
 
 ---
 
