@@ -9,13 +9,9 @@ The application is available online:
 
 🔗 [English Opens Your World](https://projectvoca.streamlit.app/)
 
----
-
 # 🎬 Introduction Video
 
 ▶️ [Watch the Project Introduction Video](https://github.com/kwonsungja/Myproject/raw/main/intro_video.mp4.mp4)
-
----
 
 # 📌 Project Overview
 
@@ -35,8 +31,6 @@ The app focuses on learner-centered and pedagogically meaningful digital learnin
 **Learn → Guided Practice → Practice Check → Review**
 
 This app is informed by Nation's Four Strands framework, integrating meaning-focused input, deliberate vocabulary learning, retrieval practice, and fluency development. Through repeated exposure, guided practice, and review cycles, learners build vocabulary knowledge and language chunks that support more effective reading comprehension and language use.
-
----
 
 # 1. 👩‍🏫 Teaching Context
 
@@ -60,8 +54,6 @@ Students often:
 - forget vocabulary quickly due to limited repeated exposure
 - need listening support during reading activities
 
----
-
 # 2. 🎯 Lesson Purpose
 
 ## 📖 What Does This Lesson Teach?
@@ -74,8 +66,6 @@ This lesson teaches:
 
 ## 🌱 Why Is This Lesson Meaningful?
 The lesson is meaningful because students repeatedly notice, practice, use, and revisit language knowledge needed for reading comprehension. Instead of isolated memorization, students interact with vocabulary meaningfully through app-based activities, quizzes, textbook reading, and TTS-supported listening practice.
-
----
 
 # 3. 💡 App Purpose
 
@@ -92,8 +82,6 @@ The app addresses:
 - difficulty understanding multiword expressions
 - low confidence in reading and listening
 - need for repeated reading and listening exposure
-
----
 
 # 4. ⚙️ App Design (English Opens Your World App)
 
@@ -143,8 +131,6 @@ Learners:
 - listen to TTS-supported reading passages
 - complete reading reflection activities
 
----
-
 # 5. 🏫 Classroom Use
 
 ## 📚 How Is the App Used in the Lesson?
@@ -169,8 +155,6 @@ The app improves:
 - repeated vocabulary exposure
 - repeated reading and listening practice
 
----
-
 # 6. ⚠️ Limitations
 
 Current limitations include:
@@ -181,8 +165,6 @@ Current limitations include:
 - dependence on internet or device availability
 
 The app currently focuses mainly on vocabulary, reading, and listening support rather than all language skills.
-
----
 
 # 7. 🚀 Future Development
 
@@ -198,8 +180,6 @@ Future improvements may include:
 - speaking and shadowing activities
 
 The app can continue evolving into a more comprehensive classroom-based English learning platform.
-
----
 
 # 🌟 Educational Significance
 
