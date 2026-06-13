@@ -114,7 +114,7 @@ The app uses:
 - phrasal verbs: Common English1 34, Common English2 44, EBS Internet Suneung 40 Total 118
 - collocations: Common English1 73, Common English2 85 Total 158 
 - idioms and proverbs: EBS Internet Suneung Idioms 40, Proverbs 38 Total 78
-- polysemy 121개, antonyms 40, synonyms 40 EBS Internet Suneung Total 201
+- polysemy 121, antonyms 40, synonyms 40 EBS Internet Suneung Total 201
 - textbook reading passages: Common English1, Common English2 
 - further reading materials: Common English1, Common English2 
 
