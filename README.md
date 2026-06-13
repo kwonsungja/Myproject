@@ -27,7 +27,7 @@ The app focuses on learner-centered and pedagogically meaningful digital learnin
 
 **Learn → Guided Practice → Practice Check → Review**
 
-This app is informed by Nation's Four Strands framework, integrating meaning-focused input, deliberate vocabulary learning, retrieval practice, and fluency development. Through repeated exposure, guided practice, and review cycles, learners build vocabulary knowledge and language chunks that support more effective reading comprehension and language use.
+This app is informed by Nation's vocabulary learning principles, combining meaning-focused reading, deliberate vocabulary learning, repeated retrieval, and fluency development. Through repeated exposure, guided practice, and review cycles, learners build vocabulary knowledge and language chunks that support more effective reading comprehension and language use.
 
 # 1. 👩‍🏫 Teaching Context
 
