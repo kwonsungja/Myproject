@@ -1,8 +1,6 @@
 # 📘 Designing Adaptive English Lessons with Customized Apps
 ## 맞춤형 앱을 활용한 적응형 영어 수업 설계
 
----
-
 # 🌐 Live Application
 
 The application is available online:
